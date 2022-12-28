@@ -621,32 +621,31 @@ window.popup = {
 
 	slidersInit() {
 		{
-    let carousels = document.querySelectorAll('[data-carousel]');
-    if(carousels.length) {
-        carousels.forEach(carousel => {
-            let carouselSwiper = new Swiper(carousel.querySelector('.swiper'), {
-                speed: 800,
-                navigation: {
-                    nextEl: carousel.querySelector('[data-action="btn-next"]'),
-                    prevEl: carousel.querySelector('[data-action="btn-prev"]'),
+    let awards = document.querySelector('[data-slider="awards"]');
+    if(awards) {
+        let shadowBtnRight = awards.querySelector('.awards__shadow-right');
+        let sliderData = new Swiper(awards.querySelector('.swiper'), {
+            speed: 600,
+            breakpoints: {
+                320: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 50,
+                    centeredSlides: true,
                 },
-                breakpoints: {
-                    320: {
-                        slidesPerView: 2,
-                        spaceBetween: 15,
-                        autoHeight: true,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 20,
-                    },
-                    992: {
-                        slidesPerView: 4,
-                        spaceBetween: 25,
-                    },
-                },
-            });
-        })
+                768: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 95,
+                    centeredSlides: false,
+                }
+            }
+        });
+
+        if(shadowBtnRight) {
+            shadowBtnRight.addEventListener('mousemove', () => {
+                console.log('test');
+                awards.classList.add('awards--init')
+            })
+        }
     }
 };
 	}

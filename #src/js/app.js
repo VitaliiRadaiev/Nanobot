@@ -56,7 +56,7 @@ class App {
 	}
 
 	slidersInit() {
-		@@include('../common/carousel/carousel.js');
+		@@include('../common/awards/awards.js');
 	}
 
 
