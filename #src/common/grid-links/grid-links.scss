@@ -1,0 +1,107 @@
+.grid-links {
+    transition: all 0.5s ease;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem 2rem;
+
+    @media (max-width: $md3+px) {
+        gap: 4rem 2rem;
+    }
+
+    & a {
+        font-weight: 700;
+        font-size: 2.4rem;
+        line-height: 1em;
+        letter-spacing: 0.01em;
+        position: relative;
+
+        @media (max-width: $md3+px) {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+        }
+
+        &:after {
+            position: absolute;
+            content: "";
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            height: 6.9rem;
+            width: 90%;
+            border-radius: 300px;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
+            filter: blur(45px);
+
+            @media (max-width: $md3+px) {
+                min-height: 5rem;
+                filter: blur(25px);
+            }
+        }
+
+        &:not(.grid-links__last) {
+            text-transform: uppercase;
+            padding-left: 0.6em;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: "•";
+                top: 54%;
+                left: 0;
+            }
+        }
+    }
+
+    &--open {
+        & .grid-links__collapse {
+            & .grid-links__item {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__item {
+        flex: 0 1 calc(33.3333333% - (2rem * 2 / 3));
+        transition: all 0.3s ease;
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 calc(50% - 1rem);
+        }
+    }
+
+    &__collapse {
+        display: flex;
+        transition: all 2s ease;
+        flex-wrap: wrap;
+        gap: 8rem 2rem;
+        padding: 10rem;
+        margin: -10rem;
+        overflow: hidden;
+        max-height: 0;
+        visibility: hidden;
+
+        &.open {
+            visibility: visible;
+            max-height: 100rem;
+            opacity: 1;
+        }
+
+        & .grid-links__item {
+            opacity: 0;
+        }
+    }
+    &__last {
+    }
+
+    &__btn {
+        transition: all 0.3s ease;
+        &.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+    }
+}

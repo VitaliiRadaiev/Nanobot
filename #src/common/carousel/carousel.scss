@@ -1,0 +1,14 @@
+.carousel {
+    &__head {
+        margin-bottom: 5rem;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 36px;
+        }
+    }
+    &__slider {
+        border-bottom: 2px solid $borderColor;
+        padding-bottom: 2px;
+        margin-bottom: -2px;
+    }
+}

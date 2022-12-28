@@ -1,0 +1,48 @@
+<div class="carousel carousel-preview-products padding-wrap" data-carousel>
+    <div class="container-sm">
+        <div class="carousel__head head d-flex align-items-center justify-content-between">
+            <h3 class="head__title mb-0">Products viewed</h3>
+            @@include('../slider-buttons/_slider-buttons.html')
+        </div>
+        <div class="carousel__slider swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    @@include('../product-card/_product-card.html', {
+                    "label": false,
+                    "labelText": 'hit',
+                    "img": "img/photo/product-list-img-1.png",
+                    "title": "Sprossenwand 5-in-1 aus Kiefer Naturholz",
+                    "price": "437,00€"
+                    })
+                </div>
+                <div class="swiper-slide">
+                    @@include('../product-card/_product-card.html', {
+                    "label": false,
+                    "labelText": 'hit',
+                    "img": "img/photo/product-list-img-2.png",
+                    "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
+                    "price": "471,00€"
+                    })
+                </div>
+                <div class="swiper-slide">
+                    @@include('../product-card/_product-card.html', {
+                    "label": false,
+                    "labelText": 'SALE',
+                    "img": "img/photo/product-list-img-3.png",
+                    "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
+                    "price": "501,00€ – 595,00€"
+                    })
+                </div>
+                <div class="swiper-slide">
+                    @@include('../product-card/_product-card.html', {
+                    "label": false,
+                    "labelText": 'hit',
+                    "img": "img/photo/product-list-img-1.png",
+                    "title": "Kletterspielplatz „Kleinkind“ von Kidsmont",
+                    "price": "512,00€"
+                    })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+
+
+//<ШРИФТЫ>===========================================================================================================
+$mainFontFamily:  'Open Sans', sans-serif;
+$secondFontFamily:  'VenusRisingRg-Regular', sans-serif;
+$thirdFontFamily:  'AcostaRegular', sans-serif;
+//</ШРИФТЫ>===========================================================================================================
+
+//<РАЗМЕРЫ КОНТЕЙНЕРА>===========================================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: 1267.98;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</РАЗМЕРЫ КОНТЕЙНЕРА>===========================================================================================================
+
+$textColor: #F3F3F3;
+$textColorSecondary: #999999;
+$textColorThird: #A8084D;
+$titlceColor: #333333;
+$hover: #0071FF;
+$mainColor: #0071FF;
+$secondColor: #DC0451;
+$dangerColor:  #FF4444;
+$successColor:#00C367;
+$infoColor: #BC62EF;
+$lightColor: #fff;
+$warningColor: #FFC31C;
+
+
+
+:root {
+    --bs-primary: #222222;
+    --bs-secondary: #037847;
+    --bs-success: #00C367;
+    --bs-info: #BC62EF;
+    --bs-warning: #FFC31C;
+    --bs-danger: #FF4444;
+    --bs-light: #fff;
+    --bs-dark: #000;
+
+    --bs-primary-rgb: 34, 34, 34;
+    --bs-secondary-rgb: 3, 120, 71;
+    --bs-success-rgb: 0, 195, 103;
+    --bs-info-rgb: 188, 98, 239;
+    --bs-warning-rgb: 255, 195, 28;
+    --bs-danger-rgb: 255, 68, 68;
+    --bs-light-rgb: 255, 255, 255;
+    --bs-dark-rgb: 0, 0, 0;
+}

@@ -1,0 +1,84 @@
+//===== filter slider =========================================================
+.price-range {
+    &__values {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+
+        & span {
+            flex: 0 0 auto;
+            width: 1.2rem;
+            height: 1px;
+            background-color: $mainColor;
+            margin: 0 1.5rem;
+        }
+    }
+
+    &__input {
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
+        max-width: 10rem;
+        text-align: center;
+        height: 3.2rem;
+        border: 1px solid $mainColor;
+        background-color: $bg;
+        font-size: 14px;
+        line-height: 1em;
+        padding: 0.3rem 1rem;
+    }
+
+    &__slider {
+        padding: 0 6px;
+        margin-top: 3.1rem;
+        margin-bottom: 3.1rem;
+        &.noUi-target {
+            height: 1px;
+            box-shadow: none;
+            background-color: $mainColor;
+            border: none;
+        }
+        &.noUi-state-drag {
+            & .noUi-handle {
+                border-color: $active;
+            }
+        }
+
+        & .noUi-base {
+            width: 100%;
+            height: 1px;
+        }
+
+        & .noUi-connect {
+            background-color: $secondColor !important;
+        }
+
+        & .noUi-handle {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 1px solid $mainColor;
+            background-color: $bg;
+            border-radius: 50%;
+            box-shadow: none;
+            right: -7.5px;
+            top: -7.5px;
+            cursor: pointer;
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+
+        & .noUi-tooltip {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.5em;
+        }
+    }
+}
+
+//===== AND filter slider =========================================================

@@ -1,0 +1,86 @@
+.select {
+	&__item {
+		position: relative;
+	}
+	// .select__title
+	&__title {
+	}
+	// .select__value
+	&__value {
+		padding-right: 2.5rem;
+		min-height: 6rem;
+		border-bottom: 2px solid $borderColor;
+		display: flex;
+		align-items: center;
+		span {
+			font-weight: 400;
+			font-size: 2.4rem;
+			line-height: 150%;
+			font-family: $mainFontFamily;
+			color: $textColor;
+		}
+		&:before {
+			position: absolute;
+			content: "";
+			transition: all 0.3s ease 0s;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI1IiB2aWV3Qm94PSIwIDAgOSA1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNC41IDVMOC4zOTcxMSAwLjVIMC42MDI4ODZMNC41IDVaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			width: 9px;
+			height: 6px;
+		}
+	}
+	&__input {
+		width: 100%;
+		background-color: transparent;
+		height: 100%;
+	}
+	// .select__options
+	&__options {
+		display: none;
+		position: absolute;
+		top: calc(100% + 3px);
+		min-width: 100%;
+		left: 0;
+		background-color: $bg;
+		max-height: 315px;
+		overflow-y: auto;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		border: 2px solid $borderColor;
+	}
+	// .select__option
+	&__option {
+		cursor: pointer;
+		font-weight: 400;
+		font-size: 1.4rem;
+		line-height: 1.2em;
+		display: flex;
+		align-items: center;
+		min-height: 3rem;
+		transition: all .3s ease;
+		padding: 0.8rem 1.4rem;
+
+		@media (min-width: 992px) {
+			&:hover {
+				color: $hover;
+				background: $bgSecondary;
+			}
+		}
+	}
+	&._active {
+		z-index: 5;
+		.select__value {
+			&:before {
+				transform: translateY(-50%) scale(1, -1);
+			}
+		}
+		.select__options {
+			display: block;
+		}
+	}
+}

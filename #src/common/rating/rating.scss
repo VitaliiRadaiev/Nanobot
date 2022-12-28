@@ -1,0 +1,37 @@
+.rating {
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 1em;
+    color: #FFAA29;
+    display: inline-block;
+
+    @media (max-width: $md3+px) {
+        font-size: 12px;
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        line-height: 1em;
+    }
+
+    &__stars-1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow: hidden;
+    }
+
+    &__star {
+        margin-right: 0.8rem;
+    }
+
+    &__stars-2 {
+        position: relative;
+        z-index: 1;
+        color: #D4D9DB;
+    }
+}
