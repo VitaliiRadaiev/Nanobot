@@ -255,6 +255,7 @@ class App {
 
 	componentsBeforeLoad() {
 		@@include('../common/grid-links/grid-links.js');
+		@@include('../common/rating/rating.js');
 	}
 
 	componentsAfterLoad() {

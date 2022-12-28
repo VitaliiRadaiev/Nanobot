@@ -132,6 +132,17 @@
             border-radius: 10rem;
         }
     }
+
+    &--second {
+        min-height: 6.6rem;
+        min-width: 24rem;
+        color: #fff;
+        background-color: $mainColor;
+        text-transform: uppercase;
+        &:before, &:after {
+            display: none !important;
+        }
+    }
 }
 
 .link {

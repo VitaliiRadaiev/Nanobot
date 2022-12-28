@@ -2,12 +2,9 @@
     position: relative;
     font-size: 1.5rem;
     line-height: 1em;
-    color: #FFAA29;
+    color: $mainColor;
     display: inline-block;
 
-    @media (max-width: $md3+px) {
-        font-size: 12px;
-    }
 
     &__stars {
         display: flex;
@@ -32,6 +29,6 @@
     &__stars-2 {
         position: relative;
         z-index: 1;
-        color: #D4D9DB;
+        color: rgba(#D4D9DB, 0.5);
     }
 }
