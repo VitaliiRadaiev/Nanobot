@@ -57,6 +57,7 @@ class App {
 
 	slidersInit() {
 		@@include('../common/awards/awards.js');
+		@@include('../common/carousel/carousel.js');
 	}
 
 
@@ -256,6 +257,7 @@ class App {
 	componentsBeforeLoad() {
 		@@include('../common/grid-links/grid-links.js');
 		@@include('../common/rating/rating.js');
+		@@include('../common/team-list/team-list.js');
 	}
 
 	componentsAfterLoad() {

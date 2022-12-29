@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Nanobot"
+})
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+    <div class="main-wrapper">
+        @@include('common/header/_header.html',{
+        "mod": ""
+        })
+        <!-- == // TOP LINE ================== -->
+
+        <main class="_page">
+            <div class="data-padding-top-header-size"></div>
+
+            <section class="padding-wrap">
+                <div class="container-second">
+                    <h2 class="title-2 with-arrow mb-50 mb-md-120">
+                        <span class="with-line">Freq</span>uently asked questions
+                    </h2>
+                    <div class="mb-60 mb-md-80">
+                        @@include('common/staked-list/_staked-list.html')
+                    </div>
+                    <div class="text-center text-md-start">
+                        <a href="#" class="btn-default">Get free consultation</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="padding-wrap">
+                <div class="container-second">
+                    <h2 class="title-2 with-arrow mb-50 mb-md-120">
+                        <span class="with-line">Our</span> awards
+                        
+                    </h2>
+                    @@include('common/carousel/_carousel.html')
+                </div>
+            </section>
+
+            <section class="padding-wrap">
+                <div class="container-second">
+                    <h2 class="title-2 with-arrow mb-40 mb-md-50">
+                        <span class="with-line">Meet</span> us in person
+                    </h2>
+                    <div class="text mb-60 mb-md-140 w-md-50">
+                        Here are the talented individuals who <br> power Nanobot medical:
+                    </div>
+                    <div class="mb-80 mb-md-120">
+                        @@include('common/team-list/_team-list.html')
+                    </div>
+                    <div class="text-center text-md-start">
+                        <a href="#" class="btn-default">Let`s talk</a>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        <!-- == FOOTER ================== -->
+        @@include('common/footer/_footer.html',{})
+        <!-- == // FOOTER ================== -->
+    </div>
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

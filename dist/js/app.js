@@ -648,6 +648,28 @@ window.popup = {
         }
     }
 };
+		{
+    let carousels = document.querySelectorAll('[data-slider="carousel"]');
+    if(carousels.length) {
+        carousels.forEach(carousel => {
+            let sliderData = new Swiper(carousel.querySelector('.swiper'), {
+                speed: 600,
+                breakpoints: {
+                    320: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 50,
+                        centeredSlides: true,
+                    },
+                    768: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 95,
+                        centeredSlides: false,
+                    }
+                }
+            });
+        })
+    }
+};
 	}
 
 
@@ -1117,6 +1139,31 @@ window.popup = {
 
             starsLine.style.width = `calc(${count / 5 * 100}% - ${0.4}rem)`;
         })
+    }
+};
+		{
+    let teamList = document.querySelector('[data-team-list]');
+    if(teamList) {
+        let taemListBody = teamList.querySelector('.team-list__body');
+        let btnShowAllList = teamList.querySelector('[data-action="show-all-list"]');
+        // init
+        if(document.documentElement.clientWidth < 768) {
+            let container = document.createElement('div');
+            container.className = 'team-list__collapse';
+            container.append(...Array.from(taemListBody.children).slice(2));
+            taemListBody.append(container);
+            taemListBody.classList.add('has-collapse-container');
+
+            if(btnShowAllList) {
+                btnShowAllList.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.utils.slideDown(container);
+
+                    btnShowAllList.classList.add('hide');
+                })
+            }
+        }
+
     }
 };
 	}
