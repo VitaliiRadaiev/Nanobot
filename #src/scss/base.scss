@@ -430,6 +430,10 @@ figure {
 	@media (min-width: 992px) {
 		display: flex;
 		gap: 9rem;
+
+		@media (max-width: 1576px) {
+			gap: 5rem;
+		}
 	}
 
 	&__main-column {
@@ -446,6 +450,10 @@ figure {
 	&__side-column {
 		flex: 0 0 41.8rem;
 		min-width: 0;
+
+		@media (max-width: 1576px) {
+			flex: 0 0 36rem;
+		}
 	}
 }
 

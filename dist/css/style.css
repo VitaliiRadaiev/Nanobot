@@ -6803,6 +6803,14 @@ figure {
   }
 }
 
+@media (max-width: 1576px) {
+  .default-gird__side-column {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 36rem;
+            flex: 0 0 36rem;
+  }
+}
+
 @media (max-width: 1520px) {
   .awards__shadow-right {
     width: 40rem;
@@ -7911,5 +7919,11 @@ figure {
 @media (max-width: 640px) {
   .fancybox__toolbar__items--center:not(:last-child) {
     display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1576px) {
+  .default-gird {
+    gap: 5rem;
   }
 }
