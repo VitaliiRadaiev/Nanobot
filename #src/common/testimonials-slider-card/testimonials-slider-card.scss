@@ -1,0 +1,130 @@
+.testimonials-slider-card {
+    border: 1px solid $textColor;
+
+    &__head {
+        border-bottom: 1px solid $textColor;
+        padding: 1.4rem 3.4rem 2.4rem;
+
+        @media (max-width: $md3+px) {
+            padding: 1.4rem 2.6rem 2.4rem;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 8rem;
+        margin-bottom: 3rem;
+
+        & img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 3.2rem;
+        line-height: 3.7rem;
+        text-align: center;
+        margin-bottom: 3rem;
+
+        @media (max-width: $md3+px) {
+            font-size: 2.8rem;
+            line-height: 3.2rem;
+        }
+    }
+
+    &__head-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3.6rem;
+        flex-wrap: wrap;
+
+        @media (max-width: $md3+px) {
+            gap: 1.6rem;
+        }
+
+        & .line {
+            height: 3.4rem;
+            width: 0.2rem;
+            background-color: $mainColor;
+
+            @media (max-width: $md3+px) {
+                height: 2.4rem;
+            }
+        }
+    }
+
+    &__rating {
+        flex: 0 0 auto;
+        margin-right: -0.8rem;
+        & .rating {
+            font-size: 1.8rem;
+
+            @media (max-width: $md3+px) {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    &__reviews {
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 1em;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: $mainColor;
+
+        @media (max-width: $md3+px) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__slider {
+        position: relative;
+        padding: 1.8rem 4.5rem 1.8rem 5rem;
+        font-size: 1.6rem;
+        line-height: 1.44em;
+        letter-spacing: 0.01em;
+    }
+
+    &__text {
+        font-weight: 300;
+        margin-bottom: 1.2rem;
+    }
+
+    &__author {
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        color: #7E838D;
+    }
+
+    &__btn {
+        position: absolute;
+        padding: 0.8rem;
+        cursor: pointer;
+        transition: all .3s ease;
+        font-size: 1.6rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $mainColor;
+            }
+        }
+
+        &.prev {
+            left: 1rem;
+        }
+
+        &.next {
+            right: 1rem;
+        }
+    }
+}

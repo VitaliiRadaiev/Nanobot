@@ -1937,17 +1937,8 @@
         }
     }
 
-    &__meta {
-        display: flex;
-        gap: 1rem 2rem;
-        flex-wrap: wrap;
+    &__tags {
         margin-bottom: 2.6rem;
-        font-weight: 700;
-        font-size: 1.4rem;
-        line-height: 2.8rem;
-        letter-spacing: 0.01em;
-        text-transform: uppercase;
-        color: $mainColor;
 
         @media (max-width: $md3+px) {
             margin-bottom: 1.1rem;

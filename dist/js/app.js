@@ -361,7 +361,7 @@ class App {
 			if (this.utils.isMobile()) {
 				document.body.classList.add('mobile');
 			}
-	
+
 			if (this.utils.iOS()) {
 				document.body.classList.add('mobile-ios');
 			}
@@ -382,11 +382,11 @@ class App {
 			this.componentsBeforeLoad();
 			this.slidersInit();
 		});
-		
+
 
 
 		window.addEventListener('load', () => {
-			
+
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
 			//this.setFontSize();
@@ -670,6 +670,26 @@ window.popup = {
         })
     }
 };
+		{
+    let testimonialsSliderCards = document.querySelectorAll('[data-slider="testimonials-slider-card"]');
+    if(testimonialsSliderCards.length) {
+        testimonialsSliderCards.forEach(slider => {
+            let sliderData = new Swiper(slider.querySelector('.swiper'), {
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoHeight: true,
+                speed: 600,
+                loop: true,
+                navigation: {
+                    prevEl: slider.querySelector('.testimonials-slider-card__btn.prev'),
+                    nextEl: slider.querySelector('.testimonials-slider-card__btn.next'),
+                },
+            });
+        })
+    }
+};
 	}
 
 
@@ -679,7 +699,6 @@ window.popup = {
 			tabsContainers.forEach(tabsContainer => {
 				let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
 				let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
-				let select = tabsContainer.querySelector('[data-tab-select]');
 
 				const getContentItem = (id) => {
 					if (!id.trim()) return;
@@ -689,48 +708,38 @@ window.popup = {
 				if (triggerItems.length && contentItems.length) {
 					// init
 					let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
-					if(activeItem) {
+					if (activeItem) {
 						activeItem.classList.add('tab-active');
 						getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
 					} else {
 						triggerItems[0].classList.add('tab-active');
 						getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
 					}
-
-					triggerItems.forEach(item => {
-						item.addEventListener('click', () => {
-							item.classList.add('tab-active');
-							getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
-
-							triggerItems.forEach(i => {
-								if (i === item) return;
-
-								i.classList.remove('tab-active');
-								getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
-							})
-
-							// update locomotive scroll
-							let id = setInterval(() => {
-								window.locomotivePageScroll.update();
-							}, 20);
-							setTimeout(() => {
-								clearInterval(id);
-							}, 200)
-						})
-					})
 				}
 
-				if(select) {
-					select.addEventListener('change', (e) => {
-						getContentItem(e.target.value).classList.add('tab-active');
+				tabsContainer.addEventListener('click', (e) => {
+					if (e.target.closest('[data-tab-trigger]')) {
+						let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
+						let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
+						let item = e.target.closest('[data-tab-trigger]');
 
-						contentItems.forEach(item => {
-							if(getContentItem(e.target.value) === item) return;
+						const getContentItem = (id) => {
+							if (!id.trim()) return;
+							return contentItems.filter(item => item.dataset.tabContent === id)[0];
+						}
 
-							item.classList.remove('tab-active');
+						item.classList.add('tab-active');
+						getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
+
+						triggerItems.forEach(i => {
+							if (i === item) return;
+
+							i.classList.remove('tab-active');
+							getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
 						})
-					})
-				}
+					}
+				})
+
 			})
 		}
 	}
@@ -747,7 +756,7 @@ window.popup = {
 						let content = trigger.nextElementSibling;
 
 						// init
-						if(trigger.classList.contains('active')) {
+						if (trigger.classList.contains('active')) {
 							content.style.display = 'block';
 							parent.classList.add('active');
 						}

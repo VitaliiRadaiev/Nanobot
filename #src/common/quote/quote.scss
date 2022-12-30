@@ -1,0 +1,14 @@
+.quote {
+    max-width: 124rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 4rem;
+    line-height: 1.5em;
+    text-align: center;
+
+    @media (max-width: $md3+px) {
+        font-size: 1.6rem;
+    }
+}
