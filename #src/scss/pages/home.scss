@@ -306,6 +306,19 @@
     }
 
     &__tabs-nav-item-text {
+        font-weight: 400;
+        font-size: 3.2rem;
+        line-height: 1.56em;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        font-family: $secondFontFamily;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @media (max-width: $md3+px) {
+            font-size: 2.4rem;
+            line-height: 1.5em;
+        }
         max-width: 60%;
     }
 
@@ -1401,12 +1414,53 @@
         }
     }
 
+    &__video {
+        min-height: 40rem;
+        flex: 1 1 auto;
+        overflow: hidden;
+        border-left: 1px solid #fff;
+
+        @media (max-width: $md3+px) {
+            border: none;
+            height: 0;
+            min-height: auto;
+            padding-bottom: 72%;
+        }
+    }
+
+    &__video-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        transition: all 0.3s ease;
+        width: 7.9rem;
+
+        @media (min-width: 992px) {
+            &:hover {
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+
+        & img {
+            position: static;
+            width: 100%;
+            height: auto;
+        }
+    }
+
     &__text-wrap {
         flex: 0 0 39.4rem;
         padding: 4rem 5rem;
 
         @media (max-width: $md3+px) {
             padding: 3rem 3.5rem 4.5rem;
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
         }
     }
 
@@ -1441,6 +1495,72 @@
         }
         @media (max-width: $md3+px) {
             line-height: 2rem;
+        }
+    }
+
+    &--big {
+        @media (max-width: $md3+px) {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                box-shadow: none;
+            }
+        }
+        & .cases-card__text-wrap {
+            @media (min-width: 768px) {
+                flex: 0 0 48.19%;
+            }
+
+            @media (max-width: $md3+px) {
+                flex: 0 1 auto;
+                padding: 1.6rem 1.7rem 2.5rem;
+            }
+        }
+
+        & .cases-card__video,
+        & .cases-card__img {
+            min-height: 50.9rem;
+
+            @media (max-width: $md3+px) {
+                min-height: 29.9rem;
+            }
+        }
+
+        & .cases-card__title {
+            font-weight: 700;
+            font-size: 4.8rem;
+            line-height: 1.2em;
+            font-family: $mainFontFamily;
+            margin-bottom: 4rem;
+            text-transform: none;
+        }
+
+        & .cases-card__text {
+            @media (min-width: 768px) {
+                max-width: 45.2rem;
+            }
+        }
+    }
+
+    &--sm {
+        @media (min-width: 992px) {
+            &:hover {
+                box-shadow: none;
+            }
+        }
+        & .cases-card__text-wrap {
+            @media (min-width: 768px) {
+                flex: 0 0 60.13%;
+                padding: 3.5rem 3.5rem;
+            }
+        }
+
+        & .cases-card__img,
+        & .cases-card__video {
+            min-height: 27.5rem;
         }
     }
 }
@@ -1507,49 +1627,6 @@
     }
 
     &__title {
-    }
-}
-
-.logo-list {
-    padding-left: 0;
-    margin-bottom: 0;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 3.5rem 3rem;
-    margin-bottom: 6.5rem;
-
-    @media (max-width: $md3+px) {
-        margin-bottom: 4rem;
-        gap: 3rem 2rem;
-    }
-
-    & img,
-    & svg {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-    }
-
-    & > li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &:nth-child(4n + 1) {
-            justify-content: flex-start;
-        }
-        &:nth-child(4n + 4) {
-            justify-content: flex-end;
-        }
-    }
-
-    & a {
-        @media (min-width: 992px) {
-            &:hover {
-                opacity: 0.7;
-            }
-        }
     }
 }
 

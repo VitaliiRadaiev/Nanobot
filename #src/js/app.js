@@ -167,6 +167,7 @@ class App {
 						//"placeholder": '',
 						clearIncomplete: true,
 						clearMaskOnLostFocus: true,
+						showMaskOnHover: false,
 					}).mask(input);
 				}
 			})
@@ -248,6 +249,7 @@ class App {
 		@@include('../common/grid-links/grid-links.js');
 		@@include('../common/rating/rating.js');
 		@@include('../common/team-list/team-list.js');
+		@@include('../common/banner/banner.js');
 	}
 
 	componentsAfterLoad() {

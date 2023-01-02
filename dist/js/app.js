@@ -669,6 +669,36 @@ window.popup = {
             });
         })
     }
+}
+{
+    let carousels = document.querySelectorAll('[data-slider="carousel-second"]');
+    if(carousels.length) {
+        carousels.forEach(carousel => {
+            let sliderData = new Swiper(carousel.querySelector('.swiper'), {
+                speed: 600,
+                breakpoints: {
+                    320: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        autoHeight: true,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 50,
+                        centeredSlides: false,
+                        autoHeight: false,
+                    },
+                    992: {
+                        slidesPerView: 2,
+                        spaceBetween: 95,
+                        centeredSlides: false,
+                        autoHeight: false,
+                    }
+                }
+            });
+        })
+    }
 };
 		{
     let testimonialsSliderCards = document.querySelectorAll('[data-slider="testimonials-slider-card"]');
@@ -798,6 +828,7 @@ window.popup = {
 						//"placeholder": '',
 						clearIncomplete: true,
 						clearMaskOnLostFocus: true,
+						showMaskOnHover: false,
 					}).mask(input);
 				}
 			})
@@ -1173,6 +1204,30 @@ window.popup = {
             }
         }
 
+    }
+};
+		{
+    let bannerSections = document.querySelectorAll('[data-banner]');
+    if(bannerSections.length) {
+        bannerSections.forEach(banner => {
+            let imgWrap = banner.querySelector('.banner__img-wrap');
+            let textWrap = banner.querySelector('.banner__text-wrap');
+            let img = banner.querySelector('.banner__img');
+
+            if(imgWrap && textWrap && img) {
+                const moveImg = () => {
+                    if(document.documentElement.clientWidth < 768) {
+                        textWrap.prepend(img);
+                    } else {
+                        imgWrap.append(img);
+                    }   
+                }
+                
+                moveImg();
+
+                window.addEventListener('resize', moveImg);
+            }
+        })
     }
 };
 	}
