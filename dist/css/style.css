@@ -7356,6 +7356,10 @@ figure {
             animation: dotAnim1 0.3s ease forwards;
   }
 
+  .btn-default--second:hover {
+    background-color: #328eff;
+  }
+
   .link:hover:before {
     -webkit-transform: translateY(-50%) translateX(0.5em);
         -ms-transform: translateY(-50%) translateX(0.5em);

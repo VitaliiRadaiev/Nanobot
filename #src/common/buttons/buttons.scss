@@ -139,8 +139,15 @@
         color: #fff;
         background-color: $mainColor;
         text-transform: uppercase;
+
         &:before, &:after {
             display: none !important;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: #328eff;
+            }
         }
     }
 }
