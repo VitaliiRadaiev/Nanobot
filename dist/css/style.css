@@ -6098,10 +6098,12 @@ figure {
 
 .step-tabs__nav-item.tab-active .step-tabs__nav-item-icon {
   opacity: 1;
+  visibility: visible;
 }
 
 .step-tabs__nav-item.tab-active .step-tabs__nav-item-dot:before {
   opacity: 1;
+  visibility: visible;
 }
 
 .step-tabs__nav-item-num {
@@ -6150,6 +6152,7 @@ figure {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
+  visibility: hidden;
 }
 
 .step-tabs__nav-item-title {
@@ -6177,6 +6180,7 @@ figure {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
+  visibility: hidden;
 }
 
 .step-tabs__nav-item-icon:before {
