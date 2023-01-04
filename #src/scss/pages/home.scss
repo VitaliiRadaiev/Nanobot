@@ -1206,18 +1206,19 @@
             display: none;
         }
 
-        &:before {
+        & span {
             position: absolute;
             content: "";
             z-index: 1;
-            height: 19rem;
-            width: 19rem;
+            height: 33.6rem;
+            width: 33.6rem;
             border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
-            filter: blur(37px);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         & img,
