@@ -26,17 +26,16 @@
     &__shadow-right {
         position: absolute;
         top: 50%;
-        left: 90%;
+        right:  calc((16.5rem + ((100vw - min(calc(100vw - 100px), 162rem)) / 2)) * -1);
         z-index: 3;
         height: calc(100% + 10rem);
         transform: translateY(-50%);
-        width: calc(14% + ((100vw - 130.6rem) / 2));
+        width: 30rem;
         background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
         transition: all 0.3s ease;
-        @media (max-width: 1520px) {
-            width: 40rem;
-            left: auto;
-            right: -11rem;
+
+        @media (max-width: $md1+px) and (min-width: 768px) {
+            right: calc((((100vw - min(calc(100vw - 64px), 162rem)) / 2)) * -1);
         }
 
         @media (max-width: $md3+px) {

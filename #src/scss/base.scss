@@ -24,23 +24,23 @@ html {
 	height: 100%;
 	font-size: 10px;
 
-	@media (min-width: 1921px) {
-		font-size: 12px;
-	}
+	// @media (min-width: 1921px) {
+	// 	font-size: 12px;
+	// }
 
-	@media (min-width: 2561px) {
-		font-size: 14px;
-	}
+	// @media (min-width: 2561px) {
+	// 	font-size: 14px;
+	// }
 
-	@media (max-width: $md1+px) {
-		font-size: 8px;
-	}
+	// @media (max-width: $md1+px) {
+	// 	font-size: 8px;
+	// }
 
 	@media (max-width: $md2+px) {
-		font-size: 7px;
+		font-size: 7px !important;
 	}
 	@media (max-width: $md3+px) {
-		font-size: 10px;
+		font-size: 10px !important;
 	}
 }
 html,
@@ -266,7 +266,6 @@ h5,
 .with-arrow {
 	position: relative;
 	padding-top: 3.6rem;
-	margin-top: -3.6rem;
 
 	&:before {
 		position: absolute;

@@ -50,4 +50,17 @@ if (menu) {
             }
         })
     }
+
+    document.addEventListener('click', (e) => {
+        if(menu.classList.contains('header-menu--open')) {
+
+            if(!e.target.closest('.header')) {
+                if(!e.target.closest('.header-menu')) {
+                    menuToggleBtn.classList.remove('menu-is-open');
+                    menu.classList.remove('header-menu--open');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            }
+        }
+    })
 }

@@ -56,14 +56,6 @@
                 transition: all 0.3s ease;
             }
         }
-
-        @media (min-width: 992px) {
-            &:hover {
-                & svg path {
-                    fill: $mainColor;
-                }
-            }
-        }
     }
 
     &__btn {
@@ -276,7 +268,8 @@
         & .sub-menu {
             padding-left: 0;
             margin-bottom: 0;
-            padding-top: 3rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
             font-weight: 400;
             font-size: 1.6rem;
             line-height: 2.2rem;
@@ -301,14 +294,10 @@
         font-size: 2.2rem;
         line-height: 2.4rem;
         text-transform: capitalize;
-        color: #888888;
-
-        &:hover {
-            color: #888888;
-        }
+        color: #888888 !important;
 
         &.active {
-            color: #fff;
+            color: #fff !important;
         }
     }
 }

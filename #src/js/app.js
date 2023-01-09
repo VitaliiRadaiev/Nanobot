@@ -24,6 +24,7 @@ class App {
 			}
 
 			this.utils.replaceToInlineSvg('.img-svg');
+			this.setFontSize();
 			this.dynamicAdapt.init();
 			this.headerHandler();
 			this.popupHandler();
@@ -42,7 +43,7 @@ class App {
 
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
-			//this.setFontSize();
+			
 		});
 
 	}
@@ -229,19 +230,14 @@ class App {
 	}
 
 	setFontSize() {
-		let elements = document.querySelectorAll('[data-set-font-size]');
-		if (elements.length) {
-			elements.forEach(el => {
-				const setFontSize = () => {
-					let value = 10 / 1400 * el.clientWidth;
-					el.style.fontSize = value + 'px';
-				}
-
-				setFontSize();
-
-				window.addEventListener('resize', setFontSize);
-			})
+		const setFontSize = () => {
+			let value = 10 / 1920 * document.documentElement.clientWidth;
+			document.documentElement.style.fontSize = value + 'px';
 		}
+
+		setFontSize();
+
+		window.addEventListener('resize', setFontSize);
 	}
 
 
