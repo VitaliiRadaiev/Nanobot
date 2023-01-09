@@ -6557,7 +6557,7 @@ figure {
 }
 
 .home-section-eight__tittle.with-arrow {
-  margin-top: -5.1rem;
+  margin-top: -4.4rem;
 }
 
 .home-section-eight__text {
@@ -6570,14 +6570,13 @@ figure {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 13.8rem;
 }
 
 .testimonial__logo img,
 .testimonial__logo svg {
-  width: auto;
+  width: 100%;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .testimonial__rating {
@@ -7210,6 +7209,10 @@ figure {
     padding: 3.5rem 3.5rem;
   }
 
+  .home-section-seven__title.with-arrow {
+    margin-top: -3.6rem;
+  }
+
   .home-section-eight__col:nth-child(2) .link {
     display: none;
   }
@@ -7647,10 +7650,6 @@ figure {
 
   .team-big-card__col-3 {
     max-width: 32rem;
-  }
-
-  .home-section-eight__tittle.with-arrow {
-    margin-top: -3.1rem;
   }
 }
 
