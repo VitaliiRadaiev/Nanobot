@@ -35,12 +35,15 @@ class App {
 			this.spollerInit();
 			this.componentsBeforeLoad();
 			this.slidersInit();
+			this.setWidthVariable();
+			this.initScrollAnimationTrigger();
+			this.parallaxInit();
 		});
 
 
 
 		window.addEventListener('load', () => {
-
+			this.setWidthVariable();
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
 			
@@ -195,7 +198,6 @@ class App {
 	initSmoothScroll() {
 		let anchors = document.querySelectorAll('a[href*="#"]:not([data-popup="open-popup"])');
 		if (anchors.length) {
-			let header = document.querySelector('.header');
 
 			anchors.forEach(anchor => {
 				if (!anchor.getAttribute('href').match(/#\w+$/gi)) return;
@@ -209,12 +211,8 @@ class App {
 						e.preventDefault();
 						let top = Math.abs(document.body.getBoundingClientRect().top) + el.getBoundingClientRect().top;
 
-						if (header) {
-							top = top - header.clientHeight;
-						}
-
 						window.scrollTo({
-							top: top - 20,
+							top: top,
 							behavior: 'smooth',
 						})
 					}
@@ -238,6 +236,87 @@ class App {
 		setFontSize();
 
 		window.addEventListener('resize', setFontSize);
+	}
+
+	setWidthVariable() {
+		let elements = document.querySelectorAll('[data-set-width-variable]');
+		if(elements.length) {
+			elements.forEach(el => {
+				const setVar = () => {
+					el.setAttribute('style', `--width: ${el.clientWidth}px`);
+				}
+				setVar();
+
+				window.addEventListener('resize', setVar);
+			})
+		}
+	}
+
+	initScrollAnimationTrigger() {
+		const setScrollTrigger = (el, offset, callback = null) => {
+			let triggerPoint = document.documentElement.clientHeight / 100 * (100 - offset);
+			const trigger = () => {
+				if(el.getBoundingClientRect().top <= triggerPoint && !el.classList.contains('show-animation')) {
+					if(typeof callback === 'function') {
+						callback();
+					}
+					el.classList.add('show-animation')
+				}
+			}
+		
+			trigger();
+		
+			window.addEventListener('scroll', trigger);
+		}
+
+		let elements = document.querySelectorAll('[data-scroll-animation-trigger]');
+		if(elements.length) {
+			elements.forEach(el => {
+				setScrollTrigger(el, 15);
+			})
+		}
+	}
+
+	parallaxInit() {
+		let parallaxContainers = document.querySelectorAll('[data-parallax]');
+		if(parallaxContainers.length) {
+			parallaxContainers.forEach(parallaxContainer => {
+				new Parallax(parallaxContainer, {
+					selector: '.layer'
+				});
+			})
+		}  
+
+		let elements = document.querySelectorAll('.layer img');
+		if(elements.length) {
+			
+			const translateY = (el, value, offset) => {
+				el.style.transform = `translateY(${value / (offset ? offset : 10)}px)`;
+			}
+
+			const rotate = (el, value) => {
+				el.style.transform = `rotate(${(value * 0.02) - 10}deg)`;
+			}
+
+			const scale = (el, value) => {
+				el.style.transform = `scale(${(value * -0.002)})`;
+			}
+
+			const parallaxHandler = (el) => {
+				let pageY = window.pageYOffset;
+				let top = el.getBoundingClientRect().top + (el.clientHeight / 2);
+				let value = (pageY + top) - (pageY + document.documentElement.clientHeight / 2);
+				
+				translateY(el, value, 8);
+	
+			}
+
+			elements.forEach(el => {
+				console.log(el);
+				parallaxHandler(el);
+				window.addEventListener('scroll', () => parallaxHandler(el));
+			})
+		}
 	}
 
 

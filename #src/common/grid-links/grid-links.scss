@@ -14,6 +14,10 @@
         line-height: 1em;
         letter-spacing: 0.01em;
         position: relative;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
 
         @media (max-width: $md3+px) {
             font-size: 1.6rem;
@@ -26,13 +30,20 @@
             z-index: -1;
             top: 50%;
             left: 50%;
-            height: 6.9rem;
-            width: 90%;
+            height: 100%;
+            width: 110%;
             border-radius: 300px;
-            transform: translate(-50%, -50%);
+            
             background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
-            filter: blur(45px);
-
+            filter: blur(25px);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            -moz-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+            
             @media (max-width: $md3+px) {
                 min-height: 5rem;
                 filter: blur(25px);
@@ -49,6 +60,16 @@
                 content: "•";
                 top: 54%;
                 left: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: #fff !important;
+
+                &::after {
+                    opacity: 1;
+                }
             }
         }
     }

@@ -96,13 +96,10 @@
         width: 6rem;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 10rem;
+        bottom: 3.2rem;
         transition: all 0.3s ease;
         opacity: 0.3;
 
-        @media (max-width: $md3+px) {
-            bottom: 3.2rem;
-        }
 
         @media (min-width: 992px) {
             &:hover {
@@ -155,10 +152,11 @@
     }
 
     &__decor-2 {
-        position: absolute;
+        position: absolute !important;
+        top: auto !important;
         bottom: 0;
         z-index: 1;
-        left: 92%;
+        left: 92% !important;
         width: 78.5rem;
 
         @media (max-width: $md3+px) {
@@ -176,10 +174,11 @@
 
         @media (max-width: $md3+px) {
             display: block;
-            position: absolute;
+            position: absolute !important;
             z-index: 1;
-            top: 6.2rem;
-            right: -6.6rem;
+            top: 6.2rem !important;
+            right: -6.6rem !important;
+            left: auto !important;
             width: 13.6rem;
 
             & img {
@@ -409,6 +408,10 @@
             & .post-preview-card__img  img{
                 transform: scale(1.1);
             }
+
+            & .post-preview-card__title span::before {
+                width: var(--width);
+            }
         }
     }
     &__img {
@@ -428,8 +431,23 @@
     }
 
     &__title {
+        overflow: hidden;
+        padding-bottom: 0.2em;
+        margin-bottom: -0.2em;
+        display: inline-block;
         & span {
-            border-bottom: 1px solid currentColor;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                height: 0.1rem;
+                width: 100%;
+                background-color: currentColor;
+                transition: width 0.3s ease;
+            }
         }
     }
 }
@@ -692,6 +710,22 @@
             flex: 0 0 20rem;
         }
 
+        &.show-animation {
+            & img {
+                transform: translateY(0);
+            }
+
+            &:before {
+                opacity: 1;
+            }
+        }
+
+        &-inner {
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
         &:before {
             position: absolute;
             content: "";
@@ -705,6 +739,8 @@
             border-radius: 100%;
             background: linear-gradient(263.96deg, #00b4cc 7.61%, #000aff 87.18%);
             filter: blur(55px);
+            opacity: 0;
+            transition: all .3s ease .3s;
         }
 
         & img {
@@ -713,6 +749,9 @@
             height: auto;
             position: relative;
             z-index: 2;
+            display: block;
+            transform: translateY(100%);
+            transition: all .3s ease;
 
             @media (max-width: $md3+px) {
                 max-width: 14rem;
@@ -1034,6 +1073,9 @@
     }
 
     &__title {
+        @media (min-width: 768px) {
+            margin-top: -1.2rem;
+        }
     }
 
     &__text {
@@ -1319,6 +1361,17 @@
         transform: translateY(-42%);
         width: 70.7rem;
 
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            box-shadow: inset 7rem 14rem 10rem 0px #000, inset 0rem -14rem 10rem 0px #000;
+        }
+
         @media (max-width: $md3+px) {
             right: -2.5rem;
             width: 28.6rem;
@@ -1327,6 +1380,8 @@
         }
 
         & img {
+            position: relative;
+            z-index: 1;
             width: 100%;
             height: auto;
         }
@@ -1536,6 +1591,7 @@
         }
         & .cases-card__text-wrap {
             @media (min-width: 768px) {
+                padding: 6.8rem 5rem;
                 flex: 0 0 48.19%;
             }
 
@@ -1601,6 +1657,16 @@
         left: -26.7rem;
         top: 10rem;
         width: 65.1rem;
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            box-shadow: inset -8rem -12rem 10rem 0px #000;
+        }
 
         @media (max-width: $md3+px) {
             left: -2.5rem;
@@ -1609,6 +1675,8 @@
         }
 
         & img {
+            position: relative;
+            z-index: 1;
             width: 100%;
             height: auto;
         }
@@ -1661,6 +1729,7 @@
 }
 
 .home-section-eight {
+    z-index: 2;
     &__body {
         position: relative;
     }
@@ -2183,6 +2252,10 @@
             font-size: 2.8rem;
             line-height: 3.4rem;
             margin-bottom: 2.7rem;
+        }
+
+        @media (max-width: 374.98px) {
+            font-size: 2.4rem;
         }
     }
 

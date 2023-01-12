@@ -17,30 +17,34 @@
     & .text-bg-shadow {
         position: absolute;
         z-index: 1 !important;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
         top: 0;
-		left: 0;
-		width: 20rem;
-		height: 4rem;
-        transform: translate(-50%, -50%);
-		background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
-		filter: blur(24px);
-		border-radius: 90px;
-       
+        left: 0;
+        width: 20rem;
+        height: 4rem;
+
+        background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
+        filter: blur(24px);
+        border-radius: 90px;
         opacity: 0;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        -moz-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0);
     }
 
     & .word {
-        transition: all .3s ease;
+        transition: all 0.3s ease;
         display: inline-block;
-        
+
         &:not(:last-child) {
             padding-right: 0.25em;
         }
 
         @media (min-width: 992px) {
             &:hover {
-                text-shadow: 1px 0px 0 #fff, -1px 0px 0 #fff;
+                text-shadow: 0.1rem 0px 0 #fff, -0.1rem 0px 0 #fff;
             }
         }
     }

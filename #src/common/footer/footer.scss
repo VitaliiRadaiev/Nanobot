@@ -21,13 +21,28 @@
         left: -9.9rem;
         width: 88rem;
 
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            box-shadow: inset -10rem -10rem 10rem 0px #000;
+        }
+        
+
         @media (max-width: $md3+px) {
             display: none;
         }
 
         & img {
+            position: relative;
+            z-index: 1;
             width: 100%;
             height: auto;
+            
         }
     }
 

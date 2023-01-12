@@ -275,6 +275,7 @@ h5,
 		font-family: "icomoon" !important;
 		color: inherit;
 		font-size: 0.4em;
+		transition: all .3s ease;
 
 		@media (max-width: $md3+px) {
 			left: 0;
@@ -293,6 +294,7 @@ h5,
 		font-family: "icomoon" !important;
 		color: inherit;
 		font-size: 0.1em;
+		transition: all .3s ease;
 
 		@media (max-width: $md3+px) {
 			font-size: 0.3em;
@@ -306,11 +308,12 @@ h5,
 	&:after {
 		position: absolute;
 		content: "";
-		bottom: 0;
+		bottom: -0.1em;
 		left: 0;
 		width: 100%;
 		height: 0.3rem;
 		background-color: currentColor;
+		transition: width .3s ease;
 
 		@media (max-width: $md3+px) {
 			height: 0.2rem;
@@ -325,11 +328,12 @@ h5,
 		&:after {
 			position: absolute;
 			content: "";
-			bottom: 0;
+			bottom: -0.1em;
 			left: 0;
 			width: 100%;
 			height: 0.3rem;
 			background-color: currentColor;
+			transition: width .3s ease;
 	
 			@media (max-width: $md3+px) {
 				height: 0.2rem;
@@ -371,6 +375,34 @@ h5,
 		}
 	}
 }
+
+[data-set-width-variable] {
+	display: inline-block;
+
+	@media (min-width: 992px) {
+		&:hover {
+			&::before {
+				color: $mainColor;
+			}
+			& .with-line::after, & .with-line-md::after {
+				width: var(--width);
+			}
+		}
+	}
+}
+
+[data-parallax] {
+	pointer-events: auto !important;
+
+	& .layer {
+		position: relative !important;
+
+		& img {
+			display: block;
+		}
+	}
+}
+
 p,
 ul,
 ol,
@@ -515,7 +547,12 @@ figure {
 	@media (max-width: $md3+px) {
 		font-size: 2rem;
 		line-height: 4.6rem;
-		gap: 0 5.8rem;
+		gap: 0 5rem;
+	}
+
+	@media (max-width: 374.98px) {
+		gap: 0 3.5rem;
+		font-size: 1.8rem;
 	}
 
 	& a:hover {
