@@ -1218,7 +1218,6 @@ window.popup = {
 			}
 
 			elements.forEach(el => {
-				console.log(el);
 				parallaxHandler(el);
 				window.addEventListener('scroll', () => parallaxHandler(el));
 			})
