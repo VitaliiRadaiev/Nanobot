@@ -38,12 +38,12 @@ class App {
 			this.setWidthVariable();
 			this.initScrollAnimationTrigger();
 			this.parallaxInit();
+
 		});
 
 
 
 		window.addEventListener('load', () => {
-			this.setWidthVariable();
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
 			
@@ -247,7 +247,9 @@ class App {
 				}
 				setVar();
 
-				window.addEventListener('resize', setVar);
+				setInterval(() => {
+					setVar();
+				},100)
 			})
 		}
 	}
