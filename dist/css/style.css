@@ -5237,6 +5237,47 @@ figure {
           justify-content: center !important;
 }
 
+[data-animation-hover-text] {
+  position: relative;
+}
+
+[data-animation-hover-text] > * {
+  position: relative;
+  z-index: 3;
+}
+
+[data-animation-hover-text] .text-bg-shadow {
+  position: absolute;
+  z-index: 1 !important;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 4rem;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: -o-linear-gradient(182.09deg, #00b4cc 14.55%, #000aff 91.19%);
+  background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
+  -webkit-filter: blur(24px);
+          filter: blur(24px);
+  border-radius: 90px;
+  opacity: 0;
+}
+
+[data-animation-hover-text] .word {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+[data-animation-hover-text] .word:not(:last-child) {
+  padding-right: 0.25em;
+}
+
 .promo-header {
   position: relative;
   padding-top: 17rem;
@@ -7396,6 +7437,14 @@ figure {
 
   .logo-list a:hover {
     opacity: 0.7;
+  }
+
+  [data-animation-hover-text]:hover .text-bg-shadow {
+    opacity: 1;
+  }
+
+  [data-animation-hover-text] .word:hover {
+    text-shadow: 1px 0px 0 #fff, -1px 0px 0 #fff;
   }
 
   .promo-header__btn-scroll:hover {

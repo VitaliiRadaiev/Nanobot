@@ -246,6 +246,7 @@ class App {
 		@@include('../common/rating/rating.js');
 		@@include('../common/team-list/team-list.js');
 		@@include('../common/banner/banner.js');
+		@@include('../common/animation-hover-text/animation-hover-text.js');
 	}
 
 	componentsAfterLoad() {

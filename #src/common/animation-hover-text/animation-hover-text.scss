@@ -1,0 +1,47 @@
+[data-animation-hover-text] {
+    position: relative;
+
+    @media (min-width: 992px) {
+        &:hover {
+            & .text-bg-shadow {
+                opacity: 1;
+            }
+        }
+    }
+
+    & > * {
+        position: relative;
+        z-index: 3;
+    }
+
+    & .text-bg-shadow {
+        position: absolute;
+        z-index: 1 !important;
+        transition: all .3s ease;
+        top: 0;
+		left: 0;
+		width: 20rem;
+		height: 4rem;
+        transform: translate(-50%, -50%);
+		background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
+		filter: blur(24px);
+		border-radius: 90px;
+       
+        opacity: 0;
+    }
+
+    & .word {
+        transition: all .3s ease;
+        display: inline-block;
+        
+        &:not(:last-child) {
+            padding-right: 0.25em;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                text-shadow: 1px 0px 0 #fff, -1px 0px 0 #fff;
+            }
+        }
+    }
+}
