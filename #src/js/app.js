@@ -284,12 +284,12 @@ class App {
 		if(parallaxContainers.length) {
 			parallaxContainers.forEach(parallaxContainer => {
 				new Parallax(parallaxContainer, {
-					selector: '.layer'
+					selector: '[data-depth]'
 				});
 			})
 		}  
 
-		let elements = document.querySelectorAll('.layer img');
+		let elements = document.querySelectorAll('.layer');
 		if(elements.length) {
 			
 			const translateY = (el, value, offset) => {
@@ -314,6 +314,9 @@ class App {
 			}
 
 			elements.forEach(el => {
+				if(el.hasAttribute('data-depth')) {
+					el = el.querySelector('img');
+				}
 				parallaxHandler(el);
 				window.addEventListener('scroll', () => parallaxHandler(el));
 			})

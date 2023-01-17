@@ -24,6 +24,8 @@
     let carousels = document.querySelectorAll('[data-slider="carousel-second"]');
     if(carousels.length) {
         carousels.forEach(carousel => {
+            let shadowBtnRight = carousel.querySelector('.awards__shadow-right');
+        
             let sliderData = new Swiper(carousel.querySelector('.swiper'), {
                 speed: 600,
                 breakpoints: {
@@ -47,6 +49,12 @@
                     }
                 }
             });
+
+            if(shadowBtnRight) {
+                shadowBtnRight.addEventListener('mousemove', () => {
+                    carousel.classList.add('awards--init');
+                })
+            }
         })
     }
 }

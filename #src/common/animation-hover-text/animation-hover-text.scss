@@ -2,7 +2,7 @@
     position: relative;
 
     @media (min-width: 992px) {
-        &:hover {
+        &._hover {
             & .text-bg-shadow {
                 opacity: 1;
             }

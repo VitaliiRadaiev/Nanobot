@@ -20,7 +20,6 @@
 
         if(shadowBtnRight) {
             shadowBtnRight.addEventListener('mousemove', () => {
-                console.log('test');
                 awards.classList.add('awards--init')
             })
         }

@@ -64,6 +64,23 @@
             }
         }
 
+        & .carousel__slider {
+            @media (min-width: 992px) {
+                transition: all 1s ease;
+                transform: translateX(20rem);
+                pointer-events: none;
+            }
+        }
+        &.awards--init {
+            & .carousel__slider {
+                @media (min-width: 992px) {
+                    transform: translate(0);
+                    pointer-events: auto;
+                    cursor: grab;
+                }
+            }
+        }
+
         & .swiper-slide {
             width: 100%;
     

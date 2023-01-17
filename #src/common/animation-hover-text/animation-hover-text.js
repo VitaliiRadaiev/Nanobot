@@ -3,7 +3,7 @@
     if (animationHoverTextContainers.length) {
         animationHoverTextContainers.forEach(container => {
             const wrapWords = (el) => {
-                el.innerHTML = el.innerHTML.replace(/\s?\w+[\s|,|\.]?/g, '<span class="word">$&</span>');
+                el.innerHTML = el.innerHTML.replace(/\s?[\w|-]+[\s|,|\.]?/g, '<span class="word">$&</span>');
             }
             const getText = (container) => {
                 if (container.children.length) {
@@ -54,9 +54,14 @@
             container.addEventListener('mousemove', (e) => {
                 let word = e.target.closest('.word');
                 if (word) {
+                    container.classList.add('_hover');
                     let {top, left, width, height} = getCoords(word, container);
                     setShadowPostion(shadowEl, left, top, width, height);
                 }
+            })
+
+            container.addEventListener('mouseleave', () => {
+                container.classList.remove('_hover');
             })
         })
     }

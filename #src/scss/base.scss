@@ -531,6 +531,30 @@ figure {
 	letter-spacing: 0.01em;
 	text-transform: uppercase;
 	color: $mainColor;
+
+	& a {
+		position: relative;
+		&:before {
+			position: absolute;
+			content: '';
+			left: 0;
+			bottom: 0.2em;
+			height: 0.1rem;
+			width: 0%;
+			background-color: currentColor;
+			-webkit-transition: width 0.3s ease;
+			-o-transition: width 0.3s ease;
+			transition: width 0.3s ease;
+		}
+
+		@media (min-width: 992px) {
+			&:hover {
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+	}
 }
 
 .tags-second {
@@ -557,7 +581,7 @@ figure {
 
 	& a:hover {
 		color: #fff !important;
-		text-shadow: 1px 1px 0px #fff;
+		text-shadow: 0.1rem 0px 0 #fff, -0.1rem 0px 0 #fff;
 	}
 }
 
@@ -727,6 +751,12 @@ figure {
 .pb-0-mob {
 	@media (max-width: $md3+px) {
 		padding-bottom: 0 !important;
+	}
+}
+
+.pe-lg-7 {
+	@media (min-width: 1268px) {
+		padding-right: 7rem !important;
 	}
 }
 
