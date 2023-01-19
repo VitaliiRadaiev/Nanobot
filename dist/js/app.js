@@ -728,7 +728,8 @@ window.popup = {
     let testimonialsSliderCards = document.querySelectorAll('[data-slider="testimonials-slider-card"]');
     if(testimonialsSliderCards.length) {
         testimonialsSliderCards.forEach(slider => {
-            let sliderData = new Swiper(slider.querySelector('.swiper'), {
+            let logos = slider.closest('.testimonials-slider-card').querySelector('.testimonials-slider-card__logo');
+            let sliderDataText = new Swiper(slider.querySelector('.swiper'), {
                 observer: true,
                 observeParents: true,
                 slidesPerView: 1,
@@ -741,6 +742,19 @@ window.popup = {
                     nextEl: slider.querySelector('.testimonials-slider-card__btn.next'),
                 },
             });
+
+            let sliderDataLogos = new Swiper(logos.querySelector('.swiper'), {
+                observer: true,
+                observeParents: true,
+                effect: 'fade',
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoHeight: true,
+                speed: 600,
+                loop: true,
+            });
+
+            sliderDataText.controller.control = sliderDataLogos;
         })
     }
 };
@@ -1226,7 +1240,7 @@ window.popup = {
 
 			elements.forEach(el => {
 				if(el.hasAttribute('data-depth')) {
-					el = el.querySelector('img');
+					el = el.parentElement;
 				}
 				parallaxHandler(el);
 				window.addEventListener('scroll', () => parallaxHandler(el));
@@ -1374,6 +1388,11 @@ window.popup = {
                 if (container.children.length) {
                     Array.from(container.children).forEach(el => {
                         if (el.children.length) {
+                            Array.from(el.children).forEach(e => {
+                                if(e.nodeName === 'BR') {
+                                    e.remove();
+                                }
+                            })
                             let result = Array.from(el.children).some(e => e.nodeName === 'A');
                             if (result) {
                                 wrapWords(el);
@@ -1428,6 +1447,46 @@ window.popup = {
             container.addEventListener('mouseleave', () => {
                 container.classList.remove('_hover');
             })
+        })
+    }
+};
+		{
+    let postPreviewSections = document.querySelectorAll('[data-post-preview]');
+    if(postPreviewSections.length) {
+        postPreviewSections.forEach(postPreview => {
+            let navItems = postPreview.querySelectorAll('.post-preview__tabs-nav-item');
+            let contentItems = postPreview.querySelectorAll('.post-preview__content');
+            let btnMore = postPreview.querySelector('.post-preview__col a.link');
+
+            // init
+            [navItems, contentItems].forEach(el => {
+                if(el.length) {
+                    el.forEach((item, index) => {
+                        if(index > 2) {
+                            item.classList.add('d-none');
+                        }
+                    })
+                }
+            })
+
+            if(btnMore) {
+                if(navItems.length <= 3) {
+                    btnMore.classList.add('d-none');
+                } else {
+                    btnMore.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        btnMore.classList.add('d-none');
+                        [navItems, contentItems].forEach(el => {
+                            if(el.length) {
+                                el.forEach(item => {
+                                    item.classList.remove('d-none');
+                                })
+                            }
+                        })
+                    })
+                }
+            }
+
         })
     }
 };

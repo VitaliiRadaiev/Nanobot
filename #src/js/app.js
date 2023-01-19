@@ -315,7 +315,7 @@ class App {
 
 			elements.forEach(el => {
 				if(el.hasAttribute('data-depth')) {
-					el = el.querySelector('img');
+					el = el.parentElement;
 				}
 				parallaxHandler(el);
 				window.addEventListener('scroll', () => parallaxHandler(el));
@@ -330,6 +330,7 @@ class App {
 		@@include('../common/team-list/team-list.js');
 		@@include('../common/banner/banner.js');
 		@@include('../common/animation-hover-text/animation-hover-text.js');
+		@@include('../common/post-preview/post-preview.js');
 	}
 
 	componentsAfterLoad() {

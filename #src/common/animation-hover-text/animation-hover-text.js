@@ -9,6 +9,11 @@
                 if (container.children.length) {
                     Array.from(container.children).forEach(el => {
                         if (el.children.length) {
+                            Array.from(el.children).forEach(e => {
+                                if(e.nodeName === 'BR') {
+                                    e.remove();
+                                }
+                            })
                             let result = Array.from(el.children).some(e => e.nodeName === 'A');
                             if (result) {
                                 wrapWords(el);
