@@ -239,6 +239,17 @@ class App {
 	}
 
 	setWidthVariable() {
+		const wrapWords = (el) => {
+			el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
+		}
+		const getBottomWords = (el) => {
+			let elCoord = el.getBoundingClientRect();
+			let arr = [];
+			Array.from(el.children).forEach(word => {
+				let wordCoord = word.getBoundingClientRect();
+				console.log(wordCoord.bottom - elCoord.bottom);
+			})
+		}
 		let elements = document.querySelectorAll('[data-set-width-variable]');
 		if(elements.length) {
 			elements.forEach(el => {
@@ -250,6 +261,13 @@ class App {
 				setInterval(() => {
 					setVar();
 				},100)
+
+				let link = el.querySelector('a');
+				if(link) {
+					wrapWords(link);
+					
+					let bottomWords = getBottomWords(link);
+				}
 			})
 		}
 	}

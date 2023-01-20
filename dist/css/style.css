@@ -2749,6 +2749,14 @@ h5,
   display: inline-block;
 }
 
+[data-set-width-variable] .word {
+  display: inline-block;
+}
+
+[data-set-width-variable] .word:not(:last-child) {
+  padding-right: 0.25em;
+}
+
 [data-parallax] {
   pointer-events: auto !important;
 }

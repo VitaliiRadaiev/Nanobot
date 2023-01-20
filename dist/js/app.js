@@ -1164,6 +1164,17 @@ window.popup = {
 	}
 
 	setWidthVariable() {
+		const wrapWords = (el) => {
+			el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
+		}
+		const getBottomWords = (el) => {
+			let elCoord = el.getBoundingClientRect();
+			let arr = [];
+			Array.from(el.children).forEach(word => {
+				let wordCoord = word.getBoundingClientRect();
+				console.log(wordCoord.bottom - elCoord.bottom);
+			})
+		}
 		let elements = document.querySelectorAll('[data-set-width-variable]');
 		if(elements.length) {
 			elements.forEach(el => {
@@ -1175,6 +1186,13 @@ window.popup = {
 				setInterval(() => {
 					setVar();
 				},100)
+
+				let link = el.querySelector('a');
+				if(link) {
+					wrapWords(link);
+					
+					let bottomWords = getBottomWords(link);
+				}
 			})
 		}
 	}
@@ -1382,7 +1400,7 @@ window.popup = {
     if (animationHoverTextContainers.length) {
         animationHoverTextContainers.forEach(container => {
             const wrapWords = (el) => {
-                el.innerHTML = el.innerHTML.replace(/\s?[\w|-]+[\s|,|\.]?/g, '<span class="word">$&</span>');
+                el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
             }
             const getText = (container) => {
                 if (container.children.length) {

@@ -389,6 +389,13 @@ h5,
 			}
 		}
 	}
+
+	& .word {
+		display: inline-block;
+		&:not(:last-child) {
+			padding-right: 0.25em;
+		}
+	}
 }
 
 [data-parallax] {

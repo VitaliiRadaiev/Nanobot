@@ -3,7 +3,7 @@
     if (animationHoverTextContainers.length) {
         animationHoverTextContainers.forEach(container => {
             const wrapWords = (el) => {
-                el.innerHTML = el.innerHTML.replace(/\s?[\w|-]+[\s|,|\.]?/g, '<span class="word">$&</span>');
+                el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
             }
             const getText = (container) => {
                 if (container.children.length) {
