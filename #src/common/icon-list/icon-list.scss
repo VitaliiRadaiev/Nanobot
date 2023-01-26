@@ -1,0 +1,91 @@
+.list-icon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem 5rem;
+    font-size: 3rem;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    @media (max-width: $md3+px) {
+        font-size: 1.8rem;
+    }
+
+    & > li {
+        flex: 0 1 calc(50% - 2.5rem);
+        display: flex;
+
+        @media (min-width: 992px) {
+            &:hover {
+                & .list-icon__icon {
+                    & svg path {
+                        fill: #fff;
+                    }
+
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 100%;
+        }
+    }
+    &__icon {
+        flex: 0 0 auto;
+        width: 1.66em;
+        height: 1.66em;
+        margin-right: 1.16em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        margin-top: 0.17em;
+        position: relative;
+
+        & img,
+        & svg {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            position: relative;
+            z-index: 2;
+
+            & path {
+                transition: all 0.3s ease;
+            }
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            width: 12rem;
+            height: 12rem;
+            z-index: 1;
+            background: linear-gradient(267.91deg, #00b4cc 14.55%, #000aff 91.19%);
+            filter: blur(28px);
+            border-radius: 130px;
+            opacity: 0;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+            transition: opacity .3s ease;
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        line-height: 1.93em;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
