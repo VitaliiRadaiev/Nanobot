@@ -2675,13 +2675,12 @@ h5,
 
 .with-arrow {
   position: relative;
-  padding-top: 3.6rem;
 }
 
 .with-arrow:before {
   position: absolute;
   content: "\e901";
-  top: 0;
+  top: -3.6rem;
   left: -4rem;
   font-family: "icomoon" !important;
   color: inherit;
@@ -2726,6 +2725,10 @@ h5,
   transition: width 0.3s ease;
 }
 
+.with-line.word:not(:last-child):after {
+  width: calc(100% - 0.25em);
+}
+
 .with-shadow {
   position: relative;
 }
@@ -2745,8 +2748,8 @@ h5,
   border-radius: 90px;
 }
 
-[data-set-width-variable] {
-  display: inline-block;
+[data-set-width-variable] a {
+  display: block;
 }
 
 [data-set-width-variable] .word {
@@ -4451,6 +4454,10 @@ figure {
   visibility: hidden;
 }
 
+.award-card {
+  text-align: center;
+}
+
 .award-card__img-wrap {
   position: relative;
   margin-bottom: 3.5rem;
@@ -4520,6 +4527,7 @@ figure {
   color: #7e838d;
   margin-bottom: 2rem;
   max-width: 25rem;
+  margin: 0 auto 2rem;
 }
 
 .award-card__text {
@@ -4527,6 +4535,7 @@ figure {
   line-height: 1.43em;
   letter-spacing: 0.01em;
   max-width: 25rem;
+  margin: 0 auto;
 }
 
 .rating {
@@ -5501,6 +5510,7 @@ figure {
 
 .home-section-one__body {
   position: relative;
+  padding-top: 4rem;
 }
 
 .home-section-one__decor-1 {

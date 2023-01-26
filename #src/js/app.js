@@ -46,7 +46,7 @@ class App {
 		window.addEventListener('load', () => {
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
-			
+
 		});
 
 	}
@@ -240,33 +240,63 @@ class App {
 
 	setWidthVariable() {
 		const wrapWords = (el) => {
-			el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
+			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 		}
 		const getBottomWords = (el) => {
 			let elCoord = el.getBoundingClientRect();
 			let arr = [];
 			Array.from(el.children).forEach(word => {
 				let wordCoord = word.getBoundingClientRect();
-				console.log(wordCoord.bottom - elCoord.bottom);
-			})
-		}
-		let elements = document.querySelectorAll('[data-set-width-variable]');
-		if(elements.length) {
-			elements.forEach(el => {
-				const setVar = () => {
-					el.setAttribute('style', `--width: ${el.clientWidth}px`);
+				if ((elCoord.bottom - wordCoord.bottom) < 1) {
+					arr.push(word);
 				}
-				setVar();
+			});
+			return arr;
+		}
 
-				setInterval(() => {
-					setVar();
-				},100)
+		const setVar = (el, words) => {
+			let width = words.reduce((value, item) => {
+				return value + item.clientWidth;
+			}, 0)
+			el.setAttribute('style', `--width: ${width}px`);
+		}
+
+		let elements = document.querySelectorAll('[data-set-width-variable]');
+		if (elements.length) {
+			elements.forEach(el => {
+
+
 
 				let link = el.querySelector('a');
-				if(link) {
+				if (link) {
 					wrapWords(link);
-					
-					let bottomWords = getBottomWords(link);
+
+					const handler = () => {
+						let bottomWords = getBottomWords(link);
+						Array.from(link.children).forEach(word => word.classList.remove('with-line'));
+						bottomWords[0].classList.add('with-line');
+						setVar(el, bottomWords);
+					}
+
+					handler();
+
+					let id = setInterval(() => {
+						handler();
+					}, 100);
+
+					setTimeout(() => {
+						clearInterval(id);
+					}, 1000)
+
+					window.addEventListener('resize', () => {
+						let id = setInterval(() => {
+							handler();
+						}, 100);
+	
+						setTimeout(() => {
+							clearInterval(id);
+						}, 500)
+					})
 				}
 			})
 		}
@@ -276,21 +306,21 @@ class App {
 		const setScrollTrigger = (el, offset, callback = null) => {
 			let triggerPoint = document.documentElement.clientHeight / 100 * (100 - offset);
 			const trigger = () => {
-				if(el.getBoundingClientRect().top <= triggerPoint && !el.classList.contains('show-animation')) {
-					if(typeof callback === 'function') {
+				if (el.getBoundingClientRect().top <= triggerPoint && !el.classList.contains('show-animation')) {
+					if (typeof callback === 'function') {
 						callback();
 					}
 					el.classList.add('show-animation')
 				}
 			}
-		
+
 			trigger();
-		
+
 			window.addEventListener('scroll', trigger);
 		}
 
 		let elements = document.querySelectorAll('[data-scroll-animation-trigger]');
-		if(elements.length) {
+		if (elements.length) {
 			elements.forEach(el => {
 				setScrollTrigger(el, 15);
 			})
@@ -299,17 +329,17 @@ class App {
 
 	parallaxInit() {
 		let parallaxContainers = document.querySelectorAll('[data-parallax]');
-		if(parallaxContainers.length) {
+		if (parallaxContainers.length) {
 			parallaxContainers.forEach(parallaxContainer => {
 				new Parallax(parallaxContainer, {
 					selector: '[data-depth]'
 				});
 			})
-		}  
+		}
 
 		let elements = document.querySelectorAll('.layer');
-		if(elements.length) {
-			
+		if (elements.length) {
+
 			const translateY = (el, value, offset) => {
 				el.style.transform = `translateY(${value / (offset ? offset : 10)}px)`;
 			}
@@ -326,13 +356,13 @@ class App {
 				let pageY = window.pageYOffset;
 				let top = el.getBoundingClientRect().top + (el.clientHeight / 2);
 				let value = (pageY + top) - (pageY + document.documentElement.clientHeight / 2);
-				
+
 				translateY(el, value, 8);
-	
+
 			}
 
 			elements.forEach(el => {
-				if(el.hasAttribute('data-depth')) {
+				if (el.hasAttribute('data-depth')) {
 					el = el.parentElement;
 				}
 				parallaxHandler(el);

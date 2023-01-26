@@ -265,12 +265,13 @@ h5,
 
 .with-arrow {
 	position: relative;
-	padding-top: 3.6rem;
+	// padding-top: 3.6rem;
+	// margin-top: -3.6rem;
 
 	&:before {
 		position: absolute;
 		content: "\e901";
-		top: 0;
+		top: -3.6rem;
 		left: -4rem;
 		font-family: "icomoon" !important;
 		color: inherit;
@@ -281,6 +282,11 @@ h5,
 			left: 0;
 		}
 	}
+
+	// & a {
+	// 	padding-top: 3.6rem;
+	// 	margin-top: -3.6rem;
+	// }
 }
 .with-errow-right {
 	position: relative;
@@ -318,6 +324,14 @@ h5,
 		@media (max-width: $md3+px) {
 			height: 0.2rem;
 			bottom: -0.1em;
+		}
+	}
+
+	&.word {
+		&:not(:last-child) {
+			&:after {
+				width: calc(100% - 0.25em);
+			}
 		}
 	}
 }
@@ -377,7 +391,6 @@ h5,
 }
 
 [data-set-width-variable] {
-	display: inline-block;
 
 	@media (min-width: 992px) {
 		&:hover {
@@ -388,6 +401,10 @@ h5,
 				width: var(--width);
 			}
 		}
+	}
+
+	& a {
+		display: block;
 	}
 
 	& .word {
@@ -793,6 +810,7 @@ figure {
 	font-size: 1.8rem;
 	line-height: 2.8rem;
 	letter-spacing: 0.01em;
+
 	@media (max-width: $md3+px) {
 		font-size: 1.2rem;
 		line-height: 1.8rem;
