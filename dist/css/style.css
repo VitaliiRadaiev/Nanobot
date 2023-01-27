@@ -4467,9 +4467,9 @@ figure {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-60%, -50%);
-      -ms-transform: translate(-60%, -50%);
-          transform: translate(-60%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
   display: -webkit-box;
@@ -4646,38 +4646,6 @@ figure {
 
 .carousel .swiper-slide {
   width: 30.5rem;
-}
-
-.carousel--second:after {
-  position: absolute;
-  content: "";
-  z-index: 3;
-  top: 50%;
-  right: calc((16.5rem + (100vw - min(100vw - 100px, 162rem)) / 2) * -1);
-  width: 25.8rem;
-  height: calc(100% + 10rem);
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-  background: -webkit-gradient(linear, right top, left top, color-stop(6.75%, #000000), color-stop(92.01%, rgba(0, 0, 0, 0)));
-  background: -o-linear-gradient(right, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
-  background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
-}
-
-.carousel--second::before {
-  position: absolute;
-  content: "";
-  z-index: 3;
-  top: 50%;
-  left: calc((16.5rem + (100vw - min(100vw - 100px, 162rem)) / 2) * -1);
-  width: 25.8rem;
-  height: calc(100% + 10rem);
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(6.75%, #000000), color-stop(92.01%, rgba(0, 0, 0, 0)));
-  background: -o-linear-gradient(left, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
-  background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
 }
 
 .carousel--second .swiper-slide {
@@ -7935,14 +7903,6 @@ figure {
     padding-left: 0;
   }
 
-  .carousel--second:after {
-    right: -32px;
-  }
-
-  .carousel--second::before {
-    left: calc((16.5rem + (100vw - min(100vw - 64px, 162rem)) / 2) * -1);
-  }
-
   .banner__img {
     width: calc(100% + (100vw - min(100vw - 64px, 162rem)) / 2);
   }
@@ -8021,14 +7981,6 @@ figure {
 
   .link {
     color: currentColor !important;
-  }
-
-  .carousel--second:after {
-    width: 20rem;
-  }
-
-  .carousel--second::before {
-    display: none;
   }
 
   .banner__text-wrap {
@@ -8337,10 +8289,6 @@ figure {
     display: none;
   }
 
-  .award-card {
-    text-align: center;
-  }
-
   .award-card__img-wrap {
     margin-bottom: 3rem;
   }
@@ -8348,11 +8296,11 @@ figure {
   .award-card__img-bg img {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 165%;
+    width: 140%;
     height: auto;
     max-width: none;
     max-height: none;
@@ -8394,10 +8342,6 @@ figure {
 
   .carousel .swiper-slide {
     width: 20rem;
-  }
-
-  .carousel--second:after {
-    display: none;
   }
 
   .carousel--second .swiper-slide {

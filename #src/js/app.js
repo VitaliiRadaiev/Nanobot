@@ -379,6 +379,7 @@ class App {
 		@@include('../common/banner/banner.js');
 		@@include('../common/animation-hover-text/animation-hover-text.js');
 		@@include('../common/post-preview/post-preview.js');
+		@@include('../common/promo-header/promo-header.js');
 	}
 
 	componentsAfterLoad() {

@@ -673,7 +673,7 @@ window.popup = {
                 breakpoints: {
                     320: {
                         slidesPerView: 'auto',
-                        spaceBetween: 50,
+                        spaceBetween: 80,
                         centeredSlides: true,
                     },
                     768: {
@@ -1535,6 +1535,19 @@ window.popup = {
                 }
             }
 
+        })
+    }
+};
+		{
+    let promoHeaderBtnScrollDown = document.querySelector('.promo-header__btn-scroll');
+    if(promoHeaderBtnScrollDown) {
+        promoHeaderBtnScrollDown.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            window.scrollTo({
+                top: document.documentElement.clientHeight,
+                behavior: 'smooth',
+            })
         })
     }
 };
