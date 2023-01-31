@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 40;
 
     @media (max-width: $md3+px) {
         padding-top: 8rem;
@@ -760,7 +761,7 @@
             background: linear-gradient(263.96deg, #00b4cc 7.61%, #000aff 87.18%);
             filter: blur(55px);
             opacity: 0;
-            transition: all .3s ease .3s;
+            transition: all .6s ease .6s;
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
             -webkit-transform: translate3d(-50%, -50%, 0);
@@ -776,7 +777,7 @@
             z-index: 2;
             display: block;
             transform: translateY(100%);
-            transition: all .3s ease;
+            transition: all .6s ease;
 
             @media (max-width: $md3+px) {
                 max-width: 14rem;
@@ -910,8 +911,7 @@
 
     &__decor-1 {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        top: -44%;
         left: -58rem;
         width: 124.6rem;
         z-index: 1;

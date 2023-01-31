@@ -1277,21 +1277,30 @@ window.popup = {
 				el.style.transform = `scale(${(value * -0.002)})`;
 			}
 
-			const parallaxHandler = (el) => {
+			const parallaxHandler = (el, speedAttribute) => {
 				let pageY = window.pageYOffset;
 				let top = el.getBoundingClientRect().top + (el.clientHeight / 2);
 				let value = (pageY + top) - (pageY + document.documentElement.clientHeight / 2);
 
-				translateY(el, value, 8);
+
+				translateY(el, value, speedAttribute ? +speedAttribute : 8);
 
 			}
 
 			elements.forEach(el => {
-				if (el.hasAttribute('data-depth')) {
+				let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed 
+				: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
+				: null;
+
+				if (!el.hasAttribute('data-depth')) {
 					el = el.parentElement;
+				} else {
+					el = el.querySelector('img');
 				}
-				parallaxHandler(el);
-				window.addEventListener('scroll', () => parallaxHandler(el));
+
+
+				parallaxHandler(el, speedAttribute);
+				window.addEventListener('scroll', () => parallaxHandler(el, speedAttribute));
 			})
 		}
 	}
