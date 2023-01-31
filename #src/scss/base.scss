@@ -872,6 +872,13 @@ figure {
 		margin-bottom: 0;
 	}
 }
+.last-md {
+	@media (min-width: 768px) {
+		& > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
 @for $i from 1 through 50 {
 	.z-#{$i} {
 		z-index: $i;

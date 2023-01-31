@@ -5735,7 +5735,7 @@ figure {
 }
 
 .bg-decor__bubble-dark.size-lg {
-  width: 146.4rem;
+  width: 124.4rem;
 }
 
 .bg-decor__bubble-light {
@@ -7727,6 +7727,10 @@ figure {
     -webkit-column-gap: 8rem;
        -moz-column-gap: 8rem;
             column-gap: 8rem;
+  }
+
+  .last-md > *:last-child {
+    margin-bottom: 0;
   }
 
   .mb-md-10 {
