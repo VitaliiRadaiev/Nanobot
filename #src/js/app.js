@@ -373,8 +373,15 @@ class App {
 					el = el.querySelector('img');
 				}
 
+				let id = setInterval(() => {
+					console.log('test');
+					parallaxHandler(el, speedAttribute);
+				}, 30);
+	
+				setTimeout(() => {
+					clearInterval(id);
+				}, 1000)
 
-				parallaxHandler(el, speedAttribute);
 				window.addEventListener('scroll', () => parallaxHandler(el, speedAttribute));
 			})
 		}
@@ -389,6 +396,7 @@ class App {
 		@@include('../common/animation-hover-text/animation-hover-text.js');
 		@@include('../common/post-preview/post-preview.js');
 		@@include('../common/promo-header/promo-header.js');
+		@@include('../common/bg-decor/bg-decor.js');
 	}
 
 	componentsAfterLoad() {

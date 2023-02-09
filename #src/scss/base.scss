@@ -436,8 +436,9 @@ figure {
 
 ._page {
 	overflow: hidden;
+	position:relative;
 
-	& > * {
+	& > *:not(.bg-decor__inner) {
 		@for $i from 1 through 40 {
 			&:nth-child(#{$i}) {
 				position: relative;

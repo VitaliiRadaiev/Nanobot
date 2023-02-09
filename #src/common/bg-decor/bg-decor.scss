@@ -12,6 +12,91 @@
         width: 100%;
         height: 100%;
         z-index: -1;
+
+        & .top-0 {
+            top: 0;
+        }
+    
+        & .top-25 {
+            top: 25%;
+        }
+        & .top-50 {
+            top: 50%;
+        }
+        & .top-75 {
+            top: 75%;
+        }
+        & .top-100 {
+            top: 100%;
+        }
+    
+        & .left-0 {
+            left: 0%;
+        }
+        & .left-25 {
+            left: 25%;
+        }
+        & .left-50 {
+            left: 50%;
+        }
+        & .left-75 {
+            left: 75%;
+        }
+        & .left-100 {
+            left: 100%;
+        }
+    
+        & .right-0 {
+            right: 0%;
+        }
+        & .right-25 {
+            right: 25%;
+        }
+        & .right-50 {
+            right: 50%;
+        }
+        & .right-75 {
+            right: 75%;
+        }
+        & .right-100 {
+            right: 100%;
+        }
+    
+        & .bottom-0 {
+            bottom: 0%;
+        }
+        & .bottom-25 {
+            bottom: 25%;
+        }
+        & .bottom-50 {
+            bottom: 50%;
+        }
+        & .bottom-75 {
+            bottom: 75%;
+        }
+        & .bottom-100 {
+            bottom: 100%;
+        }
+    
+        & .center-x {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    
+        & .center-y {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        & .center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        & .blur {
+            filter: blur(8px);
+        }
     }
 
     &__cloth {
@@ -143,90 +228,5 @@
                 width: 40rem;
             }
         }
-    }
-
-    & .top-0 {
-        top: 0;
-    }
-
-    & .top-25 {
-        top: 25%;
-    }
-    & .top-50 {
-        top: 50%;
-    }
-    & .top-75 {
-        top: 75%;
-    }
-    & .top-100 {
-        top: 100%;
-    }
-
-    & .left-0 {
-        left: 0%;
-    }
-    & .left-25 {
-        left: 25%;
-    }
-    & .left-50 {
-        left: 50%;
-    }
-    & .left-75 {
-        left: 75%;
-    }
-    & .left-100 {
-        left: 100%;
-    }
-
-    & .right-0 {
-        right: 0%;
-    }
-    & .right-25 {
-        right: 25%;
-    }
-    & .right-50 {
-        right: 50%;
-    }
-    & .right-75 {
-        right: 75%;
-    }
-    & .right-100 {
-        right: 100%;
-    }
-
-    & .bottom-0 {
-        bottom: 0%;
-    }
-    & .bottom-25 {
-        bottom: 25%;
-    }
-    & .bottom-50 {
-        bottom: 50%;
-    }
-    & .bottom-75 {
-        bottom: 75%;
-    }
-    & .bottom-100 {
-        bottom: 100%;
-    }
-
-    & .center-x {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    & .center-y {
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    & .center {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    & .blur {
-        filter: blur(8px);
     }
 }
