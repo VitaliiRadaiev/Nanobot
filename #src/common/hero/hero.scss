@@ -70,4 +70,16 @@
 
     &__btn-wrap {
     }
+
+    & .breadcrumbs {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        max-width: 100rem;
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+    }
 }

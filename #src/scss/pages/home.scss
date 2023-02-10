@@ -125,6 +125,22 @@
             }
         }
     }
+
+    &__breadcrumbs {
+        position: absolute;
+        z-index: 3;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
+        & .breadcrumbs {
+            max-width: calc(50% - 5rem);
+        }
+    }
 }
 
 .home-section-one {
