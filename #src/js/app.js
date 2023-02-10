@@ -374,7 +374,6 @@ class App {
 				}
 
 				let id = setInterval(() => {
-					console.log('test');
 					parallaxHandler(el, speedAttribute);
 				}, 30);
 	

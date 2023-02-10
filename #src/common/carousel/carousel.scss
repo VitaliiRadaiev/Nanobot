@@ -1,6 +1,16 @@
 .carousel {
     position: relative;
     cursor: grab;
+    user-select: none;
+
+    @media (min-width: 992px) {
+        &:hover {
+            & .carousel__btn {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
 
     & .swiper {
         overflow: visible;
@@ -20,65 +30,65 @@
 
     }
 
-    &--second {
-        // &:after {
-        //     position: absolute;
-        //     content: '';
-        //     z-index: 3;
-        //     top: 50%;
-        //     right: calc((16.5rem + ((100vw - min(calc(100vw - 100px), 162rem)) / 2)) * -1);
-        //     width: 25.8rem;
-        //     height: calc(100% + 10rem);
-        //     transform: translateY(-50%);
-        //     background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
+    &__btn {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        font-size: 2.4rem;
+        height: calc(100% - 1em - 4rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        width: calc((100vw - 162rem) / 2 + 16.5rem);
+        transition: all .3s ease;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
 
-        //     @media (max-width: $md1+px) {
-        //         right: -32px;
-        //     }
-
-        //     @media (max-width: $md2+px) {
-        //         width: 20rem;
-        //     }
-
-        //     @media (max-width: $md3+px) {
-        //         display: none;
-        //     }
-        // }
-        // &::before {
-        //     position: absolute;
-        //     content: '';
-        //     z-index: 3;
-        //     top: 50%;
-        //     left: calc((16.5rem + ((100vw - min(calc(100vw - 100px), 162rem)) / 2)) * -1);
-        //     width: 25.8rem;
-        //     height: calc(100% + 10rem);
-        //     transform: translateY(-50%);
-        //     background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
-
-        //     @media (max-width: $md1+px) {
-        //         left: calc((16.5rem + ((100vw - min(calc(100vw - 64px), 162rem)) / 2)) * -1);
-        //     }
-
-        //     @media (max-width: $md2+px) {
-        //         display: none;
-        //     }
-        // }
-
-        & .carousel__slider {
-            @media (min-width: 992px) {
-                transition: all 1s ease;
-                transform: translateX(20rem);
-                pointer-events: none;
-            }
+        &.hide {
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
-        &.awards--init {
-            & .carousel__slider {
-                @media (min-width: 992px) {
-                    transform: translate(0);
-                    pointer-events: auto;
-                    cursor: grab;
+
+        @media (max-width: $md1+px) {
+            width: calc((100vw - 162rem) / 2);
+        }
+
+        @media (max-width: $md2+px) {
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                & img {
+                    opacity: 1;
                 }
             }
+        }
+
+        & img {
+            height: 5rem;
+            width: auto;
+            opacity: 0.4;
+            transition: all .3s ease;
+        }
+    }
+
+    &__shadow-left {
+        right: 100%;
+        background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+    }
+
+    &__shadow-right {
+        left: 100%;
+        background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+    }
+
+    &--second {
+        cursor: auto;
+        & .carousel__slider {
+            cursor: grab;
         }
 
         & .swiper-slide {

@@ -4839,6 +4839,10 @@ figure {
   position: relative;
   cursor: -webkit-grab;
   cursor: grab;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .carousel .swiper {
@@ -4847,6 +4851,68 @@ figure {
 
 .carousel .swiper-slide {
   width: 30.5rem;
+}
+
+.carousel__btn {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  font-size: 2.4rem;
+  height: calc(100% - 1em - 4rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
+  width: calc((100vw - 162rem) / 2 + 16.5rem);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel__btn.hide {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.carousel__btn img {
+  height: 5rem;
+  width: auto;
+  opacity: 0.4;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.carousel__shadow-left {
+  right: 100%;
+  background: -webkit-gradient(linear, left top, right top, color-stop(6.75%, #000000), color-stop(100.01%, rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(left, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+  background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+}
+
+.carousel__shadow-right {
+  left: 100%;
+  background: -webkit-gradient(linear, right top, left top, color-stop(6.75%, #000000), color-stop(100.01%, rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(right, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+  background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+}
+
+.carousel--second {
+  cursor: auto;
+}
+
+.carousel--second .carousel__slider {
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 .carousel--second .swiper-slide {
@@ -8396,23 +8462,13 @@ figure {
     color: #0071FF;
   }
 
-  .carousel--second .carousel__slider {
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-    -webkit-transform: translateX(20rem);
-        -ms-transform: translateX(20rem);
-            transform: translateX(20rem);
-    pointer-events: none;
+  .carousel:hover .carousel__btn {
+    opacity: 1;
+    pointer-events: auto;
   }
 
-  .carousel--second.awards--init .carousel__slider {
-    -webkit-transform: translate(0);
-        -ms-transform: translate(0);
-            transform: translate(0);
-    pointer-events: auto;
-    cursor: -webkit-grab;
-    cursor: grab;
+  .carousel__btn:hover img {
+    opacity: 1;
   }
 
   .testimonials-slider-card__btn:hover {
@@ -8575,6 +8631,10 @@ figure {
     padding-left: 0;
   }
 
+  .carousel__btn {
+    width: calc((100vw - 162rem) / 2);
+  }
+
   .banner__img {
     width: calc(100% + (100vw - min(100vw - 64px, 162rem)) / 2);
   }
@@ -8657,6 +8717,10 @@ figure {
 
   .link {
     color: currentColor !important;
+  }
+
+  .carousel__btn {
+    display: none;
   }
 
   .banner__text-wrap {
