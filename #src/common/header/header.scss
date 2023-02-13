@@ -224,7 +224,8 @@
         & .sub-menu {
             padding-left: 0;
             margin-bottom: 0;
-            column-count: 3;
+            display: flex;
+            flex-wrap: wrap;
             column-gap: 3.6rem;
             max-width: 70.8rem;
             font-size: 1.4rem;
@@ -234,13 +235,14 @@
             & > li {
                 display: inline-block;
                 margin-bottom: 2rem;
+                width: calc(33.3333333% - (3.6rem * 2 / 3));
             }
 
             & a {
                 @media (min-width: 992px) {
                     &:hover {
                         color: #fff !important;
-                        font-weight: 700;
+                        text-shadow: 0.5px 0px 0 #fff, -0.5px 0px 0 #fff;
                     }
                 }
             }

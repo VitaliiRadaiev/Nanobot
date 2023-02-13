@@ -3986,9 +3986,11 @@ figure {
 .menu__tabs-content .sub-menu {
   padding-left: 0;
   margin-bottom: 0;
-  -webkit-column-count: 3;
-     -moz-column-count: 3;
-          column-count: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-column-gap: 3.6rem;
      -moz-column-gap: 3.6rem;
           column-gap: 3.6rem;
@@ -4001,6 +4003,7 @@ figure {
 .menu__tabs-content .sub-menu > li {
   display: inline-block;
   margin-bottom: 2rem;
+  width: calc(33.3333333% - 2.4rem);
 }
 
 .menu__list {
@@ -4566,6 +4569,8 @@ figure {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .grid-links__collapse {
@@ -5934,6 +5939,41 @@ figure {
   width: 54.6rem;
 }
 
+.hero {
+  position: relative;
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero__bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.hero__bg:before {
+  position: absolute;
+  content: "";
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -o-linear-gradient(89.38deg, #000000 0.61%, rgba(0, 0, 0, 0) 68.11%);
+  background: linear-gradient(0.62deg, #000000 0.61%, rgba(0, 0, 0, 0) 68.11%);
+}
+
 .hero__body {
   position: relative;
   padding-top: 17rem;
@@ -7227,7 +7267,7 @@ figure {
 .step-tabs__nav-item-icon svg {
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: 150%;
   height: auto;
 }
 
@@ -8426,7 +8466,7 @@ figure {
 
   .menu__tabs-content .sub-menu a:hover {
     color: #fff !important;
-    font-weight: 700;
+    text-shadow: 0.5px 0px 0 #fff, -0.5px 0px 0 #fff;
   }
 
   .menu__mob {
