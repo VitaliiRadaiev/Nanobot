@@ -210,6 +210,10 @@
     &__inner {
         position: relative;
         z-index: 3;
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__title {
@@ -1055,12 +1059,20 @@
             //margin-bottom: 8rem;
             margin-bottom: 0rem;
         }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__row-2 {
 
         @media (max-width: $md3+px) {
             display: none;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 

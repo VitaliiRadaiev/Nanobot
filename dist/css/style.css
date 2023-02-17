@@ -3817,7 +3817,7 @@ figure {
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -3825,6 +3825,30 @@ figure {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+.header--is-scroll {
+  background-color: #000;
+}
+
+.header--is-scroll .header__body {
+  min-height: 10rem;
+}
+
+.header--is-scroll ~ .header-menu {
+  padding-top: 10rem;
+}
+
+.header.header--hide {
+  -webkit-transform: translateY(-102%);
+      -ms-transform: translateY(-102%);
+          transform: translateY(-102%);
+}
+
+.header.menu-is-open {
+  -webkit-transform: translateY(0) !important;
+      -ms-transform: translateY(0) !important;
+          transform: translateY(0) !important;
 }
 
 .header__body {
@@ -3903,7 +3927,7 @@ figure {
 }
 
 .header-menu {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 100%;
   width: 100%;
@@ -6244,6 +6268,108 @@ figure {
   transition: all 0.3s ease;
 }
 
+.list-step-line {
+  padding-left: 0;
+  margin-bottom: 0;
+  position: relative;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.375em;
+}
+
+.list-step-line:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0.6rem;
+  height: 100%;
+  width: 0.2rem;
+  background-color: #0071FF;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -1;
+}
+
+.list-step-line > li {
+  position: relative;
+  padding-left: 2.66em;
+}
+
+.list-step-line > li:not(:last-child) {
+  margin-bottom: 2.333em;
+}
+
+.list-step-line > li:first-child .list-step-line__dot::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.list-step-line > li:first-child:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0.6rem;
+  height: 50%;
+  width: 0.4rem;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #000;
+}
+
+.list-step-line > li:last-child:before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0.6rem;
+  height: 50%;
+  width: 0.4rem;
+  z-index: 1;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #000;
+}
+
+.list-step-line__dot {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: #0071FF;
+}
+
+.list-step-line__dot:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2;
+  background: #000000;
+  border: 2px solid #0071FF;
+  -webkit-box-shadow: 0px 0px 6px 3px #0071FF;
+          box-shadow: 0px 0px 6px 3px #0071FF;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .promo-header {
   position: relative;
   padding-top: 17rem;
@@ -6424,6 +6550,10 @@ figure {
 .home-section-one__inner {
   position: relative;
   z-index: 3;
+}
+
+.home-section-one__inner > *:last-child {
+  margin-bottom: 0;
 }
 
 .home-section-one__row-1 {
@@ -7048,6 +7178,14 @@ figure {
 
 .home-section-four__row-1 {
   margin-bottom: 15rem;
+}
+
+.home-section-four__row-1:last-child {
+  margin-bottom: 0;
+}
+
+.home-section-four__row-2:last-child {
+  margin-bottom: 0;
 }
 
 .home-section-four__text-big {
@@ -8981,6 +9119,14 @@ figure {
     height: 380px;
   }
 
+  .header--is-scroll .header__body {
+    min-height: 6rem;
+  }
+
+  .header--is-scroll ~ .header-menu {
+    padding-top: 6rem;
+  }
+
   .header__body {
     min-height: 6rem;
   }
@@ -9454,6 +9600,10 @@ figure {
     position: relative;
     opacity: 1;
     top: 0;
+  }
+
+  .list-step-line {
+    font-size: 1.8rem;
   }
 
   .promo-header {

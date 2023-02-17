@@ -1,0 +1,99 @@
+.list-step-line {
+    padding-left: 0;
+    margin-bottom: 0;
+    position: relative;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 1.375em;
+
+    @media (max-width: $md3+px) {
+        font-size: 1.8rem;
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0.6rem;
+        height: 100%;
+        width: 0.2rem;
+        background-color: $mainColor;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+
+    & > li {
+        position: relative;
+        padding-left: 2.66em;
+
+        &:not(:last-child) {
+            margin-bottom: 2.333em;
+        }
+
+        &:first-child {
+            & .list-step-line__dot::before {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0.6rem;
+                height: 50%;
+                width: 0.4rem;
+                z-index: 1;
+                transform: translateX(-50%);
+                background-color: #000;
+            }
+        }
+
+        &:last-child {
+            &:before {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0.6rem;
+                height: 50%;
+                width: 0.4rem;
+                z-index: 1;
+                transform: translateX(-50%);
+                background-color: #000;
+            }
+        }
+    }
+
+    &__dot {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        background-color: $mainColor;
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            width: 1.4rem;
+            height: 1.4rem;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            background: #000000;
+            border: 2px solid $mainColor;
+            box-shadow: 0px 0px 6px 3px $mainColor;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &__text {
+    }
+}
