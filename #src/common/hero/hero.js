@@ -1,5 +1,5 @@
 {
-    let promoHeaderBtnScrollDown = document.querySelector('.promo-header__btn-scroll');
+    let promoHeaderBtnScrollDown = document.querySelector('.hero__btn-scroll');
     if(promoHeaderBtnScrollDown) {
         promoHeaderBtnScrollDown.addEventListener('click', (e) => {
             e.preventDefault();
@@ -11,10 +11,10 @@
         })
     }
 
-    let bg = document.querySelector('.promo-header__bg');
+    let bg = document.querySelector('.hero__bg');
     if(bg) {
         if(bg.children.length) {
-            bg.classList.add('promo-header__bg--shadow');
+            bg.classList.add('hero__bg--shadow');
         }
     }
 }

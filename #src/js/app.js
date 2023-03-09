@@ -110,6 +110,8 @@ class App {
 							i.classList.remove('tab-active');
 							getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
 						})
+
+						if(this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
 					}
 				})
 
@@ -241,6 +243,13 @@ class App {
 	setWidthVariable() {
 		const wrapWords = (el) => {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
+
+			if(el.children.length) {
+				if(el.children[0].innerText.length <= 2) {
+					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
+					el.children[1].remove();
+				}
+			}
 		}
 		const getBottomWords = (el) => {
 			let elCoord = el.getBoundingClientRect();
@@ -263,9 +272,9 @@ class App {
 
 		let elements = document.querySelectorAll('[data-set-width-variable]');
 		if (elements.length) {
+			let postPreviewCardsHandlers = [];
+
 			elements.forEach(el => {
-
-
 
 				let link = el.querySelector('a');
 				if (link) {
@@ -297,8 +306,44 @@ class App {
 							clearInterval(id);
 						}, 500)
 					})
+				} else if(el.classList.contains('post-preview-card__title')) {
+					wrapWords(el);
+
+					const handler = () => {
+						let bottomWords = getBottomWords(el);
+						Array.from(el.children).forEach(word => word.classList.remove('with-line'));
+						bottomWords[0].classList.add('with-line');
+						setVar(el, bottomWords);
+					}
+
+					handler();
+					postPreviewCardsHandlers.push(handler);
+
+					let id = setInterval(() => {
+						handler();
+					}, 100);
+
+					setTimeout(() => {
+						clearInterval(id);
+					}, 1000)
+
+					window.addEventListener('resize', () => {
+						let id = setInterval(() => {
+							handler();
+						}, 100);
+	
+						setTimeout(() => {
+							clearInterval(id);
+						}, 500)
+					})
 				}
 			})
+
+			this.postPreviewCardsUpdate = () => {
+				if(postPreviewCardsHandlers.length) {
+					postPreviewCardsHandlers.forEach(f => f());
+				}
+			}
 		}
 	}
 
@@ -395,7 +440,9 @@ class App {
 		@@include('../common/animation-hover-text/animation-hover-text.js');
 		@@include('../common/post-preview/post-preview.js');
 		@@include('../common/promo-header/promo-header.js');
+		@@include('../common/hero/hero.js');
 		@@include('../common/bg-decor/bg-decor.js');
+		@@include('../common/cases/cases.js');
 	}
 
 	componentsAfterLoad() {

@@ -587,6 +587,10 @@ figure {
 				}
 			}
 		}
+
+		&.active {
+			color: #fff;
+		}
 	}
 }
 

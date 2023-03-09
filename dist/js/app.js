@@ -859,6 +859,8 @@ window.popup = {
 							i.classList.remove('tab-active');
 							getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
 						})
+
+						if(this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
 					}
 				})
 
@@ -1220,6 +1222,13 @@ window.popup = {
 	setWidthVariable() {
 		const wrapWords = (el) => {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
+
+			if(el.children.length) {
+				if(el.children[0].innerText.length <= 2) {
+					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
+					el.children[1].remove();
+				}
+			}
 		}
 		const getBottomWords = (el) => {
 			let elCoord = el.getBoundingClientRect();
@@ -1242,9 +1251,9 @@ window.popup = {
 
 		let elements = document.querySelectorAll('[data-set-width-variable]');
 		if (elements.length) {
+			let postPreviewCardsHandlers = [];
+
 			elements.forEach(el => {
-
-
 
 				let link = el.querySelector('a');
 				if (link) {
@@ -1276,8 +1285,44 @@ window.popup = {
 							clearInterval(id);
 						}, 500)
 					})
+				} else if(el.classList.contains('post-preview-card__title')) {
+					wrapWords(el);
+
+					const handler = () => {
+						let bottomWords = getBottomWords(el);
+						Array.from(el.children).forEach(word => word.classList.remove('with-line'));
+						bottomWords[0].classList.add('with-line');
+						setVar(el, bottomWords);
+					}
+
+					handler();
+					postPreviewCardsHandlers.push(handler);
+
+					let id = setInterval(() => {
+						handler();
+					}, 100);
+
+					setTimeout(() => {
+						clearInterval(id);
+					}, 1000)
+
+					window.addEventListener('resize', () => {
+						let id = setInterval(() => {
+							handler();
+						}, 100);
+	
+						setTimeout(() => {
+							clearInterval(id);
+						}, 500)
+					})
 				}
 			})
+
+			this.postPreviewCardsUpdate = () => {
+				if(postPreviewCardsHandlers.length) {
+					postPreviewCardsHandlers.forEach(f => f());
+				}
+			}
 		}
 	}
 
@@ -1619,6 +1664,33 @@ window.popup = {
             })
         })
     }
+
+    let bg = document.querySelector('.promo-header__bg');
+    if(bg) {
+        if(bg.children.length) {
+            bg.classList.add('promo-header__bg--shadow');
+        }
+    }
+};
+		{
+    let promoHeaderBtnScrollDown = document.querySelector('.hero__btn-scroll');
+    if(promoHeaderBtnScrollDown) {
+        promoHeaderBtnScrollDown.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            window.scrollTo({
+                top: document.documentElement.clientHeight,
+                behavior: 'smooth',
+            })
+        })
+    }
+
+    let bg = document.querySelector('.hero__bg');
+    if(bg) {
+        if(bg.children.length) {
+            bg.classList.add('hero__bg--shadow');
+        }
+    }
 };
 		{
     let bgDecorContainers = document.querySelectorAll('.bg-decor');
@@ -1651,6 +1723,14 @@ window.popup = {
         let box = el.getBoundingClientRect();
 
         return box.top + window.pageYOffset;
+    }
+};
+		{
+    let casesSections = document.querySelectorAll('[data-cases]');
+    if(casesSections.length) {
+        casesSections.forEach(cases => {
+            
+        })
     }
 };
 	}
