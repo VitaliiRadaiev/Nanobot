@@ -43,6 +43,27 @@
         }
     }
 
+    &__list {
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 9rem;
+
+        & > li {
+            flex: 0 1 calc(25% - (9rem * 3 / 4));
+
+            @media (max-width: $md2+px) {
+                flex: 0 1 calc(33.3333333% - (9rem * 2 / 3));
+            }
+
+            @media (max-width: $md3+px) {
+                flex: 0 1 100%;
+                max-width: 20rem;
+            }
+        }
+    }
+
     &--init {
         cursor: grab;
 

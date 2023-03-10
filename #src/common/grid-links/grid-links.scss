@@ -157,4 +157,22 @@
             display: none;
         }
     }
+
+    &--vertical {
+        display: block;
+
+        & .grid-links__collapse {
+            display: block;
+        }
+
+        & .grid-links__item {
+            &:not(:last-child) {
+                margin-bottom: 8rem;
+
+                @media (max-width: $md3+px) {
+                    margin-bottom: 4rem;
+                }
+            }
+        }
+    }
 }

@@ -618,6 +618,10 @@
         z-index: 2;
         max-width: 71rem;
         margin-left: auto;
+
+        &--left {
+            margin-left: 0;
+        }
     }
 
     &__title {
