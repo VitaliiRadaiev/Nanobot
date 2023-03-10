@@ -1224,7 +1224,7 @@ window.popup = {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
 			if(el.children.length) {
-				if(el.children[0].innerText.length <= 2) {
+				if(el.children[0].innerText.trim().length <= 2) {
 					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
 					el.children[1].remove();
 				}
@@ -1614,41 +1614,158 @@ window.popup = {
 };
 		{
     let postPreviewSections = document.querySelectorAll('[data-post-preview]');
-    if(postPreviewSections.length) {
+    if (postPreviewSections.length) {
         postPreviewSections.forEach(postPreview => {
-            let navItems = postPreview.querySelectorAll('.post-preview__tabs-nav-item');
-            let contentItems = postPreview.querySelectorAll('.post-preview__content');
-            let btnMore = postPreview.querySelector('.post-preview__col a.link');
 
-            // init
-            [navItems, contentItems].forEach(el => {
-                if(el.length) {
-                    el.forEach((item, index) => {
-                        if(index > 2) {
-                            item.classList.add('d-none');
+            {
+                // desc
+                const isListLong = (contentEl) => {
+                    let listOfPosts = contentEl.querySelector('.post-preview__list');
+
+                    if (listOfPosts) {
+                        //init
+                        if (listOfPosts.children.length > 4 && !listOfPosts.classList.contains('list-is-open')) {
+                            tabsContainer.append(btnLoadMore);
+                        } else {
+                            btnLoadMore.remove();
+                        }
+                    }
+                }
+                let tabsContainer = postPreview.querySelector('.post-preview__desk .post-preview__col');
+                let btnLoadMore = document.createElement('a');
+                btnLoadMore.className = 'post-preview__load-more link';
+                btnLoadMore.innerText = 'Load more';
+                btnLoadMore.setAttribute('href', '#');
+
+                let tabsContainers = document.querySelectorAll('[data-tabs-preview]');
+                if (tabsContainers.length) {
+                    tabsContainers.forEach(tabsContainer => {
+                        let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
+                        let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
+
+                        const getContentItem = (id) => {
+                            if (!id.trim()) return;
+                            return contentItems.filter(item => item.dataset.tabContent === id)[0];
+                        }
+
+                        if (triggerItems.length && contentItems.length) {
+                            // init
+                            let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
+                            if (activeItem) {
+                                activeItem.classList.add('tab-active');
+                                let content = getContentItem(activeItem.dataset.tabTrigger);
+                                content.classList.add('tab-active');
+                                isListLong(content);
+                            } else {
+                                triggerItems[0].classList.add('tab-active');
+                                let content = getContentItem(triggerItems[0].dataset.tabTrigger);
+                                content.classList.add('tab-active');
+                                isListLong(content);
+                            }
+                        }
+
+                        tabsContainer.addEventListener('click', (e) => {
+                            if (e.target.closest('[data-tab-trigger]')) {
+                                let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
+                                let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
+                                let item = e.target.closest('[data-tab-trigger]');
+
+                                const getContentItem = (id) => {
+                                    if (!id.trim()) return;
+                                    return contentItems.filter(item => item.dataset.tabContent === id)[0];
+                                }
+
+                                item.classList.add('tab-active');
+                                let content = getContentItem(item.dataset.tabTrigger);
+                                content.classList.add('tab-active');
+                                isListLong(content);
+
+                                triggerItems.forEach(i => {
+                                    if (i === item) return;
+
+                                    i.classList.remove('tab-active');
+                                    getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
+                                })
+
+                                if (this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
+                            }
+                        })
+
+                    })
+                }
+
+                let contentItems = postPreview.querySelectorAll('.post-preview__content');
+                if (contentItems.length) {
+                    contentItems.forEach(content => {
+
+                        let listOfPosts = content.querySelector('.post-preview__list');
+
+                        if (listOfPosts) {
+                            //init
+                            if (listOfPosts.children.length > 4) {
+                                Array.from(listOfPosts.children).forEach((item, index) => {
+                                    if (index > 3) {
+                                        item.classList.add('d-none');
+                                    }
+                                })
+                            }
                         }
                     })
                 }
-            })
 
-            if(btnMore) {
-                if(navItems.length <= 3) {
-                    btnMore.classList.add('d-none');
-                } else {
-                    btnMore.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        btnMore.classList.add('d-none');
-                        [navItems, contentItems].forEach(el => {
-                            if(el.length) {
-                                el.forEach(item => {
+                if (tabsContainer) {
+                    tabsContainer.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('post-preview__load-more')) {
+                            e.preventDefault();
+                            let listOfPost = postPreview.querySelector('.post-preview__content.tab-active .post-preview__list');
+                            if (listOfPost) {
+                                listOfPost.classList.add('list-is-open');
+                                Array.from(listOfPost.children).forEach((item, index) => {
                                     item.classList.remove('d-none');
-                                })
+                                });
+                                btnLoadMore.remove();
+                                this.postPreviewCardsUpdate();
                             }
-                        })
+                        }
                     })
                 }
             }
 
+            {
+                let contentItems = postPreview.querySelectorAll('.post-preview__mob-item-content');
+                if (contentItems.length) {
+                    contentItems.forEach(content => {
+                        let btnLoadMore = document.createElement('a');
+                        btnLoadMore.className = 'post-preview__load-more link';
+                        btnLoadMore.innerText = 'Load more';
+                        btnLoadMore.setAttribute('href', '#');
+
+                        let listOfPosts = content.querySelector('.post-preview__list');
+
+                        if (listOfPosts) {
+                            //init
+                            if (listOfPosts.children.length > 4) {
+                                listOfPosts.after(btnLoadMore);
+
+                                Array.from(listOfPosts.children).forEach((item, index) => {
+                                    if (index > 3) {
+                                        item.classList.add('d-none');
+                                    }
+                                })
+                            }
+
+                            btnLoadMore.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                Array.from(listOfPosts.children).forEach((item, index) => {
+                                    item.classList.remove('d-none');
+                                });
+                                btnLoadMore.classList.add('d-none');
+                                this.postPreviewCardsUpdate();
+                            })
+                        }
+                    })
+                }
+            }
         })
     }
 };
@@ -1674,7 +1791,7 @@ window.popup = {
 };
 		{
     let promoHeaderBtnScrollDown = document.querySelector('.hero__btn-scroll');
-    if(promoHeaderBtnScrollDown) {
+    if (promoHeaderBtnScrollDown) {
         promoHeaderBtnScrollDown.addEventListener('click', (e) => {
             e.preventDefault();
 
@@ -1686,10 +1803,70 @@ window.popup = {
     }
 
     let bg = document.querySelector('.hero__bg');
-    if(bg) {
-        if(bg.children.length) {
+    if (bg) {
+        if (bg.children.length) {
             bg.classList.add('hero__bg--shadow');
         }
+
+        let video = bg.querySelector('video');
+        if (video) {
+            Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+                get: function () {
+                    return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+                }
+            });
+
+            const playVideo = () => {
+                video.play();
+
+                if(!video.playing) {
+                    setTimeout(() => {
+                        playVideo()
+                    }, 100)
+                }
+            }
+
+            playVideo();
+        }
+    }
+
+    let title = document.querySelector('.hero__title-1');
+    if (title) {
+        const setFontSizeByScreenWidth = (title) => {
+            let css = window.getComputedStyle(title, null);
+            let defaultFontSize = parseFloat(css.getPropertyValue('font-size'));
+
+            const setFontSeze = (fontSize) => {
+                if (title.scrollWidth > title.clientWidth) {
+                    title.style.fontSize = fontSize + 'px';
+                    setFontSeze(fontSize - 1);
+                } else {
+                    title.style.fontSize = fontSize + 'px';
+                }
+            }
+            setFontSeze(defaultFontSize);
+        }
+
+        if (document.documentElement.clientWidth < 768) {
+            let id = setInterval(() => {
+                setFontSizeByScreenWidth(title);
+            }, 100);
+
+            setTimeout(() => {
+                clearInterval(id);
+            }, 1000)
+
+        } else {
+            title.removeAttribute('style');
+        }
+
+        window.addEventListener('resize', () => {
+            if (document.documentElement.clientWidth < 768) {
+                setFontSizeByScreenWidth(title);
+            } else {
+                title.removeAttribute('style');
+            }
+        })
     }
 };
 		{
@@ -1729,7 +1906,44 @@ window.popup = {
     let casesSections = document.querySelectorAll('[data-cases]');
     if(casesSections.length) {
         casesSections.forEach(cases => {
-            
+            let list = cases.querySelector('.cases-list');
+            let btnLoadMore = cases.querySelector('.cases-load-more');
+
+            if(list && btnLoadMore) {
+                // init
+                let listItems = Array.from(list.children);
+
+                if(list.children.length > 2) {
+                    listItems.forEach((item, index) => {
+                        if(index > 1) {
+                            item.classList.add('d-none')
+                        }
+                    })
+                    btnLoadMore.classList.remove('d-none');
+                }
+
+                btnLoadMore.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    let firstHideItem = list.querySelector('li.d-none');
+                    if(firstHideItem) {
+                        firstHideItem.classList.remove('d-none');
+
+                        if(firstHideItem.nextElementSibling) {
+                            firstHideItem.nextElementSibling.classList.remove('d-none');
+                        } 
+                        if(firstHideItem.nextElementSibling?.nextElementSibling) {
+                            firstHideItem.nextElementSibling?.nextElementSibling.classList.remove('d-none');
+                        } 
+                        if(firstHideItem.nextElementSibling?.nextElementSibling?.nextElementSibling) {
+                            firstHideItem.nextElementSibling?.nextElementSibling?.nextElementSibling.classList.remove('d-none');
+                        } 
+                    } 
+
+                    if( !listItems.some(i => i.classList.contains('d-none')) ) {
+                        btnLoadMore.classList.add('d-none');
+                    }
+                })
+            }
         })
     }
 };

@@ -6,8 +6,11 @@
     @media (min-width: 992px) {
         &:hover {
             & .carousel__btn {
-                opacity: 1;
                 pointer-events: auto;
+            }
+
+            & .carousel__btn img {
+                opacity: 0.4;
             }
         }
     }
@@ -43,7 +46,6 @@
         width: calc((100vw - 162rem) / 2 + 16.5rem);
         transition: all .3s ease;
         cursor: pointer;
-        opacity: 0;
         pointer-events: none;
 
         &.hide {
@@ -62,27 +64,43 @@
         @media (min-width: 992px) {
             &:hover {
                 & img {
-                    opacity: 1;
+                    opacity: 1 !important;
                 }
             }
         }
 
         & img {
+            position: relative;
+            z-index: 2;
             height: 5rem;
             width: auto;
-            opacity: 0.4;
+            opacity: 0;
             transition: all .3s ease;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 7rem);
         }
     }
 
     &__shadow-left {
         right: 100%;
-        background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+        &::before {
+            background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+        }
     }
 
     &__shadow-right {
         left: 100%;
-        background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+
+        &::before {
+            background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
+        }
     }
 
     &--second {
@@ -93,10 +111,26 @@
 
         & .swiper-slide {
             width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
     
             @media (max-width: $md3+px) {
+                height: 100%;
                 width: 28rem;
             }
+
+            & > div {
+                flex: 1 1 auto;
+            }
+
+            & .link {
+                display: inline-block;
+            }
+        }
+
+        & .cases-card {
+            height: 100%;
         }
     }
 }

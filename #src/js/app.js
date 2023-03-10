@@ -245,7 +245,7 @@ class App {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
 			if(el.children.length) {
-				if(el.children[0].innerText.length <= 2) {
+				if(el.children[0].innerText.trim().length <= 2) {
 					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
 					el.children[1].remove();
 				}

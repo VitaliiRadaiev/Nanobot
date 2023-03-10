@@ -328,11 +328,11 @@ h5,
 	}
 
 	&.word {
-		&:not(:last-child) {
+		
 			&:after {
-				width: calc(100% - 0.25em);
+				width: 1.9em;
 			}
-		}
+		
 	}
 }
 .with-line-md {
