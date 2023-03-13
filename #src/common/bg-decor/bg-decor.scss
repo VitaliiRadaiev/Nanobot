@@ -1,6 +1,10 @@
 .bg-decor {
     position: relative;
 
+    & .vertical-parallax {
+        position: relative;
+    }
+
     & > *:not(.bg-decor__inner) {
         position: relative;
         z-index: 2;
@@ -16,63 +20,158 @@
         & .top-0 {
             top: 0;
         }
-    
+        & .top-10 {
+            top: 10%;
+        }
+        & .top-20 {
+            top: 20%;
+        }
         & .top-25 {
             top: 25%;
+        }
+        & .top-30 {
+            top: 30%;
+        }
+        & .top-40 {
+            top: 40%;
         }
         & .top-50 {
             top: 50%;
         }
+        & .top-60 {
+            top: 60%;
+        }
+        & .top-70 {
+            top: 70%;
+        }
         & .top-75 {
             top: 75%;
+        }
+        & .top-80 {
+            top: 80%;
+        }
+        & .top-90 {
+            top: 90%;
         }
         & .top-100 {
             top: 100%;
         }
     
         & .left-0 {
-            left: 0%;
+            left: 0;
+        }
+        & .left-10 {
+            left: 10%;
+        }
+        & .left-20 {
+            left: 20%;
         }
         & .left-25 {
             left: 25%;
         }
+        & .left-30 {
+            left: 30%;
+        }
+        & .left-40 {
+            left: 40%;
+        }
         & .left-50 {
             left: 50%;
         }
+        & .left-60 {
+            left: 60%;
+        }
+        & .left-70 {
+            left: 70%;
+        }
         & .left-75 {
             left: 75%;
+        }
+        & .left-80 {
+            left: 80%;
+        }
+        & .left-90 {
+            left: 90%;
         }
         & .left-100 {
             left: 100%;
         }
     
         & .right-0 {
-            right: 0%;
+            right: 0;
+        }
+        & .right-10 {
+            right: 10%;
+        }
+        & .right-20 {
+            right: 20%;
         }
         & .right-25 {
             right: 25%;
         }
+        & .right-30 {
+            right: 30%;
+        }
+        & .right-40 {
+            right: 40%;
+        }
         & .right-50 {
             right: 50%;
         }
+        & .right-60 {
+            right: 60%;
+        }
+        & .right-70 {
+            right: 70%;
+        }
         & .right-75 {
             right: 75%;
+        }
+        & .right-80 {
+            right: 80%;
+        }
+        & .right-90 {
+            right: 90%;
         }
         & .right-100 {
             right: 100%;
         }
     
         & .bottom-0 {
-            bottom: 0%;
+            bottom: 0;
+        }
+        & .top-10 {
+            bottom: 10%;
+        }
+        & .bottom-20 {
+            bottom: 20%;
         }
         & .bottom-25 {
             bottom: 25%;
         }
+        & .bottom-30 {
+            bottom: 30%;
+        }
+        & .bottom-40 {
+            bottom: 40%;
+        }
         & .bottom-50 {
             bottom: 50%;
         }
+        & .bottom-60 {
+            bottom: 60%;
+        }
+        & .bottom-70 {
+            bottom: 70%;
+        }
         & .bottom-75 {
             bottom: 75%;
+        }
+        & .bottom-80 {
+            bottom: 80%;
+        }
+        & .bottom-90 {
+            bottom: 90%;
         }
         & .bottom-100 {
             bottom: 100%;
@@ -97,6 +196,248 @@
         & .blur {
             filter: blur(8px);
         }
+
+        @media (max-width: $md3+px) {
+            & .top-0-mob {
+                top: 0;
+                bottom: auto;
+            }
+            & .top-10-mob {
+                top: 10%;
+                bottom: auto;
+            }
+            & .top-20-mob {
+                top: 20%;
+                bottom: auto;
+            }
+            & .top-25-mob {
+                top: 25%;
+                bottom: auto;
+            }
+            & .top-30-mob {
+                top: 30%;
+                bottom: auto;
+            }
+            & .top-40-mob {
+                top: 40%;
+                bottom: auto;
+            }
+            & .top-50-mob {
+                top: 50%;
+                bottom: auto;
+            }
+            & .top-60-mob {
+                top: 60%;
+                bottom: auto;
+            }
+            & .top-70-mob {
+                top: 70%;
+                bottom: auto;
+            }
+            & .top-75-mob {
+                top: 75%;
+                bottom: auto;
+            }
+            & .top-80-mob {
+                top: 80%;
+                bottom: auto;
+            }
+            & .top-90-mob {
+                top: 90%;
+                bottom: auto;
+            }
+            & .top-100-mob {
+                top: 100%;
+                bottom: auto;
+            }
+        
+            & .left-0-mob {
+                left: 0;
+                right: auto;
+            }
+            & .left-10-mob {
+                left: 10%;
+                right: auto;
+            }
+            & .left-20-mob {
+                left: 20%;
+                right: auto;
+            }
+            & .left-25-mob {
+                left: 25%;
+                right: auto;
+            }
+            & .left-30-mob {
+                left: 30%;
+                right: auto;
+            }
+            & .left-40-mob {
+                left: 40%;
+                right: auto;
+            }
+            & .left-50-mob {
+                left: 50%;
+                right: auto;
+            }
+            & .left-60-mob {
+                left: 60%;
+                right: auto;
+            }
+            & .left-70-mob {
+                left: 70%;
+                right: auto;
+            }
+            & .left-75-mob {
+                left: 75%;
+                right: auto;
+            }
+            & .left-80-mob {
+                left: 80%;
+                right: auto;
+            }
+            & .left-90-mob {
+                left: 90%;
+                right: auto;
+            }
+            & .left-100-mob {
+                left: 100%;
+                right: auto;
+            }
+        
+            & .right-0-mob {
+                right: 0;
+                left: auto;
+            }
+            & .right-10-mob {
+                right: 10%;
+                left: auto;
+            }
+            & .right-20-mob {
+                right: 20%;
+                left: auto;
+            }
+            & .right-25-mob {
+                right: 25%;
+                left: auto;
+            }
+            & .right-30-mob {
+                right: 30%;
+                left: auto;
+            }
+            & .right-40-mob {
+                right: 40%;
+                left: auto;
+            }
+            & .right-50-mob {
+                right: 50%;
+                left: auto;
+            }
+            & .right-60-mob {
+                right: 60%;
+                left: auto;
+            }
+            & .right-70-mob {
+                right: 70%;
+                left: auto;
+            }
+            & .right-75-mob {
+                right: 75%;
+                left: auto;
+            }
+            & .right-80-mob {
+                right: 80%;
+                left: auto;
+            }
+            & .right-90-mob {
+                right: 90%;
+                left: auto;
+            }
+            & .right-100-mob {
+                right: 100%;
+                left: auto;
+            }
+        
+            & .bottom-0-mob {
+                bottom: 0;
+                top: auto;
+            }
+            & .bottom-10-mob {
+                bottom: 10%;
+                top: auto;
+            }
+            & .bottom-20-mob {
+                bottom: 20%;
+                top: auto;
+            }
+            & .bottom-25-mob {
+                bottom: 25%;
+                top: auto;
+            }
+            & .bottom-30-mob {
+                bottom: 30%;
+                top: auto;
+            }
+            & .bottom-40-mob {
+                bottom: 40%;
+                top: auto;
+            }
+            & .bottom-50-mob {
+                bottom: 50%;
+                top: auto;
+            }
+            & .bottom-60-mob {
+                bottom: 60%;
+                top: auto;
+            }
+            & .bottom-70-mob {
+                bottom: 70%;
+                top: auto;
+            }
+            & .bottom-75-mob {
+                bottom: 75%;
+                top: auto;
+            }
+            & .bottom-80-mob {
+                bottom: 80%;
+                top: auto;
+            }
+            & .bottom-90-mob {
+                bottom: 90%;
+                top: auto;
+            }
+            & .bottom-100-mob {
+                bottom: 100%;
+                top: auto;
+            }
+        
+            & .center-x-mob {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+        
+            & .center-y-mob {
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+            }
+        
+            & .center-mob {
+                top: 50%;
+                left: 50%;
+                bottom: auto;
+                right: auto;
+                transform: translate(-50%, -50%);
+            }
+        
+            & .blur {
+                filter: blur(8px);
+            }
+
+            & .d-none-mob {
+                display: none;
+            }
+        }
     }
 
     &__cloth {
@@ -109,7 +450,7 @@
         }
 
         &[class*=" left-"] {
-            & > div {
+            & .layer {
                 position: relative !important;
 
                 &::before {
@@ -126,7 +467,7 @@
             } 
         }
         &[class*=" right-"] {
-            & > div {
+            & .layer {
                 position: relative !important;
 
                 &::before {

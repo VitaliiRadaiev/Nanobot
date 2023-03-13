@@ -1,8 +1,5 @@
-
-
 .home-section-one {
     position: relative;
-    
 
     &__body {
         position: relative;
@@ -116,8 +113,6 @@
     }
 }
 
-
-
 .home-section-two {
     &__body {
         position: relative;
@@ -140,7 +135,7 @@
             position: relative;
             &:before {
                 position: absolute;
-                content: '';
+                content: "";
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -181,7 +176,7 @@
         right: -11.3rem;
         width: 26.3rem;
         @media (max-width: $md3+px) {
-           // display: block;
+            // display: block;
         }
 
         & img {
@@ -364,12 +359,13 @@
 
     &--hide-icons {
         & > li {
+            padding-left: 0;
             &::before {
                 display: none;
             }
 
             @media (max-width: $md3+px) {
-                padding-left: 2rem;
+                padding-left: 0rem;
             }
         }
     }
@@ -399,14 +395,14 @@
 
     &__img {
         flex: 0 0 29rem;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
         position: relative;
-        -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
-        -webkit-transform: translate3d(0%, 0%, 0);
-        -moz-transform: translate3d(0%, 0%, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        // -webkit-backface-visibility: hidden;
+        // -moz-backface-visibility: hidden;
+        // -webkit-transform: translate3d(0%, 0%, 0);
+        // -moz-transform: translate3d(0%, 0%, 0);
         transform: translate3d(0%, 0%, 0);
 
         @media (max-width: $md2+px) {
@@ -418,7 +414,7 @@
                 transform: translateY(0);
             }
 
-            &:before {
+            & > span {
                 opacity: 1;
             }
         }
@@ -427,27 +423,60 @@
             position: relative;
             z-index: 2;
             overflow: hidden;
+            height: 25rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            width: 100%;
+
+            @media (max-width: $md3+px) {
+                height: 17.8rem;
+            }
         }
 
-        &:before {
+        // &:before {
+        //     position: absolute;
+        //     content: "";
+        //     z-index: 1;
+        //     top: 50%;
+        //     left: 50%;
+        //     width: 20rem;
+        //     height: 20rem;
+        //     max-width: 100%;
+        //     border-radius: 100%;
+        //     background: linear-gradient(263.96deg, #00b4cc 7.61%, #000aff 87.18%);
+        //     filter: blur(55px);
+        //     opacity: 0;
+        //     transition: all .6s ease .6s;
+        //     -webkit-backface-visibility: hidden;
+        //     -moz-backface-visibility: hidden;
+        //     -webkit-transform: translate3d(-50%, -50%, 0);
+        //     -moz-transform: translate3d(-50%, -50%, 0);
+        //     transform: translate3d(-50%, -50%, 0);
+        // }
+
+        & > span {
             position: absolute;
             content: "";
             z-index: 1;
+            height: 43.6rem;
+            width: 43.6rem;
+            border-radius: 50%;
             top: 50%;
             left: 50%;
-            width: 20rem;
-            height: 20rem;
-            max-width: 100%;
-            border-radius: 100%;
-            background: linear-gradient(263.96deg, #00b4cc 7.61%, #000aff 87.18%);
-            filter: blur(55px);
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
             opacity: 0;
-            transition: all .6s ease .6s;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -webkit-transform: translate3d(-50%, -50%, 0);
-            -moz-transform: translate3d(-50%, -50%, 0);
-            transform: translate3d(-50%, -50%, 0);
+            transition: all 0.6s ease 0.6s;
+
+            @media (max-width: $md3+px) {
+                height: 36.6rem;
+                width: 36.6rem;
+            }
         }
 
         & img {
@@ -458,7 +487,7 @@
             z-index: 2;
             display: block;
             transform: translateY(100%);
-            transition: all .6s ease;
+            transition: all 0.6s ease;
 
             @media (max-width: $md3+px) {
                 max-width: 14rem;
@@ -726,15 +755,12 @@
     }
 
     &__row-1 {
-
     }
 
     &__row-2 {
-
         @media (max-width: $md3+px) {
             display: none;
         }
-
     }
 
     &__text-big {
@@ -1026,7 +1052,7 @@
             position: relative;
             &:before {
                 position: absolute;
-                content: '';
+                content: "";
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -1090,7 +1116,7 @@
 
         &:before {
             position: absolute;
-            content: '';
+            content: "";
             top: 0;
             left: 0;
             width: 100%;
@@ -1272,7 +1298,6 @@
     }
 
     &__scroll-box {
-
         @media (min-width: 768px) {
             max-height: 32rem;
             overflow-y: auto;
@@ -1414,7 +1439,6 @@
         top: 10rem;
         width: 65.1rem;
 
-
         @media (max-width: $md3+px) {
             left: -2.5rem;
             width: 20.2rem;
@@ -1425,7 +1449,7 @@
             position: relative;
             &:before {
                 position: absolute;
-                content: '';
+                content: "";
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -1586,7 +1610,6 @@
     }
 
     &__tittle {
-
     }
 
     &__text {
@@ -1611,7 +1634,6 @@
         margin-bottom: 6rem;
         display: flex;
         width: 13.8rem;
-
 
         @media (min-width: 768px) {
             font-size: 4.8rem;

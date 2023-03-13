@@ -70,6 +70,10 @@
 
     &__label {
         margin-bottom: 2rem;
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
     }
 
     &__name {

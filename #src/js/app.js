@@ -412,10 +412,8 @@ class App {
 				: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
 				: null;
 
-				if (!el.hasAttribute('data-depth')) {
-					el = el.parentElement;
-				} else {
-					el = el.querySelector('img');
+				if(el.closest('.vertical-parallax')) {
+					el = el.closest('.vertical-parallax')
 				}
 
 				let id = setInterval(() => {

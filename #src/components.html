@@ -18,19 +18,25 @@
 
             <div class="bg-decor" data-parallax>
                 <div class="bg-decor__inner">
-                    <div class="bg-decor__cloth bottom-25 right-0 size-lg">
-                        <div class="layer">
-                            <img src="img/photo/decor-10.png" alt="">
+                    <div class="bg-decor__cloth bottom-25 right-0 size-lg left-0-mob top-0-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.10" data-speed="12">
+                                <img src="img/photo/decor-10.png" alt="">
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-decor__bubble-dark right-75 center-y size-md blur">
-                        <div class="layer" data-depth="0.20">
-                            <img src="img/photo/decor-13.png" alt="">
+                    <div class="bg-decor__bubble-dark right-75 center-y size-md blur left-60-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.20" data-speed="8">
+                                <img src="img/photo/decor-13.png" alt="">
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-decor__bubble-light left-75 bottom-0 size-sm">
-                        <div class="layer" data-depth="0.30" data-speed="4">
-                            <img src="img/photo/bubble-light.png" alt="">
+                    <div class="bg-decor__bubble-light left-75 bottom-0 size-sm d-none-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.30" data-speed="4">
+                                <img src="img/photo/bubble-light.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -42,7 +48,7 @@
                             crossorigin="anonymous">
                             <source src="img/nanobot_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                         </video> -->
-    
+
                     </div>
                     <div class="hero__body container">
                         <ul class="breadcrumbs">
@@ -104,8 +110,8 @@
                     <div class="hero__bg ibg">
                         <!-- <img src="img/photo/promo-bg.jpg" alt=""> -->
 
-                        <video poster="img/photo/promo-bg.jpg" controls="false" autoplay muted loop playsinline controlslist="nodownload"
-                            crossorigin="anonymous">
+                        <video poster="img/photo/promo-bg.jpg" controls="false" autoplay muted loop playsinline
+                            controlslist="nodownload" crossorigin="anonymous">
                             <source src="img/nanobot_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                         </video>
 
@@ -322,9 +328,9 @@
                         <!-- <img src="img/photo/promo-bg.jpg" alt=""> -->
 
                         <video poster="img/photo/promo-bg.jpg" autoplay muted loop playsinline controlslist="nodownload"
-						crossorigin="anonymous">
-						<source src="img/nanobot_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-					</video>
+                            crossorigin="anonymous">
+                            <source src="img/nanobot_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                        </video>
 
                     </div>
 
@@ -500,7 +506,7 @@
                     <div class="button-wrap text-center text-md-start text-start mb-md-200 mb-40 mt-md-100 mt-50">
                         <a href="#" class="btn-default">Button</a>
                     </div>
-                    
+
                     <div class="button-wrap text-end mb-md-60 mb-40">
                         <a href="#" class="btn-default">Button</a>
                     </div>

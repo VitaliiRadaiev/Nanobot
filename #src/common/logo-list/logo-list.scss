@@ -6,9 +6,19 @@
     gap: 3.5rem 3rem;
     margin-bottom: 6.5rem;
 
+    &:last-child {
+        margin-bottom: 0;
+    }
+
     @media (max-width: $md3+px) {
         margin-bottom: 4rem;
         gap: 3rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        & > li {
+            flex: 0 1 calc(25% - (2rem * 3 / 4));
+        }
     }
 
     & img,

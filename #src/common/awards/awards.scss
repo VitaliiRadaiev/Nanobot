@@ -50,6 +50,10 @@
         justify-content: center;
         gap: 9rem;
 
+        @media (max-width: $md3+px) {
+            gap: 6rem 4rem;
+        }
+
         & > li {
             flex: 0 1 calc(25% - (9rem * 3 / 4));
 
@@ -58,7 +62,7 @@
             }
 
             @media (max-width: $md3+px) {
-                flex: 0 1 100%;
+                flex: 0 1 calc(50% - 2rem);
                 max-width: 20rem;
             }
         }
@@ -150,7 +154,7 @@
         letter-spacing: 0.01em;
 
         @media (max-width: $md3+px) {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             line-height: 1.22em;
         }
     }
@@ -166,7 +170,8 @@
 
         @media (max-width: $md3+px) {
             line-height: 1.22em;
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
         }
     }
 
@@ -179,8 +184,8 @@
 
         @media (max-width: $md3+px) {
             margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.67em;
+            font-size: 1rem;
+            line-height: 1.47em;
             max-width: 19rem;
         }
     }
