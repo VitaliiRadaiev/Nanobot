@@ -12,6 +12,7 @@
         z-index: 1;
         right: 70%;
         width: 64.9rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             right: -4rem;
@@ -31,6 +32,7 @@
         z-index: 1;
         left: 87% !important;
         width: 78.5rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: none;
@@ -124,6 +126,7 @@
         right: -26.8rem;
         z-index: 1;
         width: 70.7rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             right: -25px;
@@ -626,6 +629,7 @@
         left: -58rem;
         width: 124.6rem;
         z-index: 1;
+        display: none;
 
         @media (max-width: $md3+px) {
             width: 60rem;
@@ -691,6 +695,7 @@
         width: 26.5rem;
         top: -4rem;
         left: -15rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -709,6 +714,7 @@
         filter: blur(10px);
         bottom: 0;
         transform: translateY(33%);
+        display: none;
 
         @media (max-width: $md3+px) {
             filter: none;
@@ -1043,6 +1049,7 @@
         left: -23.7rem;
         top: -19rem;
         width: 64.2rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: none;
@@ -1091,6 +1098,7 @@
         left: -63.7rem;
         top: 0;
         width: 95rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             width: 32.4rem;
@@ -1113,6 +1121,7 @@
         right: -28.7rem;
         transform: translateY(-42%);
         width: 70.7rem;
+        display: none;
 
         &:before {
             position: absolute;
@@ -1147,6 +1156,7 @@
         width: 113.8rem;
         bottom: 0;
         transform: translateY(50%);
+        display: none;
 
         @media (max-width: $md3+px) {
             right: -12rem;
@@ -1169,6 +1179,7 @@
         width: 25.4rem;
         bottom: 0;
         transform: translateY(32%);
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1438,6 +1449,7 @@
         left: -26.7rem;
         top: 10rem;
         width: 65.1rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             left: -2.5rem;
@@ -1474,6 +1486,7 @@
         right: -13rem;
         bottom: 0;
         transform: translateY(60%);
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1526,6 +1539,7 @@
         right: -61.9rem;
         width: 103.1rem;
         transform: translateY(7%);
+        display: none;
 
         @media (max-width: $md3+px) {
             right: auto;
@@ -1546,6 +1560,7 @@
         right: -2.5rem;
         top: 18rem;
         width: 20.2rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1563,6 +1578,7 @@
         bottom: -4rem;
         left: -9rem;
         width: 16.9rem;
+        display: none;
         @media (max-width: $md3+px) {
             display: block;
         }
@@ -1712,6 +1728,7 @@
         top: -5rem;
         right: -12rem;
         width: 22.1rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1730,6 +1747,7 @@
         right: -2.5rem;
         top: 11rem;
         width: 28.6rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1748,6 +1766,7 @@
         top: 70rem;
         left: -13rem;
         width: 20rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1766,6 +1785,7 @@
         width: 25rem;
         right: -15rem;
         bottom: 55rem;
+        display: none;
         @media (max-width: $md3+px) {
             display: block;
         }
@@ -1783,6 +1803,7 @@
         left: -2.5rem;
         bottom: 18rem;
         width: 20rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;
@@ -1801,6 +1822,7 @@
         right: -11rem;
         bottom: 24rem;
         width: 20rem;
+        display: none;
 
         @media (max-width: $md3+px) {
             display: block;

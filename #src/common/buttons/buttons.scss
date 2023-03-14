@@ -16,6 +16,7 @@
     position: relative;
     overflow: hidden;
     animation: btnFirst 0.3s ease-out forwards;
+    text-decoration: none !important;
 
     @media (max-width: $md2+px) {
         min-height: 5rem;

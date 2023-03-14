@@ -1,0 +1,19 @@
+[data-hide-content] {
+    display: none;
+
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+
+    &:empty {
+        display: none;
+    }
+
+    & + .link {
+        text-decoration: none;
+
+        &.hide-content-is-open {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+    }
+}

@@ -851,6 +851,13 @@ figure {
 		margin-top: 0;
 	}
 }
+.gy-8 {
+	row-gap: 8rem;
+
+	& > * {
+		margin-top: 0;
+	}
+}
 .gy-md-14 {
 	@media (min-width: 768px) {
 		margin-top: 0 !important;
@@ -874,13 +881,13 @@ figure {
 
 .last {
 	& > *:last-child {
-		margin-bottom: 0;
+		margin-bottom: 0 !important;
 	}
 }
 .last-md {
 	@media (min-width: 768px) {
 		& > *:last-child {
-			margin-bottom: 0;
+			margin-bottom: 0 !important;
 		}
 	}
 }
@@ -1509,13 +1516,16 @@ figure {
 	& h4,
 	& h5,
 	& h6 {
-		margin-bottom: 0.7em;
+		&:not([class*="mb-"]) {
+			margin-bottom: 0.7em;
+		}
 	}
 
 	& p,
 	& ul,
 	& ol,
-	& figure {
+	& figure,
+	& [data-hide-content] {
 		margin-bottom: 1.5em;
 	}
 

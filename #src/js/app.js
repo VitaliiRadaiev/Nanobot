@@ -1,5 +1,5 @@
-@@include('files/utils.js');
-@@include('files/dynamic_adapt.js');
+@@include('files/utils.js')
+@@include('files/dynamic_adapt.js')
 
 class App {
 	constructor() {
@@ -52,17 +52,17 @@ class App {
 	}
 
 	headerHandler() {
-		@@include('../common/header/header.js');
+		@@include('../common/header/header.js')
 	}
 
 	popupHandler() {
-		@@include('../common/popup/popup.js');
+		@@include('../common/popup/popup.js')
 	}
 
 	slidersInit() {
-		@@include('../common/awards/awards.js');
-		@@include('../common/carousel/carousel.js');
-		@@include('../common/testimonials-slider-card/testimonials-slider-card.js');
+		@@include('../common/awards/awards.js')
+		@@include('../common/carousel/carousel.js')
+		@@include('../common/testimonials-slider-card/testimonials-slider-card.js')
 	}
 
 
@@ -431,16 +431,17 @@ class App {
 
 
 	componentsBeforeLoad() {
-		@@include('../common/grid-links/grid-links.js');
-		@@include('../common/rating/rating.js');
-		@@include('../common/team-list/team-list.js');
-		@@include('../common/banner/banner.js');
-		@@include('../common/animation-hover-text/animation-hover-text.js');
-		@@include('../common/post-preview/post-preview.js');
-		@@include('../common/promo-header/promo-header.js');
-		@@include('../common/hero/hero.js');
-		@@include('../common/bg-decor/bg-decor.js');
-		@@include('../common/cases/cases.js');
+		@@include('../common/grid-links/grid-links.js')
+		@@include('../common/rating/rating.js')
+		@@include('../common/team-list/team-list.js')
+		@@include('../common/banner/banner.js')
+		@@include('../common/animation-hover-text/animation-hover-text.js')
+		@@include('../common/post-preview/post-preview.js')
+		@@include('../common/promo-header/promo-header.js')
+		@@include('../common/hero/hero.js')
+		@@include('../common/bg-decor/bg-decor.js')
+		@@include('../common/cases/cases.js')
+		@@include('../common/hide-content/hide-content.js')
 	}
 
 	componentsAfterLoad() {

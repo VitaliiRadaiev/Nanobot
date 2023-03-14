@@ -213,7 +213,7 @@ class Utils {
 }
 
 
-;
+
 // HTML data-da="where(uniq class name),when(breakpoint),position(digi)"
 // e.x. data-da=".content__column-garden,992,2"
 // https://github.com/FreelancerLifeStyle/dynamic_adapt
@@ -346,7 +346,7 @@ class DynamicAdapt {
 	  }
 	}
 }
-;
+
 
 class App {
 	constructor() {
@@ -477,7 +477,7 @@ if (menu) {
             }
         }
     })
-};
+}
 	}
 
 	popupHandler() {
@@ -646,7 +646,7 @@ window.popup = {
 		popupClose(popup);
 	}
 }
-;
+
 	}
 
 	slidersInit() {
@@ -676,7 +676,7 @@ window.popup = {
             })
         }
     }
-};
+}
 		{
     let carousels = document.querySelectorAll('[data-slider="carousel"]');
     if(carousels.length) {
@@ -777,7 +777,7 @@ window.popup = {
             })
         })
     }
-};
+}
 		{
     let testimonialsSliderCards = document.querySelectorAll('[data-slider="testimonials-slider-card"]');
     if(testimonialsSliderCards.length) {
@@ -811,7 +811,7 @@ window.popup = {
             sliderDataText.controller.control = sliderDataLogos;
         })
     }
-};
+}
 	}
 
 
@@ -1473,7 +1473,7 @@ window.popup = {
             }
         })
     }
-};
+}
 		{
     let ratings = document.querySelectorAll('[data-rating]');
     if(ratings.length) {
@@ -1487,7 +1487,7 @@ window.popup = {
             starsLine.style.width = `calc(${count / 5 * 100}% - ${0.4}rem)`;
         })
     }
-};
+}
 		{
     let teamList = document.querySelector('[data-team-list]');
     if(teamList) {
@@ -1512,7 +1512,7 @@ window.popup = {
         }
 
     }
-};
+}
 		{
     let bannerSections = document.querySelectorAll('[data-banner]');
     if(bannerSections.length) {
@@ -1536,7 +1536,7 @@ window.popup = {
             }
         })
     }
-};
+}
 		{
     let animationHoverTextContainers = document.querySelectorAll('[data-animation-hover-text]');
     if (animationHoverTextContainers.length) {
@@ -1609,7 +1609,7 @@ window.popup = {
             })
         })
     }
-};
+}
 		{
     let postPreviewSections = document.querySelectorAll('[data-post-preview]');
     if (postPreviewSections.length) {
@@ -1766,7 +1766,7 @@ window.popup = {
             }
         })
     }
-};
+}
 		{
     let promoHeaderBtnScrollDown = document.querySelector('.promo-header__btn-scroll');
     if(promoHeaderBtnScrollDown) {
@@ -1786,7 +1786,7 @@ window.popup = {
             bg.classList.add('promo-header__bg--shadow');
         }
     }
-};
+}
 		{
     let promoHeaderBtnScrollDown = document.querySelector('.hero__btn-scroll');
     if (promoHeaderBtnScrollDown) {
@@ -1873,7 +1873,7 @@ window.popup = {
             } 
         })
     }
-};
+}
 		{
     let bgDecorContainers = document.querySelectorAll('.bg-decor');
     if(bgDecorContainers.length) {
@@ -1906,7 +1906,7 @@ window.popup = {
 
         return box.top + window.pageYOffset;
     }
-};
+}
 		{
     let casesSections = document.querySelectorAll('[data-cases]');
     if(casesSections.length) {
@@ -1951,7 +1951,40 @@ window.popup = {
             }
         })
     }
-};
+}
+		{
+    let hideContentElements = document.querySelectorAll('[data-hide-content]');
+    if(hideContentElements.length) {
+        hideContentElements.forEach(hideContentEl => {
+            if(hideContentEl.children.length) {
+                let btnTextCloseState = hideContentEl.dataset?.buttonText.split(',')[0];
+                let btnTextOpenState = hideContentEl.dataset?.buttonText.split(',')[1];
+                let btn = document.createElement('a');
+                btn.setAttribute('href', '#');
+                btn.className = 'link';
+                btn.innerText = btnTextCloseState;
+
+                hideContentEl.after(btn);
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    if(hideContentEl.classList.contains('hide-content-is-open')) {
+                        hideContentEl.classList.remove('hide-content-is-open')
+                        this.utils.slideUp(hideContentEl);
+                        btn.innerText = btnTextCloseState;
+                        btn.classList.remove('hide-content-is-open');
+                    } else {
+                        hideContentEl.classList.add('hide-content-is-open')
+                        this.utils.slideDown(hideContentEl);
+                        btn.innerText = btnTextOpenState;
+                        btn.classList.add('hide-content-is-open');
+                    }
+                })
+            }
+        })
+    }
+}
 	}
 
 	componentsAfterLoad() {
