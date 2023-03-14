@@ -554,6 +554,10 @@ figure {
 	}
 }
 
+[data-sticky-box] {
+	
+}
+
 .tags {
 	display: flex;
 	gap: 1rem 2rem;
@@ -656,7 +660,7 @@ figure {
 	&__side-column {
 		flex: 0 0 41.8rem;
 		min-width: 0;
-
+		
 		@media (max-width: 1576px) {
 			flex: 0 0 36rem;
 		}

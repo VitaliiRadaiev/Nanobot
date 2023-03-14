@@ -91,6 +91,7 @@ class App {
 				}
 
 				tabsContainer.addEventListener('click', (e) => {
+					e.preventDefault();
 					if (e.target.closest('[data-tab-trigger]')) {
 						let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
 						let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
@@ -442,6 +443,8 @@ class App {
 		@@include('../common/bg-decor/bg-decor.js')
 		@@include('../common/cases/cases.js')
 		@@include('../common/hide-content/hide-content.js')
+		@@include('../common/posts-list/posts-list.js')
+		@@include('../common/sticky-box/sticky-box.js')
 	}
 
 	componentsAfterLoad() {
