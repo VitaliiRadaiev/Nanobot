@@ -5456,6 +5456,7 @@ figure {
 
 .testimonials-slider-card {
   border: 1px solid #F3F3F3;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .testimonials-slider-card__head {
