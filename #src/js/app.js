@@ -91,8 +91,8 @@ class App {
 				}
 
 				tabsContainer.addEventListener('click', (e) => {
-					e.preventDefault();
 					if (e.target.closest('[data-tab-trigger]')) {
+						e.preventDefault();
 						let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
 						let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
 						let item = e.target.closest('[data-tab-trigger]');
