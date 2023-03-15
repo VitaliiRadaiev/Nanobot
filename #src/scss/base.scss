@@ -210,10 +210,36 @@ h2,
 	font-family: $mainFontFamily;
 	margin-top: 0;
 	margin-bottom: 0;
+	position: relative;
+	z-index: 10;
 
 	@media (max-width: $md3+px) {
 		font-size: 3rem;
 		line-height: 1.2em;
+	}
+
+	& > * {
+		position: relative;
+		z-index: 2;
+		margin-bottom: 0 !important;
+	}
+
+	&:before {
+		position: absolute;
+		content: attr(data-num);
+		top: -0.3em;
+		left: -0.3em;
+		display: block;
+		font-size: 4.16em;
+		line-height: 1.2em;
+		color: rgba(255, 255, 255, 0.19);
+		font-family: $secondFontFamily !important;
+		z-index: -1;
+
+		@media (max-width: $md3+px) {
+			font-size: 3em;
+			left: -0.28em;
+		}
 	}
 }
 
@@ -433,17 +459,17 @@ figure {
 }
 
 ._page {
-	overflow: hidden;
-	position: relative;
+	// overflow: hidden;
+	// position: relative;
 
-	& > *:not(.bg-decor__inner) {
-		@for $i from 1 through 40 {
-			&:nth-child(#{$i}) {
-				position: relative;
-				z-index: $i;
-			}
-		}
-	}
+	// & > *:not(.bg-decor__inner) {
+	// 	@for $i from 1 through 40 {
+	// 		&:nth-child(#{$i}) {
+	// 			position: relative;
+	// 			z-index: $i;
+	// 		}
+	// 	}
+	// }
 }
 
 .main-wrapper {
@@ -691,7 +717,7 @@ figure {
 
 	& img, & svg {
 		height: 3.6rem;
-		
+		width: auto;
 		& path {
 			fill: currentColor;
 		}
