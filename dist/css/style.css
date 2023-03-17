@@ -2651,8 +2651,8 @@ h2 > *,
   margin-bottom: 0 !important;
 }
 
-h2:before,
-.title-2:before {
+h2[data-num]::after,
+.title-2[data-num]::after {
   position: absolute;
   content: attr(data-num);
   top: -0.3em;
@@ -3617,10 +3617,6 @@ figure {
 .text-content ul,
 .text-content ol,
 .text-content figure,
-.text-content [data-hide-content] {
-  margin-bottom: 1.5em;
-}
-
 .text-content > *:first-child {
   margin-top: 0;
 }
@@ -5245,12 +5241,13 @@ figure {
 }
 
 .post-card__title {
-  font-size: 3.2rem;
-  line-height: 4.2rem;
+  font-size: 2.4rem;
+  line-height: 1.31em;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-family: "VenusRisingRg-Regular", sans-serif;
   margin-bottom: 0.9rem;
+  word-break: break-word;
 }
 
 .post-card__subtitle {
@@ -6224,15 +6221,15 @@ figure {
 }
 
 .bg-decor__bubble-light.size-sm {
-  width: 33.7rem;
+  width: 78.5rem;
 }
 
 .bg-decor__bubble-light.size-md {
-  width: 40.1rem;
+  width: 103.1rem;
 }
 
 .bg-decor__bubble-light.size-lg {
-  width: 54.6rem;
+  width: 124.4rem;
 }
 
 .promo-header {
@@ -6429,8 +6426,7 @@ figure {
      object-fit: cover;
 }
 
-.hero__bg--shadow:before,
-.hero__bg[style]:before {
+.hero__bg--shadow:before {
   position: absolute;
   content: "";
   z-index: 3;
@@ -6464,6 +6460,10 @@ figure {
   margin-bottom: 0;
 }
 
+.hero__inner > *:last-child {
+  margin-bottom: 0 !important;
+}
+
 .hero__title-1 {
   font-weight: 400;
   font-size: 10rem;
@@ -6477,22 +6477,31 @@ figure {
 .hero__title-2 {
   font-weight: 700;
   font-size: 3.2rem;
-  line-height: 4.4rem;
+  line-height: 1.375em;
   margin-bottom: 1.4rem;
+  max-width: 78rem;
 }
 
 .hero__title-2 + .hero__btn-wrap {
   margin-top: 5.6rem;
 }
 
+.hero__title-2 * {
+  line-height: 1.375em;
+}
+
 .hero__text {
   margin-bottom: 7rem;
-  max-width: 50rem;
+  max-width: 78rem;
   font-weight: 300;
   font-size: 1.8rem;
-  line-height: 2.5rem;
+  line-height: 1.38em;
   letter-spacing: 0.01em;
   color: #f3f3f3;
+}
+
+.hero__text * {
+  line-height: 1.38em;
 }
 
 .hero__btn-wrap {
@@ -7060,15 +7069,11 @@ figure {
 }
 
 [data-hide-content] {
-  display: none;
-}
-
-[data-hide-content] > *:last-child {
-  margin-bottom: 0;
-}
-
-[data-hide-content]:empty {
-  display: none;
+  -webkit-transition: height 0.5s ease;
+  -o-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+  height: 33rem;
+  overflow: hidden;
 }
 
 [data-hide-content] + .link {
@@ -9584,8 +9589,8 @@ figure {
     line-height: 1.2em;
   }
 
-  h2:before,
-  .title-2:before {
+  h2[data-num]::after,
+  .title-2[data-num]::after {
     font-size: 3em;
     left: -0.28em;
   }
@@ -10440,7 +10445,7 @@ figure {
   }
 
   .bg-decor__bubble-light.size-sm {
-    width: 16.2rem;
+    width: 20.2rem;
   }
 
   .bg-decor__bubble-light.size-md {
@@ -10448,7 +10453,7 @@ figure {
   }
 
   .bg-decor__bubble-light.size-lg {
-    width: 40rem;
+    width: 60rem;
   }
 
   .promo-header__bg--shadow:before,
@@ -10495,8 +10500,7 @@ figure {
     display: none;
   }
 
-  .hero__bg--shadow:before,
-  .hero__bg[style]:before {
+  .hero__bg--shadow:before {
     background: -o-linear-gradient(89.38deg, #000000 0.61%, rgba(0, 0, 0, 0) 48.11%);
     background: linear-gradient(0.62deg, #000000 0.61%, rgba(0, 0, 0, 0) 48.11%);
   }
@@ -10515,7 +10519,6 @@ figure {
 
   .hero__title-2 {
     font-size: 1.4rem;
-    line-height: 1.8rem;
     margin-bottom: 1.8rem;
     padding: 0 2rem;
   }
@@ -10527,9 +10530,13 @@ figure {
   .hero__text {
     font-weight: 400;
     font-size: 1.2rem;
-    line-height: 1.8rem;
+    line-height: 1.5em;
     margin-bottom: 4rem;
     padding: 0 2rem;
+  }
+
+  .hero__text * {
+    line-height: 1.5em;
   }
 
   .hero__btn-wrap {

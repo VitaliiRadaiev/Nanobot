@@ -224,7 +224,7 @@ h2,
 		margin-bottom: 0 !important;
 	}
 
-	&:before {
+	&[data-num]::after {
 		position: absolute;
 		content: attr(data-num);
 		top: -0.3em;
@@ -1584,9 +1584,6 @@ figure {
 	& ul,
 	& ol,
 	& figure,
-	& [data-hide-content] {
-		margin-bottom: 1.5em;
-	}
 
 	& > *:first-child {
 		margin-top: 0;

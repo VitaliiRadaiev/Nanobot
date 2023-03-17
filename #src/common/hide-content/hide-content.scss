@@ -1,14 +1,7 @@
 [data-hide-content] {
-    display: none;
-
-    & > *:last-child {
-        margin-bottom: 0;
-    }
-
-    &:empty {
-        display: none;
-    }
-
+    transition: height .5s ease; 
+    height: 33rem;
+    overflow: hidden;
     & + .link {
         text-decoration: none;
 
