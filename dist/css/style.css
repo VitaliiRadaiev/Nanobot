@@ -6426,7 +6426,8 @@ figure {
      object-fit: cover;
 }
 
-.hero__bg--shadow:before {
+.hero__bg--shadow:before,
+.hero__bg[style*=background]:before {
   position: absolute;
   content: "";
   z-index: 3;
@@ -7084,6 +7085,114 @@ figure {
   -webkit-transform: translateY(-50%) rotate(-90deg);
       -ms-transform: translateY(-50%) rotate(-90deg);
           transform: translateY(-50%) rotate(-90deg);
+}
+
+.list-gallery {
+  position: relative;
+}
+
+.list-gallery__col-1 {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 4rem;
+}
+
+.list-gallery__col-2 {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  -webkit-transform: translateX(5%);
+      -ms-transform: translateX(5%);
+          transform: translateX(5%);
+  height: 100%;
+  width: 90%;
+}
+
+.list-gallery__nav {
+  max-width: 60rem;
+}
+
+.list-gallery__nav.list-step-line {
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1.7em;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #9d9d9d;
+}
+
+.list-gallery__nav.list-step-line > li {
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.list-gallery__nav.list-step-line > li:not(:last-child) {
+  margin-bottom: 0.625em;
+}
+
+.list-gallery__nav.list-step-line > li:first-child:not(.tab-active) .list-step-line__dot::before {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.list-gallery__nav.list-step-line > li.tab-active {
+  font-weight: 700;
+  color: #fff;
+}
+
+.list-gallery__nav.list-step-line > li.tab-active .list-step-line__dot::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.list-gallery__img {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+.list-gallery__img.tab-active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: imgFadeIn 1.5s ease;
+          animation: imgFadeIn 1.5s ease;
+}
+
+@-webkit-keyframes imgFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10rem);
+            transform: translateY(10rem);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+
+@keyframes imgFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10rem);
+            transform: translateY(10rem);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
 }
 
 .home-section-one {
@@ -8948,6 +9057,28 @@ figure {
     display: none;
   }
 
+  .list-gallery__col-1 {
+    margin-bottom: 0;
+    min-height: 86rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .list-gallery__col-2 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
   .home-section-two__row-1 .home-section-two__col:nth-child(1) {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
@@ -10500,7 +10631,8 @@ figure {
     display: none;
   }
 
-  .hero__bg--shadow:before {
+  .hero__bg--shadow:before,
+  .hero__bg[style*=background]:before {
     background: -o-linear-gradient(89.38deg, #000000 0.61%, rgba(0, 0, 0, 0) 48.11%);
     background: linear-gradient(0.62deg, #000000 0.61%, rgba(0, 0, 0, 0) 48.11%);
   }
@@ -10624,6 +10756,35 @@ figure {
   .post-preview-card__img {
     padding-bottom: 63.29%;
     margin-bottom: 1.2rem;
+  }
+
+  .list-gallery__col-2 {
+    height: 40rem;
+    width: 100%;
+    -webkit-transform: translate(0);
+        -ms-transform: translate(0);
+            transform: translate(0);
+    position: static;
+  }
+
+  .list-gallery__col-2 img {
+    height: 100%;
+    width: auto;
+  }
+
+  .list-gallery__nav.list-step-line {
+    font-size: 2rem;
+  }
+
+  .list-gallery__nav.list-step-line > li:not(:last-child) {
+    margin-bottom: 1.625em;
+  }
+
+  .list-gallery__img {
+    width: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .home-section-one__decor-1 {

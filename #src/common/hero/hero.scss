@@ -18,7 +18,7 @@
             object-fit: cover;
         }
 
-        &--shadow {
+        &--shadow, &[style*="background"] {
             &:before {
                 position: absolute;
                 content: "";
