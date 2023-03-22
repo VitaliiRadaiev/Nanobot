@@ -2,11 +2,6 @@
     display: flex;
     gap: 4rem;
     justify-content: space-between;
-    margin-bottom: 6rem;
-
-    @media (max-width: $md3+px) {
-        margin-bottom: 4rem;
-    }
 
     &__selected-tag {
         font-weight: 700;
@@ -153,7 +148,6 @@
         text-transform: uppercase;
         font-family: $secondFontFamily;
         margin-bottom: 0.9rem;
-        word-break: break-word;
     }
 
     &__subtitle {

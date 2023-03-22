@@ -38,9 +38,9 @@
         transition: all 0.3s ease;
         display: inline-block;
 
-        &:not(:last-child) {
-            padding-right: 0.25em;
-        }
+        // &:not(:last-child) {
+        //     padding-right: 0.25em;
+        // }
 
         @media (min-width: 992px) {
             &:hover {

@@ -393,7 +393,7 @@ class App {
 		window.addEventListener('load', () => {
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
-
+			this.setAdaptiveFontSize();
 		});
 
 	}
@@ -733,7 +733,10 @@ window.popup = {
                 //     prevEl: carousel.querySelector('.carousel__shadow-left'),
                 // },
             });
-            
+
+            setTimeout(() => {
+                sliderData.update();
+            },1000)
             function setButtonsVisibility(sliderData) {
                 if(sliderData.isBeginning) {
                     btnLeft.classList.add('hide');
@@ -861,7 +864,7 @@ window.popup = {
 							getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
 						})
 
-						if(this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
+						if (this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
 					}
 				})
 
@@ -1217,6 +1220,8 @@ window.popup = {
 
 		setFontSize();
 
+
+
 		window.addEventListener('resize', setFontSize);
 	}
 
@@ -1224,8 +1229,8 @@ window.popup = {
 		const wrapWords = (el) => {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
-			if(el.children.length) {
-				if(el.children[0].innerText.trim().length <= 2) {
+			if (el.children.length) {
+				if (el.children[0].innerText.trim().length <= 2) {
 					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
 					el.children[1].remove();
 				}
@@ -1281,12 +1286,12 @@ window.popup = {
 						let id = setInterval(() => {
 							handler();
 						}, 100);
-	
+
 						setTimeout(() => {
 							clearInterval(id);
 						}, 500)
 					})
-				} else if(el.classList.contains('post-preview-card__title')) {
+				} else if (el.classList.contains('post-preview-card__title')) {
 					wrapWords(el);
 
 					const handler = () => {
@@ -1311,7 +1316,7 @@ window.popup = {
 						let id = setInterval(() => {
 							handler();
 						}, 100);
-	
+
 						setTimeout(() => {
 							clearInterval(id);
 						}, 500)
@@ -1320,7 +1325,7 @@ window.popup = {
 			})
 
 			this.postPreviewCardsUpdate = () => {
-				if(postPreviewCardsHandlers.length) {
+				if (postPreviewCardsHandlers.length) {
 					postPreviewCardsHandlers.forEach(f => f());
 				}
 			}
@@ -1388,18 +1393,18 @@ window.popup = {
 			}
 
 			elements.forEach(el => {
-				let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed 
-				: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
-				: null;
+				let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed
+					: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
+						: null;
 
-				if(el.closest('.vertical-parallax')) {
+				if (el.closest('.vertical-parallax')) {
 					el = el.closest('.vertical-parallax')
 				}
 
 				let id = setInterval(() => {
 					parallaxHandler(el, speedAttribute);
 				}, 30);
-	
+
 				setTimeout(() => {
 					clearInterval(id);
 				}, 1000)
@@ -1409,6 +1414,53 @@ window.popup = {
 		}
 	}
 
+	setAdaptiveFontSize() {
+		let elements = document.querySelectorAll('[data-adaptive-font-size]');
+		if (elements.length) {
+			elements.forEach(el => {
+				let link = el.querySelector('a');
+
+				const setFontSizeByScreenWidth = (title) => {
+					let css = window.getComputedStyle(title, null);
+					let defaultFontSize = Math.round(parseFloat(css.getPropertyValue('font-size')));
+					
+					if(link) {
+						title.innerHTML = link.innerText;
+					}
+
+					const setFontSeze = (fontSize) => {
+						if (title.scrollWidth > title.clientWidth) {
+							title.style.fontSize = fontSize + 'px';
+							setFontSeze(fontSize - 1);
+						} else {
+							title.style.fontSize = fontSize + 'px';
+						}
+					}
+					setFontSeze(defaultFontSize);
+
+					if(link) {
+						title.innerText = '';
+						title.append(link);
+					}
+				}
+
+				setFontSizeByScreenWidth(el);
+
+				// let id = setInterval(() => {
+				// 	setFontSizeByScreenWidth(el);
+				// }, 100);
+
+				// setTimeout(() => {
+				// 	clearInterval(id);
+				// }, 1000)
+
+				window.addEventListener('resize', () => {
+					setFontSizeByScreenWidth(el);
+				})
+			})
+		}
+
+	}
 
 	componentsBeforeLoad() {
 		{
@@ -1541,75 +1593,98 @@ window.popup = {
 		{
     let animationHoverTextContainers = document.querySelectorAll('[data-animation-hover-text]');
     if (animationHoverTextContainers.length) {
-        animationHoverTextContainers.forEach(container => {
-            const wrapWords = (el) => {
-                el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
-            }
-            const getText = (container) => {
-                if (container.children.length) {
-                    Array.from(container.children).forEach(el => {
-                        if (el.children.length) {
-                            Array.from(el.children).forEach(e => {
-                                if(e.nodeName === 'BR') {
-                                    e.remove();
+        if (document.documentElement.clientWidth >= 768) {
+            animationHoverTextContainers.forEach(container => {
+                const wrapWords = (el) => {
+                    el.innerHTML = el.innerText.replace(/\s?[\w\-'’]+[\s|,|\.]?/g, '<span class="word">$&</span>');
+                }
+                const getText = (container) => {
+                    if (container.children.length) {
+                        Array.from(container.children).forEach(el => {
+                            if (el.children.length) {
+                                Array.from(el.children).forEach(e => {
+                                    if (e.nodeName === 'BR') {
+                                        e.remove();
+                                    }
+                                })
+                                let result = Array.from(el.children).some(e => e.nodeName === 'A');
+                                if (result) {
+                                    wrapWords(el);
+                                    return;
+                                } else {
+                                    getText(el);
                                 }
-                            })
-                            let result = Array.from(el.children).some(e => e.nodeName === 'A');
-                            if (result) {
-                                wrapWords(el);
-                                return;
                             } else {
-                                getText(el);
+                                wrapWords(el);
+                                return
                             }
-                        } else {
-                            wrapWords(el);
-                            return
-                        }
-                    })
-                } else {
-                    wrapWords(container);
-                    return
+                        })
+                    } else {
+                        wrapWords(container);
+                        return
+                    }
                 }
-            }
-            const getCoords = (el, container) => {
-                let box = el.getBoundingClientRect();
-                let wrapBox = container.getBoundingClientRect();
-                return {
-                    top: box.top - wrapBox.top + (el.clientHeight / 2),
-                    left: box.left - wrapBox.left + (el.clientWidth / 2),
-                    width: el.clientWidth + 40,
-                    height: el.clientHeight,
-                };
-            }
-            const setShadowPostion = (el, x, y, width, height) => {
-                el.style.left = x + 'px';
-                el.style.top = y + 'px';
-                el.style.width = width + 'px';
-                el.style.height = height + 'px';
-            }
-
-            // init
-            getText(container);
-
-            // set Shadow
-            let shadowEl = document.createElement('div');
-            shadowEl.className = 'text-bg-shadow';
-            container.append(shadowEl);
-
-            container.addEventListener('mousemove', (e) => {
-                let word = e.target.closest('.word');
-                if (word) {
-                    container.classList.add('_hover');
-                    let {top, left, width, height} = getCoords(word, container);
-                    setShadowPostion(shadowEl, left, top, width, height);
+                const getCoords = (el, container) => {
+                    let box = el.getBoundingClientRect();
+                    let wrapBox = container.getBoundingClientRect();
+                    return {
+                        top: box.top - wrapBox.top + (el.clientHeight / 2),
+                        left: box.left - wrapBox.left + (el.clientWidth / 2),
+                        width: el.clientWidth + 40,
+                        height: el.clientHeight,
+                    };
                 }
-            })
+                const setShadowPostion = (el, x, y, width, height) => {
+                    el.style.left = x + 'px';
+                    el.style.top = y + 'px';
+                    el.style.width = width + 'px';
+                    el.style.height = height + 'px';
+                }
 
-            container.addEventListener('mouseleave', () => {
-                container.classList.remove('_hover');
+                // init
+
+                let text = wrapWordsInSpan(container.innerHTML);
+                container.innerHTML = text;
+
+                // set Shadow
+                let shadowEl = document.createElement('div');
+                shadowEl.className = 'text-bg-shadow';
+                container.append(shadowEl);
+
+                container.addEventListener('mousemove', (e) => {
+                    let word = e.target.closest('.word');
+                    if (word) {
+                        container.classList.add('_hover');
+                        let { top, left, width, height } = getCoords(word, container);
+                        setShadowPostion(shadowEl, left, top, width, height);
+                    }
+                })
+
+                container.addEventListener('mouseleave', () => {
+                    container.classList.remove('_hover');
+                })
             })
-        })
+        }
     }
+
+    function wrapWordsInSpan(text) {
+        const words = text.split(/(<.*?>|\s+)/);
+
+        const wordsInSpans = words.map(word => {
+            if (word.match(/<.*?>/)) {
+                return word;
+            } else if (word.trim() !== '') {
+                return `<span class="word">${word}</span>`;
+            } else {
+                return word;
+            }
+        });
+
+        const wrappedText = wordsInSpans.join('');
+
+        return wrappedText;
+    }
+
 }
 		{
     let postPreviewSections = document.querySelectorAll('[data-post-preview]');

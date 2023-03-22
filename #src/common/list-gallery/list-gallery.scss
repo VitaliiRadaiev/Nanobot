@@ -5,13 +5,14 @@
         position: relative;
         z-index: 2;
         margin-bottom: 4rem;
+        padding-top: 6rem;
 
         @media (min-width: 768px) {
+            padding-top: 12rem;
             margin-bottom: 0;
-            min-height: 86rem;
+            min-height: 113rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
     }
 
@@ -20,7 +21,7 @@
         z-index: 1;
         top: 0;
         right: 0;
-        transform: translateX(5%);
+        transform: translateX(11%);
         height: 100%;
         width: 90%;
 
@@ -29,6 +30,7 @@
             width: 100%;
             transform: translate(0);
             position: static;
+            padding-bottom: 6rem;
         }
 
         & img {
@@ -62,10 +64,22 @@
                 font-size: 2rem;
             }
 
+            &::before {
+                top: 50%;
+                transform: translate(-50%, -50%);
+                height: calc(100% - 1.7em);
+            }
+
             & > li {
                 cursor: pointer;
                 transition: all .3s ease;
                 user-select: none;
+
+                &:first-child, &:last-child {
+                    &::before {
+                        display: none;
+                    }
+                }
 
                 &:not(:last-child) {
                     margin-bottom: 0.625em;
@@ -97,13 +111,12 @@
 
     &__img {
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         height: 100%;
         width: 100%;
 
         @media (max-width: $md3+px) {
             width: auto;
-            justify-content: center;
         }
 
         &.tab-active {

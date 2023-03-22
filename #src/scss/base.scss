@@ -462,14 +462,14 @@ figure {
 	// overflow: hidden;
 	// position: relative;
 
-	// & > *:not(.bg-decor__inner) {
-	// 	@for $i from 1 through 40 {
-	// 		&:nth-child(#{$i}) {
-	// 			position: relative;
-	// 			z-index: $i;
-	// 		}
-	// 	}
-	// }
+	& > *:not(.bg-decor__inner) {
+		@for $i from 1 through 40 {
+			&:nth-child(#{$i}) {
+				position: relative;
+				z-index: $i;
+			}
+		}
+	}
 }
 
 .main-wrapper {
@@ -663,7 +663,7 @@ figure {
 		max-width: calc(100% - 9rem - 41.8rem);
 		display: flex;
 		flex-direction: column;
-		gap: 10rem;
+		gap: 6rem;
 
 		@media (max-width: 1576px) {
 			max-width: calc(100% - 5rem - 36rem);
@@ -890,12 +890,53 @@ figure {
 	}
 }
 
+// text size options
+.text-\[1\.8rem\] {
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	letter-spacing: 0.01em;
+
+	@media (max-width: $md3+px) {
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+}
+.text-\[2\.4rem\] {
+	font-size: 2.4rem;
+	line-height: 1.47em;
+	letter-spacing: 0.01em;
+
+	@media (max-width: $md3+px) {
+		font-size: 1.6rem;
+	}
+}
+.text-\[3rem\] {
+	font-size: 3rem;
+	line-height: 1.47em;
+	letter-spacing: 0.01em;
+
+	@media (max-width: $md3+px) {
+		font-size: 1.8rem;
+	}
+}
+.text-\[3rem\]-uppercase {
+	font-size: 3rem;
+	line-height: 1.93em;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+
+	@media (max-width: $md3+px) {
+		font-size: 1.8rem;
+	}
+}
+
 .text-md-\[2rem\] {
 	@media (min-width: 768px) {
 		font-size: 2rem;
 		line-height: 1.5em;
 	}
 }
+// // text size options
 
 .g-5,
 .gx-5 {
@@ -905,6 +946,10 @@ figure {
 .gx-10 {
 	--bs-gutter-x: 10rem;
 }
+.gy-3 {
+	--bs-gutter-x: 3rem;
+}
+
 .gy-5 {
 	row-gap: 5rem;
 
@@ -978,6 +1023,128 @@ figure {
 }
 .font-700 {
 	font-weight: 700;
+}
+
+.pb-5 {
+	padding-bottom: 0.5rem;
+}
+.pb-10 {
+	padding-bottom: 1rem;
+}
+.pb-15 {
+	padding-bottom: 1.5rem;
+}
+.pb-20 {
+	padding-bottom: 2rem;
+}
+.pb-25 {
+	padding-bottom: 2.5rem;
+}
+.pb-30 {
+	padding-bottom: 3rem;
+}
+.pb-35 {
+	padding-bottom: 3.5rem;
+}
+.pb-40 {
+	padding-bottom: 4rem;
+}
+.pb-45 {
+	padding-bottom: 4.5rem;
+}
+.pb-50 {
+	padding-bottom: 5rem;
+}
+.pb-55 {
+	padding-bottom: 5.5rem;
+}
+.pb-60 {
+	padding-bottom: 6rem;
+}
+.pb-65 {
+	padding-bottom: 6.5rem;
+}
+.pb-70 {
+	padding-bottom: 7rem;
+}
+.pb-75 {
+	padding-bottom: 7.5rem;
+}
+.pb-80 {
+	padding-bottom: 8rem;
+}
+.pb-85 {
+	padding-bottom: 8.5rem;
+}
+.pb-90 {
+	padding-bottom: 9rem;
+}
+.pb-95 {
+	padding-bottom: 9.5rem;
+}
+.pb-100 {
+	padding-bottom: 10rem;
+}
+
+.pt-5 {
+	padding-top: 0.5rem;
+}
+.pt-10 {
+	padding-top: 1rem;
+}
+.pt-15 {
+	padding-top: 1.5rem;
+}
+.pt-20 {
+	padding-top: 2rem;
+}
+.pt-25 {
+	padding-top: 2.5rem;
+}
+.pt-30 {
+	padding-top: 3rem;
+}
+.pt-35 {
+	padding-top: 3.5rem;
+}
+.pt-40 {
+	padding-top: 4rem;
+}
+.pt-45 {
+	padding-top: 4.5rem;
+}
+.pt-50 {
+	padding-top: 5rem;
+}
+.pt-55 {
+	padding-top: 5.5rem;
+}
+.pt-60 {
+	padding-top: 6rem;
+}
+.pt-65 {
+	padding-top: 6.5rem;
+}
+.pt-70 {
+	padding-top: 7rem;
+}
+.pt-75 {
+	padding-top: 7.5rem;
+}
+.pt-80 {
+	padding-top: 8rem;
+}
+.pt-85 {
+	padding-top: 8.5rem;
+}
+.pt-90 {
+	padding-top: 9rem;
+}
+.pt-95 {
+	padding-top: 9.5rem;
+}
+.pt-100 {
+	padding-top: 10rem;
 }
 
 .mb-5 {

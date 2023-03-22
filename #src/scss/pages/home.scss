@@ -3,7 +3,6 @@
 
     &__body {
         position: relative;
-        padding-top: 4rem;
     }
 
     &__decor-1 {
@@ -48,7 +47,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
             position: absolute !important;
             z-index: 1;
             top: 6.2rem !important;
@@ -73,6 +72,7 @@
     }
 
     &__title {
+        margin-top: 4rem;
     }
 
     &__row-1 {
@@ -233,7 +233,7 @@
         width: 26.2rem;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -710,7 +710,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -748,7 +748,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
             left: -2.5rem;
             top: 33rem;
             width: 28.6rem;
@@ -1064,7 +1064,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: none;
+           //display: none;
         }
 
         & > div {
@@ -1194,7 +1194,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1309,9 +1309,11 @@
 
     &__text-wrap {
         flex: 0 0 39.4rem;
+        width: 39.4rem;
         padding: 4rem 5rem;
 
         @media (max-width: $md3+px) {
+            width: auto;
             padding: 3rem 3.5rem 4.5rem;
         }
 
@@ -1348,8 +1350,8 @@
 
     &__title {
         font-weight: 400;
-        //font-size: 3.2rem;
-        font-size: 2.4rem;
+        font-size: 3.2rem;
+        //font-size: 2.4rem;
         line-height: 1.56em;
         letter-spacing: 0.03em;
         text-transform: uppercase;
@@ -1357,8 +1359,8 @@
         font-family: $secondFontFamily;
 
         @media (max-width: $md3+px) {
-            //font-size: 24px;
-            font-size: 20px;
+            font-size: 24px;
+            //font-size: 20px;
         }
     }
 
@@ -1397,6 +1399,7 @@
             @media (min-width: 768px) {
                 padding: 6.8rem 5rem 6rem;
                 flex: 0 0 48.19%;
+                width: 48.19%;
             }
 
             @media (max-width: $md3+px) {
@@ -1439,6 +1442,7 @@
         & .cases-card__text-wrap {
             @media (min-width: 768px) {
                 flex: 0 0 60.13%;
+                width: 60.13%;
                 padding: 3.5rem 3.5rem;
             }
         }
@@ -1501,7 +1505,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1575,7 +1579,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+           // display: block;
         }
 
         & img {
@@ -1592,7 +1596,7 @@
         width: 16.9rem;
         display: none;
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1743,7 +1747,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1762,7 +1766,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1781,7 +1785,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1798,8 +1802,9 @@
         right: -15rem;
         bottom: 55rem;
         display: none;
+
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1818,7 +1823,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+            //display: block;
         }
 
         & img {
@@ -1837,7 +1842,7 @@
         display: none;
 
         @media (max-width: $md3+px) {
-            display: block;
+           // display: block;
         }
 
         & img {
@@ -1880,9 +1885,11 @@
 
     &__col-1 {
         flex: 0 0 39.5rem;
+        width: 39.5rem;
         padding-right: 3rem;
 
         @media (max-width: $md3+px) {
+            width: auto;
             flex: 0 1 auto;
             padding-right: 0;
             margin-bottom: 3rem;
@@ -1928,11 +1935,14 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
         font-family: $secondFontFamily;
+        width: 100%;
+        transition-duration: 0s !important;
 
         @media (max-width: $md3+px) {
             font-size: 2.4rem;
             line-height: 1.33em;
         }
+
     }
 
     &__tags {

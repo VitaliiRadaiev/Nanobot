@@ -46,7 +46,7 @@ class App {
 		window.addEventListener('load', () => {
 			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
-
+			this.setAdaptiveFontSize();
 		});
 
 	}
@@ -112,7 +112,7 @@ class App {
 							getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
 						})
 
-						if(this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
+						if (this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
 					}
 				})
 
@@ -238,6 +238,8 @@ class App {
 
 		setFontSize();
 
+
+
 		window.addEventListener('resize', setFontSize);
 	}
 
@@ -245,8 +247,8 @@ class App {
 		const wrapWords = (el) => {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
-			if(el.children.length) {
-				if(el.children[0].innerText.trim().length <= 2) {
+			if (el.children.length) {
+				if (el.children[0].innerText.trim().length <= 2) {
 					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
 					el.children[1].remove();
 				}
@@ -302,12 +304,12 @@ class App {
 						let id = setInterval(() => {
 							handler();
 						}, 100);
-	
+
 						setTimeout(() => {
 							clearInterval(id);
 						}, 500)
 					})
-				} else if(el.classList.contains('post-preview-card__title')) {
+				} else if (el.classList.contains('post-preview-card__title')) {
 					wrapWords(el);
 
 					const handler = () => {
@@ -332,7 +334,7 @@ class App {
 						let id = setInterval(() => {
 							handler();
 						}, 100);
-	
+
 						setTimeout(() => {
 							clearInterval(id);
 						}, 500)
@@ -341,7 +343,7 @@ class App {
 			})
 
 			this.postPreviewCardsUpdate = () => {
-				if(postPreviewCardsHandlers.length) {
+				if (postPreviewCardsHandlers.length) {
 					postPreviewCardsHandlers.forEach(f => f());
 				}
 			}
@@ -409,18 +411,18 @@ class App {
 			}
 
 			elements.forEach(el => {
-				let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed 
-				: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
-				: null;
+				let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed
+					: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
+						: null;
 
-				if(el.closest('.vertical-parallax')) {
+				if (el.closest('.vertical-parallax')) {
 					el = el.closest('.vertical-parallax')
 				}
 
 				let id = setInterval(() => {
 					parallaxHandler(el, speedAttribute);
 				}, 30);
-	
+
 				setTimeout(() => {
 					clearInterval(id);
 				}, 1000)
@@ -430,6 +432,53 @@ class App {
 		}
 	}
 
+	setAdaptiveFontSize() {
+		let elements = document.querySelectorAll('[data-adaptive-font-size]');
+		if (elements.length) {
+			elements.forEach(el => {
+				let link = el.querySelector('a');
+
+				const setFontSizeByScreenWidth = (title) => {
+					let css = window.getComputedStyle(title, null);
+					let defaultFontSize = Math.round(parseFloat(css.getPropertyValue('font-size')));
+					
+					if(link) {
+						title.innerHTML = link.innerText;
+					}
+
+					const setFontSeze = (fontSize) => {
+						if (title.scrollWidth > title.clientWidth) {
+							title.style.fontSize = fontSize + 'px';
+							setFontSeze(fontSize - 1);
+						} else {
+							title.style.fontSize = fontSize + 'px';
+						}
+					}
+					setFontSeze(defaultFontSize);
+
+					if(link) {
+						title.innerText = '';
+						title.append(link);
+					}
+				}
+
+				setFontSizeByScreenWidth(el);
+
+				// let id = setInterval(() => {
+				// 	setFontSizeByScreenWidth(el);
+				// }, 100);
+
+				// setTimeout(() => {
+				// 	clearInterval(id);
+				// }, 1000)
+
+				window.addEventListener('resize', () => {
+					setFontSizeByScreenWidth(el);
+				})
+			})
+		}
+
+	}
 
 	componentsBeforeLoad() {
 		@@include('../common/grid-links/grid-links.js')

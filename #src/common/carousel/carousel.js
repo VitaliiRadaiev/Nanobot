@@ -54,7 +54,10 @@
                 //     prevEl: carousel.querySelector('.carousel__shadow-left'),
                 // },
             });
-            
+
+            setTimeout(() => {
+                sliderData.update();
+            },1000)
             function setButtonsVisibility(sliderData) {
                 if(sliderData.isBeginning) {
                     btnLeft.classList.add('hide');
