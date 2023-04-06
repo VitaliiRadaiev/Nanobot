@@ -428,7 +428,8 @@ h5,
 	}
 
 	& a {
-		display: block;
+		display: flex;
+		flex-wrap: wrap;
 	}
 
 	& .word {

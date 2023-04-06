@@ -39,7 +39,7 @@ if (videoBlock.length) {
 				btn.classList.remove('video-block__controll--play');
 				btn.classList.add('video-block__controll--pause');
 
-				if (this.utils.isMobile()) {
+				if (utils.isMobile()) {
 					btn.style.opacity = '0';
 				}
 			});

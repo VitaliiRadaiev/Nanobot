@@ -117,4 +117,16 @@
 	</style>
 
 	@@include('_js.html',{})
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			let script = document.createElement('script');
+			script.src = "/js/async.min.js";
+			document.body.append(script);
+			script.onload = () => {
+				const lazyScripts = new LazyScripts();
+				lazyScripts.init();
+			}
+		});
+	</script>
 </head>

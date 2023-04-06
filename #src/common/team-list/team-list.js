@@ -14,7 +14,7 @@
             if(btnShowAllList) {
                 btnShowAllList.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.utils.slideDown(container);
+                    utils.slideDown(container);
 
                     btnShowAllList.classList.add('hide');
                 })

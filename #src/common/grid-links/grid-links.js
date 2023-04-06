@@ -40,7 +40,6 @@
                     btn.addEventListener('click', (e) => {
                         e.preventDefault();
                         btn.classList.add('hide');
-                        //this.utils.slideDown(collapseDiv, 500, true);
                         collapseDiv.classList.add('open');
                         list.classList.add('grid-links--open');
                     })

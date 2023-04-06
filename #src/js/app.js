@@ -1,50 +1,43 @@
-@@include('files/utils.js')
-@@include('files/dynamic_adapt.js')
+@@include('files/utils.js');
+
+const utils = new Utils();
 
 class App {
-	constructor() {
-		this.utils = new Utils();
-		this.dynamicAdapt = new DynamicAdapt('max');
-	}
-
 	init() {
 		window.addEventListener('DOMContentLoaded', () => {
 			document.body.classList.add('page-is-load');
 
-			if (this.utils.isMobile()) {
+			if (utils.isMobile()) {
 				document.body.classList.add('mobile');
 			}
 
-			if (this.utils.iOS()) {
+			if (utils.iOS()) {
 				document.body.classList.add('mobile-ios');
 			}
 
-			if (this.utils.isSafari()) {
+			if (utils.isSafari()) {
 				document.body.classList.add('safari');
 			}
 
-			this.utils.replaceToInlineSvg('.img-svg');
+			utils.replaceToInlineSvg('.img-svg');
 			this.setFontSize();
-			this.dynamicAdapt.init();
 			this.headerHandler();
-			this.popupHandler();
-			this.initSmoothScroll();
-			this.inputMaskInit();
-			this.tabsInit();
-			this.selectInit();
-			this.spollerInit();
+			//this.popupHandler(); +
+			//this.initSmoothScroll(); +
+			//this.inputMaskInit(); +
+			//this.tabsInit(); +
+			//this.selectInit(); +
+			//this.spollerInit(); +
 			this.componentsBeforeLoad();
-			this.slidersInit();
-			this.setWidthVariable();
+			//this.slidersInit(); +
+			//this.setWidthVariable(); +
 			this.initScrollAnimationTrigger();
-			this.parallaxInit();
+			this.parallaxInit(); 
 
 		});
 
 
-
 		window.addEventListener('load', () => {
-			//this.setPaddingTopHeaderSize();
 			this.componentsAfterLoad();
 			this.setAdaptiveFontSize();
 		});
@@ -55,180 +48,164 @@ class App {
 		@@include('../common/header/header.js')
 	}
 
-	popupHandler() {
-		@@include('../common/popup/popup.js')
-	}
+	// popupHandler() {
+	// 	@ @include('../common/popup/popup.js')
+	// }
 
-	slidersInit() {
-		@@include('../common/awards/awards.js')
-		@@include('../common/carousel/carousel.js')
-		@@include('../common/testimonials-slider-card/testimonials-slider-card.js')
-	}
+	// slidersInit() {
+	// 	@ @include('../common/awards/awards.js')
+	// 	@ @include('../common/carousel/carousel.js')
+	// 	@ @include('../common/testimonials-slider-card/testimonials-slider-card.js')
+	// }
 
 
-	tabsInit() {
-		let tabsContainers = document.querySelectorAll('[data-tabs]');
-		if (tabsContainers.length) {
-			tabsContainers.forEach(tabsContainer => {
-				let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
-				let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
+	// tabsInit() {
+	// 	let tabsContainers = document.querySelectorAll('[data-tabs]');
+	// 	if (tabsContainers.length) {
+	// 		tabsContainers.forEach(tabsContainer => {
+	// 			let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
+	// 			let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
 
-				const getContentItem = (id) => {
-					if (!id.trim()) return;
-					return contentItems.filter(item => item.dataset.tabContent === id)[0];
-				}
+	// 			const getContentItem = (id) => {
+	// 				if (!id.trim()) return;
+	// 				return contentItems.filter(item => item.dataset.tabContent === id)[0];
+	// 			}
 
-				if (triggerItems.length && contentItems.length) {
-					// init
-					let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
-					if (activeItem) {
-						activeItem.classList.add('tab-active');
-						getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
-					} else {
-						triggerItems[0].classList.add('tab-active');
-						getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
-					}
-				}
+	// 			if (triggerItems.length && contentItems.length) {
+	// 				// init
+	// 				let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
+	// 				if (activeItem) {
+	// 					activeItem.classList.add('tab-active');
+	// 					getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
+	// 				} else {
+	// 					triggerItems[0].classList.add('tab-active');
+	// 					getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
+	// 				}
+	// 			}
 
-				tabsContainer.addEventListener('click', (e) => {
-					if (e.target.closest('[data-tab-trigger]')) {
-						e.preventDefault();
-						let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
-						let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
-						let item = e.target.closest('[data-tab-trigger]');
+	// 			tabsContainer.addEventListener('click', (e) => {
+	// 				if (e.target.closest('[data-tab-trigger]')) {
+	// 					e.preventDefault();
+	// 					let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
+	// 					let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
+	// 					let item = e.target.closest('[data-tab-trigger]');
 
-						const getContentItem = (id) => {
-							if (!id.trim()) return;
-							return contentItems.filter(item => item.dataset.tabContent === id)[0];
-						}
+	// 					const getContentItem = (id) => {
+	// 						if (!id.trim()) return;
+	// 						return contentItems.filter(item => item.dataset.tabContent === id)[0];
+	// 					}
 
-						item.classList.add('tab-active');
-						getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
+	// 					item.classList.add('tab-active');
+	// 					getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
 
-						triggerItems.forEach(i => {
-							if (i === item) return;
+	// 					triggerItems.forEach(i => {
+	// 						if (i === item) return;
 
-							i.classList.remove('tab-active');
-							getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
-						})
+	// 						i.classList.remove('tab-active');
+	// 						getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
+	// 					})
 
-						if (this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
-					}
-				})
+	// 					if (this.postPreviewCardsUpdate) this.postPreviewCardsUpdate();
+	// 				}
+	// 			})
 
-			})
-		}
-	}
+	// 		})
+	// 	}
+	// }
 
-	spollerInit() {
-		let spollers = document.querySelectorAll('[data-spoller]');
-		if (spollers.length) {
-			spollers.forEach(spoller => {
-				let isOneActiveItem = spoller.dataset.spoller.trim() === 'one' ? true : false;
-				let triggers = spoller.querySelectorAll('[data-spoller-trigger]');
-				if (triggers.length) {
-					triggers.forEach(trigger => {
-						let parent = trigger.parentElement;
-						let content = trigger.nextElementSibling;
+	// spollerInit() {
+	// 	let spollers = document.querySelectorAll('[data-spoller]');
+	// 	if (spollers.length) {
+	// 		spollers.forEach(spoller => {
+	// 			let isOneActiveItem = spoller.dataset.spoller.trim() === 'one' ? true : false;
+	// 			let triggers = spoller.querySelectorAll('[data-spoller-trigger]');
+	// 			if (triggers.length) {
+	// 				triggers.forEach(trigger => {
+	// 					let parent = trigger.parentElement;
+	// 					let content = trigger.nextElementSibling;
 
-						// init
-						if (trigger.classList.contains('active')) {
-							content.style.display = 'block';
-							parent.classList.add('active');
-						}
+	// 					// init
+	// 					if (trigger.classList.contains('active')) {
+	// 						content.style.display = 'block';
+	// 						parent.classList.add('active');
+	// 					}
 
-						trigger.addEventListener('click', (e) => {
-							e.preventDefault();
-							parent.classList.toggle('active');
-							trigger.classList.toggle('active');
-							content && this.utils.slideToggle(content);
+	// 					trigger.addEventListener('click', (e) => {
+	// 						e.preventDefault();
+	// 						parent.classList.toggle('active');
+	// 						trigger.classList.toggle('active');
+	// 						content && utils.slideToggle(content);
 
-							if (isOneActiveItem) {
-								triggers.forEach(i => {
-									if (i === trigger) return;
+	// 						if (isOneActiveItem) {
+	// 							triggers.forEach(i => {
+	// 								if (i === trigger) return;
 
-									let parent = i.parentElement;
-									let content = i.nextElementSibling;
+	// 								let parent = i.parentElement;
+	// 								let content = i.nextElementSibling;
 
-									parent.classList.remove('active');
-									i.classList.remove('active');
-									content && this.utils.slideUp(content);
-								})
-							}
-						})
-					})
-				}
-			})
-		}
-	}
+	// 								parent.classList.remove('active');
+	// 								i.classList.remove('active');
+	// 								content && utils.slideUp(content);
+	// 							})
+	// 						}
+	// 					})
+	// 				})
+	// 			}
+	// 		})
+	// 	}
+	// }
 
-	inputMaskInit() {
-		let items = document.querySelectorAll('[data-mask]');
-		if (items.length) {
-			items.forEach(item => {
-				let maskValue = item.dataset.mask;
-				let input = item.querySelector('input[type="text"]');
+	// inputMaskInit() {
+	// 	let items = document.querySelectorAll('[data-mask]');
+	// 	if (items.length) {
+	// 		items.forEach(item => {
+	// 			let maskValue = item.dataset.mask;
+	// 			let input = item.querySelector('input[type="text"]');
 
-				if (input) {
-					Inputmask(maskValue, {
-						//"placeholder": '',
-						clearIncomplete: true,
-						clearMaskOnLostFocus: true,
-						showMaskOnHover: false,
-					}).mask(input);
-				}
-			})
-		}
-	}
+	// 			if (input) {
+	// 				Inputmask(maskValue, {
+	// 					//"placeholder": '',
+	// 					clearIncomplete: true,
+	// 					clearMaskOnLostFocus: true,
+	// 					showMaskOnHover: false,
+	// 				}).mask(input);
+	// 			}
+	// 		})
+	// 	}
+	// }
 
-	setPaddingTopHeaderSize() {
-		let wrapper = document.querySelector('[data-padding-top-header-size]');
-		if (wrapper) {
-			let header = document.querySelector('[data-header]');
-			if (header) {
-				const setPedding = () => wrapper.style.paddingTop = header.clientHeight + 'px';
-				setPedding();
-				let id = setInterval(setPedding, 200);
-				setTimeout(() => {
-					clearInterval(id);
-				}, 2000)
-				window.addEventListener('resize', setPedding);
-			}
 
-		}
-	}
+	// initSmoothScroll() {
+	// 	let anchors = document.querySelectorAll('a[href*="#"]:not([data-popup="open-popup"])');
+	// 	if (anchors.length) {
 
-	initSmoothScroll() {
-		let anchors = document.querySelectorAll('a[href*="#"]:not([data-popup="open-popup"])');
-		if (anchors.length) {
+	// 		anchors.forEach(anchor => {
+	// 			if (!anchor.getAttribute('href').match(/#\w+$/gi)) return;
 
-			anchors.forEach(anchor => {
-				if (!anchor.getAttribute('href').match(/#\w+$/gi)) return;
+	// 			let id = anchor.getAttribute('href').match(/#\w+$/gi).join('').replace('#', '');
 
-				let id = anchor.getAttribute('href').match(/#\w+$/gi).join('').replace('#', '');
+	// 			anchor.addEventListener('click', (e) => {
+	// 				let el = document.querySelector(`#${id}`);
 
-				anchor.addEventListener('click', (e) => {
-					let el = document.querySelector(`#${id}`);
+	// 				if (el) {
+	// 					e.preventDefault();
+	// 					let top = Math.abs(document.body.getBoundingClientRect().top) + el.getBoundingClientRect().top;
 
-					if (el) {
-						e.preventDefault();
-						let top = Math.abs(document.body.getBoundingClientRect().top) + el.getBoundingClientRect().top;
+	// 					window.scrollTo({
+	// 						top: top,
+	// 						behavior: 'smooth',
+	// 					})
+	// 				}
+	// 			})
 
-						window.scrollTo({
-							top: top,
-							behavior: 'smooth',
-						})
-					}
-				})
+	// 		})
+	// 	}
 
-			})
-		}
+	// }
 
-	}
-
-	selectInit() {
-		@@include('../common/select/select.js');
-	}
+	// selectInit() {
+	// 	@ @include('../common/select/select.js');
+	// }
 
 	setFontSize() {
 		const setFontSize = () => {
@@ -243,112 +220,132 @@ class App {
 		window.addEventListener('resize', setFontSize);
 	}
 
-	setWidthVariable() {
-		const wrapWords = (el) => {
-			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
+	// setWidthVariable() {
+	// 	const wrapWords = (el) => {
+	// 		el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
-			if (el.children.length) {
-				if (el.children[0].innerText.trim().length <= 2) {
-					el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
-					el.children[1].remove();
-				}
-			}
-		}
-		const getBottomWords = (el) => {
-			let elCoord = el.getBoundingClientRect();
-			let arr = [];
-			Array.from(el.children).forEach(word => {
-				let wordCoord = word.getBoundingClientRect();
-				if ((elCoord.bottom - wordCoord.bottom) < 1) {
-					arr.push(word);
-				}
-			});
-			return arr;
-		}
+	// 		if (el.children.length) {
+	// 			if (el.children[0].innerText.trim().length <= 2) {
+	// 				el.children[0].innerText = el.children[0].innerText + ' ' + el.children[1].innerText;
+	// 				el.children[1].remove();
+	// 			}
+	// 		}
+	// 	}
+	// 	const getBottomWords = (el) => {
+	// 		let elCoord = el.getBoundingClientRect();
+	// 		let arr = [];
+	// 		Array.from(el.children).forEach(word => {
+	// 			let wordCoord = word.getBoundingClientRect();
+	// 			if ((elCoord.bottom - wordCoord.bottom) < 1) {
+	// 				arr.push(word);
+	// 			}
+	// 		});
+	// 		return arr;
+	// 	}
 
-		const setVar = (el, words) => {
-			let width = words.reduce((value, item) => {
-				return value + item.clientWidth;
-			}, 0)
-			el.setAttribute('style', `--width: ${width}px`);
-		}
+	// 	const setVar = (el, words) => {
+	// 		let width = words.reduce((value, item) => {
+	// 			return value + item.clientWidth;
+	// 		}, 0)
+	// 		el.setAttribute('style', `--width: ${width}px`);
+	// 	}
 
-		let elements = document.querySelectorAll('[data-set-width-variable]');
-		if (elements.length) {
-			let postPreviewCardsHandlers = [];
+	// 	let elements = document.querySelectorAll('[data-set-width-variable]');
+	// 	if (elements.length) {
+	// 		let postPreviewCardsHandlers = [];
 
-			elements.forEach(el => {
+	// 		elements.forEach(el => {
 
-				let link = el.querySelector('a');
-				if (link) {
-					wrapWords(link);
+	// 			let link = el.querySelector('a');
+	// 			if (link) {
+	// 				let text = wrapWordsInSpan(link.innerText);
+	// 				link.innerHTML = text;
 
-					const handler = () => {
-						let bottomWords = getBottomWords(link);
-						Array.from(link.children).forEach(word => word.classList.remove('with-line'));
-						bottomWords[0].classList.add('with-line');
-						setVar(el, bottomWords);
-					}
+	// 				const handler = () => {
+	// 					let bottomWords = getBottomWords(link);
+	// 					Array.from(link.children).forEach(word => word.classList.remove('with-line'));
+	// 					bottomWords[0].classList.add('with-line');
+	// 					setVar(el, bottomWords);
+	// 				}
 
-					handler();
+	// 				handler();
 
-					let id = setInterval(() => {
-						handler();
-					}, 100);
+	// 				let id = setInterval(() => {
+	// 					handler();
+	// 				}, 100);
 
-					setTimeout(() => {
-						clearInterval(id);
-					}, 1000)
+	// 				setTimeout(() => {
+	// 					clearInterval(id);
+	// 				}, 1000)
 
-					window.addEventListener('resize', () => {
-						let id = setInterval(() => {
-							handler();
-						}, 100);
+	// 				window.addEventListener('resize', () => {
+	// 					let id = setInterval(() => {
+	// 						handler();
+	// 					}, 100);
 
-						setTimeout(() => {
-							clearInterval(id);
-						}, 500)
-					})
-				} else if (el.classList.contains('post-preview-card__title')) {
-					wrapWords(el);
+	// 					setTimeout(() => {
+	// 						clearInterval(id);
+	// 					}, 500)
+	// 				})
+	// 			} else if (el.classList.contains('post-preview-card__title')) {
+	// 				let text = wrapWordsInSpan(el.innerHTML);
+	// 				el.innerHTML = text;
 
-					const handler = () => {
-						let bottomWords = getBottomWords(el);
-						Array.from(el.children).forEach(word => word.classList.remove('with-line'));
-						bottomWords[0].classList.add('with-line');
-						setVar(el, bottomWords);
-					}
+	// 				const handler = () => {
+	// 					let bottomWords = getBottomWords(el);
+	// 					Array.from(el.children).forEach(word => word.classList.remove('with-line'));
+	// 					bottomWords[0].classList.add('with-line');
+	// 					setVar(el, bottomWords);
+	// 				}
 
-					handler();
-					postPreviewCardsHandlers.push(handler);
+	// 				handler();
+	// 				postPreviewCardsHandlers.push(handler);
 
-					let id = setInterval(() => {
-						handler();
-					}, 100);
+	// 				let id = setInterval(() => {
+	// 					handler();
+	// 				}, 100);
 
-					setTimeout(() => {
-						clearInterval(id);
-					}, 1000)
+	// 				setTimeout(() => {
+	// 					clearInterval(id);
+	// 				}, 1000)
 
-					window.addEventListener('resize', () => {
-						let id = setInterval(() => {
-							handler();
-						}, 100);
+	// 				window.addEventListener('resize', () => {
+	// 					let id = setInterval(() => {
+	// 						handler();
+	// 					}, 100);
 
-						setTimeout(() => {
-							clearInterval(id);
-						}, 500)
-					})
-				}
-			})
+	// 					setTimeout(() => {
+	// 						clearInterval(id);
+	// 					}, 500)
+	// 				})
+	// 			}
+	// 		})
 
-			this.postPreviewCardsUpdate = () => {
-				if (postPreviewCardsHandlers.length) {
-					postPreviewCardsHandlers.forEach(f => f());
-				}
-			}
-		}
-	}
+	// 		this.postPreviewCardsUpdate = () => {
+	// 			if (postPreviewCardsHandlers.length) {
+	// 				postPreviewCardsHandlers.forEach(f => f());
+	// 			}
+	// 		}
+	// 	}
+
+	// 	function wrapWordsInSpan(text) {
+	// 		const words = text.split(/(<.*?>|\s+)/);
+	
+	// 		const wordsInSpans = words.map(word => {
+	// 			if (word.match(/<.*?>/)) {
+	// 				return word;
+	// 			} else if (word.trim() !== '') {
+	// 				return `<span class="word">${word}</span>`;
+	// 			} else {
+	// 				return word;
+	// 			}
+	// 		});
+	
+	// 		const wrappedText = wordsInSpans.join('');
+	
+	// 		return wrappedText;
+	// 	}
+	// }
 
 	initScrollAnimationTrigger() {
 		const setScrollTrigger = (el, offset, callback = null) => {
@@ -433,67 +430,71 @@ class App {
 	}
 
 	setAdaptiveFontSize() {
-		let elements = document.querySelectorAll('[data-adaptive-font-size]');
-		if (elements.length) {
-			elements.forEach(el => {
-				let link = el.querySelector('a');
 
-				const setFontSizeByScreenWidth = (title) => {
-					let css = window.getComputedStyle(title, null);
-					let defaultFontSize = Math.round(parseFloat(css.getPropertyValue('font-size')));
-					
-					if(link) {
-						title.innerHTML = link.innerText;
-					}
+		const handler = () => {
+			let elements = document.querySelectorAll('[data-adaptive-font-size]');
+			if (elements.length) {
 
-					const setFontSeze = (fontSize) => {
-						if (title.scrollWidth > title.clientWidth) {
-							title.style.fontSize = fontSize + 'px';
-							setFontSeze(fontSize - 1);
-						} else {
-							title.style.fontSize = fontSize + 'px';
+				elements.forEach(el => {
+					if (el.classList.contains('has-handler')) return;
+
+					let link = el.querySelector('a');
+
+					const setFontSizeByScreenWidth = (title) => {
+						let css = window.getComputedStyle(title, null);
+						let defaultFontSize = Math.round(parseFloat(css.getPropertyValue('font-size')));
+
+						if (link) {
+							title.innerHTML = link.innerText;
+						}
+
+						const setFontSeze = (fontSize) => {
+							if (title.scrollWidth > title.clientWidth) {
+								title.style.fontSize = fontSize + 'px';
+								setFontSeze(fontSize - 1);
+							} else {
+								title.style.fontSize = fontSize + 'px';
+							}
+						}
+						setFontSeze(defaultFontSize);
+
+						if (link) {
+							title.innerText = '';
+							title.append(link);
 						}
 					}
-					setFontSeze(defaultFontSize);
 
-					if(link) {
-						title.innerText = '';
-						title.append(link);
-					}
-				}
-
-				setFontSizeByScreenWidth(el);
-
-				// let id = setInterval(() => {
-				// 	setFontSizeByScreenWidth(el);
-				// }, 100);
-
-				// setTimeout(() => {
-				// 	clearInterval(id);
-				// }, 1000)
-
-				window.addEventListener('resize', () => {
 					setFontSizeByScreenWidth(el);
+
+					window.addEventListener('resize', () => {
+						setFontSizeByScreenWidth(el);
+					})
+
+					el.classList.add('has-handler');
 				})
-			})
+			}
+
 		}
+		handler();
+
+		window.adaptiveFontSizeHandler = handler;
 
 	}
 
 	componentsBeforeLoad() {
-		@@include('../common/grid-links/grid-links.js')
-		@@include('../common/rating/rating.js')
-		@@include('../common/team-list/team-list.js')
-		@@include('../common/banner/banner.js')
-		@@include('../common/animation-hover-text/animation-hover-text.js')
-		@@include('../common/post-preview/post-preview.js')
+		// @ @include('../common/grid-links/grid-links.js')
+		// @ @include('../common/rating/rating.js')
+		// @ @include('../common/team-list/team-list.js')
+		// @ @include('../common/banner/banner.js')
+		// @ @include('../common/animation-hover-text/animation-hover-text.js')
+		// @ @include('../common/post-preview/post-preview.js')
 		@@include('../common/promo-header/promo-header.js')
 		@@include('../common/hero/hero.js')
 		@@include('../common/bg-decor/bg-decor.js')
-		@@include('../common/cases/cases.js')
-		@@include('../common/hide-content/hide-content.js')
-		@@include('../common/posts-list/posts-list.js')
-		@@include('../common/sticky-box/sticky-box.js')
+		// @ @include('../common/cases/cases.js')
+		// @ @include('../common/hide-content/hide-content.js')
+		// @ @include('../common/posts-list/posts-list.js')
+		// @ @include('../common/sticky-box/sticky-box.js')
 	}
 
 	componentsAfterLoad() {

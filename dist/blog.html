@@ -125,6 +125,18 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&callback=initMap&libraries=&v=weekly"
 defer
 ></script> -->
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			let script = document.createElement('script');
+			script.src = "/js/async.min.js";
+			document.body.append(script);
+			script.onload = () => {
+				const lazyScripts = new LazyScripts();
+				lazyScripts.init();
+			}
+		});
+	</script>
 </head>
 
 <body>
@@ -427,7 +439,7 @@ defer
             <div class="post-card__body">
                 <div class="post-card__col-1">
                     <div class="post-card__date">September 18, 2022</div>
-                    <div class="post-card__title">
+                    <div class="post-card__title" data-adaptive-font-size>
                         <a href="#">
                             Nanobot
                         </a>
@@ -462,7 +474,7 @@ defer
             <div class="post-card__body">
                 <div class="post-card__col-1">
                     <div class="post-card__date">September 18, 2022</div>
-                    <div class="post-card__title">
+                    <div class="post-card__title" data-adaptive-font-size>
                         <a href="#">
                             Nanobot
                         </a>
@@ -831,7 +843,6 @@ defer
         <!-- == // FOOTER ================== -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="js/jQueryScripts.min.js"></script>
 </body>
 
 </html>

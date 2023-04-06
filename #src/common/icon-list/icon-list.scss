@@ -41,8 +41,11 @@
         align-items: center;
         justify-content: center;
         align-self: flex-start;
-        margin-top: 0.17em;
         position: relative;
+        
+        @media (min-width: 768px) {
+            margin-top: 0.17em;
+        }
 
         & img,
         & svg {

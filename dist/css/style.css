@@ -2772,7 +2772,11 @@ h5,
 }
 
 [data-set-width-variable] a {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 [data-set-width-variable] .word {
@@ -5493,7 +5497,7 @@ figure {
   font-size: 3.2rem;
   line-height: 3.6rem;
   letter-spacing: 0.01em;
-  font-family: "AcostaRegular", sans-serif;
+  font-family: "VenusRisingRg-Regular", sans-serif;
   margin-top: 0.25em;
 }
 
@@ -6214,7 +6218,6 @@ figure {
           justify-content: center;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-top: 0.17em;
   position: relative;
 }
 
@@ -7678,10 +7681,6 @@ figure {
 }
 
 .home-section-one__text-col {
-  font-weight: 300;
-  font-size: 3rem;
-  line-height: 1.47em;
-  letter-spacing: 0.01em;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 calc(50% - 2.5rem);
           flex: 0 1 calc(50% - 2.5rem);
@@ -7827,13 +7826,6 @@ figure {
 
 .home-section-two__row-1:last-child {
   margin-bottom: 0 !important;
-}
-
-.home-section-two__text {
-  font-size: 1.8rem;
-  line-height: 1.56em;
-  letter-spacing: 0.01em;
-  max-width: 34.7rem;
 }
 
 .home-section-two__text img.blot:not(:first-child) {
@@ -8079,9 +8071,6 @@ figure {
 }
 
 .home-section-three__text {
-  font-size: 2rem;
-  line-height: 1.56em;
-  letter-spacing: 0.01em;
   margin-bottom: 10rem;
 }
 
@@ -9463,6 +9452,10 @@ figure {
             flex: 0 1 calc(50% - 2.5rem);
   }
 
+  .list-icon__icon {
+    margin-top: 0.17em;
+  }
+
   .contact-list__el-with-icon {
     padding-left: 4.6rem;
   }
@@ -9505,7 +9498,7 @@ figure {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-    max-width: 42rem;
+    max-width: 50rem;
   }
 
   .home-section-two__row-1 .home-section-two__col:nth-child(2) {
@@ -11263,8 +11256,6 @@ figure {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
-    font-size: 1.2rem;
-    line-height: 1.5em;
   }
 
   .home-section-two__decor-1 {
@@ -11280,8 +11271,6 @@ figure {
 
   .home-section-two__text {
     max-width: none;
-    font-size: 1.2rem;
-    line-height: 1.5em;
     margin-bottom: 4.6rem;
   }
 
@@ -11290,8 +11279,7 @@ figure {
   }
 
   .check-list {
-    font-size: 1.2rem;
-    line-height: 1.5em;
+    font-size: 1.8rem;
   }
 
   .check-list > li {
@@ -11383,8 +11371,6 @@ figure {
   }
 
   .home-section-three__text {
-    font-size: 1.4rem;
-    line-height: 1.5em;
     margin-bottom: 4.6rem;
   }
 

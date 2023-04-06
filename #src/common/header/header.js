@@ -46,7 +46,7 @@ if (menu) {
                     e.preventDefault();
                     item.classList.toggle('active');
                     link.classList.toggle('active');
-                    this.utils.slideToggle(subMenu);
+                    utils.slideToggle(subMenu);
     
                     mobileMenuNavSubItems.forEach(i => {
                         if (i === item) return;
@@ -56,7 +56,7 @@ if (menu) {
     
                         i.classList.remove('active');
                         link.classList.remove('active');
-                        this.utils.slideUp(subMenu);
+                        utils.slideUp(subMenu);
                     })
                 })
             }
