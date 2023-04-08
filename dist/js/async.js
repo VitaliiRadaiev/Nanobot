@@ -1,19 +1,19 @@
 class LazyScripts {
-    init() {
-        this.popupHandler();
-        this.slidersInit();
-        this.tabsInit();
-        this.spollerInit();
-        this.inputMaskInit();
-        this.initSmoothScroll();
-        this.selectInit();
-        this.setWidthVariable();
-        //this.initScrollAnimationTrigger();
-        //this.parallaxInit();
-        this.componentsBeforeLoad();
-    }
+	init() {
+		this.popupHandler();
+		this.slidersInit();
+		this.tabsInit();
+		this.spollerInit();
+		this.inputMaskInit();
+		this.initSmoothScroll();
+		this.selectInit();
+		this.setWidthVariable();
+		//this.initScrollAnimationTrigger();
+		//this.parallaxInit();
+		this.componentsBeforeLoad();
+	}
 
-    popupHandler() {
+	popupHandler() {
 		// ==== Popup form handler====
 
 const popupLinks = document.querySelectorAll('[data-popup="open-popup"]');
@@ -182,7 +182,7 @@ window.popup = {
 
 	}
 
-    slidersInit() {
+	slidersInit() {
 		{
     let awards = document.querySelector('[data-slider="awards"]');
     if(awards) {
@@ -350,7 +350,7 @@ window.popup = {
 }
 	}
 
-    tabsInit() {
+	tabsInit() {
 		let tabsContainers = document.querySelectorAll('[data-tabs]');
 		if (tabsContainers.length) {
 			tabsContainers.forEach(tabsContainer => {
@@ -450,22 +450,22 @@ window.popup = {
 		let items = document.querySelectorAll('[data-mask]');
 		if (items.length) {
 			items.forEach(item => {
-				let maskValue = item.dataset.mask;
 				let input = item.querySelector('input[type="text"]');
 
-				if (input) {
-					Inputmask(maskValue, {
-						//"placeholder": '',
-						clearIncomplete: true,
-						clearMaskOnLostFocus: true,
-						showMaskOnHover: false,
-					}).mask(input);
-				}
+				input.addEventListener('input', (e) => {
+					if (input.value.length > 1) {
+						if(input.value.endsWith('+')) {
+							input.value = input.value.slice(0, -1);
+							return;
+						}
+					}
+					input.value = input.value.replace(/[^0-9+]/g, '');
+				})
 			})
 		}
 	}
 
-    initSmoothScroll() {
+	initSmoothScroll() {
 		let anchors = document.querySelectorAll('a[href*="#"]:not([data-popup="open-popup"])');
 		if (anchors.length) {
 
@@ -493,7 +493,7 @@ window.popup = {
 
 	}
 
-    selectInit() {
+	selectInit() {
 		{
     function _slideUp(target, duration = 500) {
         target.style.transitionProperty = 'height, margin, padding';
@@ -727,7 +727,7 @@ window.popup = {
 };
 	}
 
-    setWidthVariable() {
+	setWidthVariable() {
 		const wrapWords = (el) => {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
@@ -837,7 +837,7 @@ window.popup = {
 
 		function wrapWordsInSpan(text) {
 			const words = text.split(/(<.*?>|\s+)/);
-	
+
 			const wordsInSpans = words.map(word => {
 				if (word.match(/<.*?>/)) {
 					return word;
@@ -847,14 +847,14 @@ window.popup = {
 					return word;
 				}
 			});
-	
+
 			const wrappedText = wordsInSpans.join('');
-	
+
 			return wrappedText;
 		}
 	}
 
-    initScrollAnimationTrigger() {
+	initScrollAnimationTrigger() {
 		const setScrollTrigger = (el, offset, callback = null) => {
 			let triggerPoint = document.documentElement.clientHeight / 100 * (100 - offset);
 			const trigger = () => {
@@ -936,7 +936,7 @@ window.popup = {
 		}
 	}
 
-    componentsBeforeLoad() {
+	componentsBeforeLoad() {
 		{
     let gridLinks = document.querySelectorAll('[data-grid-links]');
     if(gridLinks.length) {
@@ -1477,6 +1477,10 @@ window.popup = {
         
     }
 }
+	}
+
+	fancyBox() {
+		
 	}
 }
 

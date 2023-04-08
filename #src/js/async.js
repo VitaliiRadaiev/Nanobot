@@ -1,29 +1,29 @@
 class LazyScripts {
-    init() {
-        this.popupHandler();
-        this.slidersInit();
-        this.tabsInit();
-        this.spollerInit();
-        this.inputMaskInit();
-        this.initSmoothScroll();
-        this.selectInit();
-        this.setWidthVariable();
-        //this.initScrollAnimationTrigger();
-        //this.parallaxInit();
-        this.componentsBeforeLoad();
-    }
+	init() {
+		this.popupHandler();
+		this.slidersInit();
+		this.tabsInit();
+		this.spollerInit();
+		this.inputMaskInit();
+		this.initSmoothScroll();
+		this.selectInit();
+		this.setWidthVariable();
+		//this.initScrollAnimationTrigger();
+		//this.parallaxInit();
+		this.componentsBeforeLoad();
+	}
 
-    popupHandler() {
+	popupHandler() {
 		@@include('../common/popup/popup.js')
 	}
 
-    slidersInit() {
+	slidersInit() {
 		@@include('../common/awards/awards.js')
 		@@include('../common/carousel/carousel.js')
 		@@include('../common/testimonials-slider-card/testimonials-slider-card.js')
 	}
 
-    tabsInit() {
+	tabsInit() {
 		let tabsContainers = document.querySelectorAll('[data-tabs]');
 		if (tabsContainers.length) {
 			tabsContainers.forEach(tabsContainer => {
@@ -123,22 +123,22 @@ class LazyScripts {
 		let items = document.querySelectorAll('[data-mask]');
 		if (items.length) {
 			items.forEach(item => {
-				let maskValue = item.dataset.mask;
 				let input = item.querySelector('input[type="text"]');
 
-				if (input) {
-					Inputmask(maskValue, {
-						//"placeholder": '',
-						clearIncomplete: true,
-						clearMaskOnLostFocus: true,
-						showMaskOnHover: false,
-					}).mask(input);
-				}
+				input.addEventListener('input', (e) => {
+					if (input.value.length > 1) {
+						if(input.value.endsWith('+')) {
+							input.value = input.value.slice(0, -1);
+							return;
+						}
+					}
+					input.value = input.value.replace(/[^0-9+]/g, '');
+				})
 			})
 		}
 	}
 
-    initSmoothScroll() {
+	initSmoothScroll() {
 		let anchors = document.querySelectorAll('a[href*="#"]:not([data-popup="open-popup"])');
 		if (anchors.length) {
 
@@ -166,11 +166,11 @@ class LazyScripts {
 
 	}
 
-    selectInit() {
+	selectInit() {
 		@@include('../common/select/select.js');
 	}
 
-    setWidthVariable() {
+	setWidthVariable() {
 		const wrapWords = (el) => {
 			el.innerHTML = el.innerText.replace(/\s?[\w|-|'|’]+[\s|,|\.|\?|\!]?/g, '<span class="word">$&</span>');
 
@@ -280,7 +280,7 @@ class LazyScripts {
 
 		function wrapWordsInSpan(text) {
 			const words = text.split(/(<.*?>|\s+)/);
-	
+
 			const wordsInSpans = words.map(word => {
 				if (word.match(/<.*?>/)) {
 					return word;
@@ -290,14 +290,14 @@ class LazyScripts {
 					return word;
 				}
 			});
-	
+
 			const wrappedText = wordsInSpans.join('');
-	
+
 			return wrappedText;
 		}
 	}
 
-    initScrollAnimationTrigger() {
+	initScrollAnimationTrigger() {
 		const setScrollTrigger = (el, offset, callback = null) => {
 			let triggerPoint = document.documentElement.clientHeight / 100 * (100 - offset);
 			const trigger = () => {
@@ -379,7 +379,7 @@ class LazyScripts {
 		}
 	}
 
-    componentsBeforeLoad() {
+	componentsBeforeLoad() {
 		@@include('../common/grid-links/grid-links.js')
 		@@include('../common/rating/rating.js')
 		@@include('../common/team-list/team-list.js')
@@ -391,6 +391,10 @@ class LazyScripts {
 		@@include('../common/hide-content/hide-content.js')
 		@@include('../common/posts-list/posts-list.js')
 		@@include('../common/sticky-box/sticky-box.js')
+	}
+
+	fancyBox() {
+		
 	}
 }
 

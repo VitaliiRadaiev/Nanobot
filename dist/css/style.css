@@ -4473,6 +4473,8 @@ figure {
   top: 6rem;
   right: -2.5rem;
   width: 20.2rem;
+  -webkit-animation: bgFadeIn 0.6s ease;
+          animation: bgFadeIn 0.6s ease;
 }
 
 .footer__decor-2 img {
@@ -4487,6 +4489,8 @@ figure {
   top: 58rem;
   right: -2.5rem;
   width: 28.6rem;
+  -webkit-animation: bgFadeIn 0.6s ease;
+          animation: bgFadeIn 0.6s ease;
 }
 
 .footer__decor-3 img {
@@ -4501,6 +4505,8 @@ figure {
   left: 0;
   bottom: 8rem;
   width: 28.6rem;
+  -webkit-animation: bgFadeIn 0.6s ease;
+          animation: bgFadeIn 0.6s ease;
 }
 
 .footer__decor-4 img {
@@ -4515,6 +4521,8 @@ figure {
   top: -3rem;
   right: -23.9rem;
   width: 37.3rem;
+  -webkit-animation: bgFadeIn 0.6s ease;
+          animation: bgFadeIn 0.6s ease;
 }
 
 .footer__decor-5 img {
@@ -4529,6 +4537,8 @@ figure {
   right: -38.6rem;
   bottom: 12rem;
   width: 66rem;
+  -webkit-animation: bgFadeIn 0.6s ease;
+          animation: bgFadeIn 0.6s ease;
 }
 
 .footer__decor-6 img {
@@ -6289,13 +6299,40 @@ figure {
   z-index: 2;
 }
 
+.bg-decor.showed + .bg-decor__inner {
+  display: block;
+}
+
 .bg-decor__inner {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
+  -webkit-animation: bgFadeIn 0.6s ease;
+          animation: bgFadeIn 0.6s ease;
+}
+
+@-webkit-keyframes bgFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bgFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .bg-decor__inner .top-0 {
@@ -7355,7 +7392,7 @@ figure {
   gap: 5rem;
 }
 
-.post-preview__list > li {
+.post-preview__list > * {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 calc(50% - 2.5rem);
           flex: 0 1 calc(50% - 2.5rem);
@@ -7446,6 +7483,14 @@ figure {
   -webkit-transition: all 1.4s ease;
   -o-transition: all 1.4s ease;
   transition: all 1.4s ease;
+}
+
+.post-preview-card__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .post-preview-card__title .with-line {
@@ -10313,6 +10358,14 @@ figure {
     padding-top: 6rem;
   }
 
+  .footer.showed .footer__decor-2,
+  .footer.showed .footer__decor-3,
+  .footer.showed .footer__decor-4,
+  .footer.showed .footer__decor-5,
+  .footer.showed .footer__decor-6 {
+    display: block;
+  }
+
   .footer__body {
     padding-top: 6rem;
     padding-bottom: 4rem;
@@ -10320,26 +10373,6 @@ figure {
 
   .footer__decor-1 {
     display: none;
-  }
-
-  .footer__decor-2 {
-    display: block;
-  }
-
-  .footer__decor-3 {
-    display: block;
-  }
-
-  .footer__decor-4 {
-    display: block;
-  }
-
-  .footer__decor-5 {
-    display: block;
-  }
-
-  .footer__decor-6 {
-    display: block;
   }
 
   .footer__nav {
@@ -11179,7 +11212,7 @@ figure {
     gap: 3rem 1rem;
   }
 
-  .post-preview__list > li {
+  .post-preview__list > * {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 calc(50% - 0.5rem);
             flex: 0 1 calc(50% - 0.5rem);

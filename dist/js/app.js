@@ -88,26 +88,28 @@ class Utils {
 		return (this.Android() || this.BlackBerry() || this.iOS() || this.Opera() || this.Windows());
 	}
 
-	scrollTrigger(el, value, callback) {
-		let triggerPoint = document.documentElement.clientHeight / 100 * (100 - value);
+	scrollTrigger(el, callback, offset = 1) {
 		const trigger = () => {
-			if(el.getBoundingClientRect().top <= triggerPoint && !el.classList.contains('is-show')) {
-				if(typeof callback === 'function') {
+			if ((el.getBoundingClientRect().top <= (window.innerHeight * offset)
+				&& el.getBoundingClientRect().bottom >= (window.innerHeight * 0.5))
+				&& !el.classList.contains('showed')
+			) {
+				if (typeof callback === 'function') {
 					callback();
-					el.classList.add('is-show')
+					el.classList.add('showed')
 				}
 			}
 		}
-	
+
 		trigger();
-	
+
 		window.addEventListener('scroll', trigger);
 	}
 
 	numberCounterAnim() {
 		let counterItems = document.querySelectorAll('[data-number-counter-anim]');
 		if (counterItems) {
-	
+
 			counterItems.forEach(item => {
 				let animation = anime({
 					targets: item,
@@ -117,9 +119,9 @@ class Utils {
 					autoplay: false,
 					duration: 1000
 				});
-	
+
 				window.addEventListener('load', () => {
-					this.scrollTrigger(item, 15, () => {animation.play()})
+					this.scrollTrigger(item, 15, () => { animation.play() })
 				})
 			})
 		}
@@ -133,7 +135,7 @@ class Utils {
 		}
 
 		let truncateItems = document.querySelectorAll('[data-truncate-string]');
-		if(truncateItems.length) {
+		if (truncateItems.length) {
 			truncateItems.forEach(truncateItem => {
 				truncateString(truncateItem, truncateItem.dataset.truncateString);
 			})
@@ -143,33 +145,33 @@ class Utils {
 	replaceToInlineSvg(query) {
 		const images = document.querySelectorAll(query);
 
-		if(images.length) {
+		if (images.length) {
 			images.forEach(img => {
-					let xhr = new XMLHttpRequest();
-					xhr.open('GET', img.src);
-					xhr.onload = () => {
-						if (xhr.readyState === xhr.DONE) {
-							if (xhr.status === 200) {
-								let svg = xhr.responseXML.documentElement;
-								svg.classList.add('_svg');
-								img.parentNode.replaceChild(svg, img);
-							}
+				let xhr = new XMLHttpRequest();
+				xhr.open('GET', img.src);
+				xhr.onload = () => {
+					if (xhr.readyState === xhr.DONE) {
+						if (xhr.status === 200) {
+							let svg = xhr.responseXML.documentElement;
+							svg.classList.add('_svg');
+							img.parentNode.replaceChild(svg, img);
 						}
 					}
-					xhr.send(null);
+				}
+				xhr.send(null);
 			})
 		}
 	}
 
 	setSameHeight() {
 		let elements = document.querySelectorAll('[data-set-same-height]');
-		if(elements.length) {
+		if (elements.length) {
 			const getGropus = (elements) => {
 				let obj = {};
 
 				elements.forEach(el => {
 					let id = el.dataset.setSameHeight;
-					if(obj.hasOwnProperty(id)) {
+					if (obj.hasOwnProperty(id)) {
 						obj[id].push(el);
 					} else {
 						obj[id] = [el];
@@ -179,9 +181,9 @@ class Utils {
 				return obj;
 			}
 			const setMinHeight = (groups) => {
-				for(let key in groups) {
+				for (let key in groups) {
 					let maxHeight = Math.max(...groups[key].map(i => i.clientHeight));
-					
+
 					groups[key].forEach(el => {
 						el.style.minHeight = maxHeight + 'px';
 					})
@@ -190,7 +192,7 @@ class Utils {
 
 			let groups = getGropus(elements);
 
-			if(document.documentElement.clientWidth > 767.98) {
+			if (document.documentElement.clientWidth > 767.98) {
 				setMinHeight(groups);
 			}
 		}
@@ -198,7 +200,7 @@ class Utils {
 
 	setFullHeaghtSize() {
 		let elments = document.querySelectorAll('[data-full-min-height]');
-		if(elments.length) {
+		if (elments.length) {
 			elments.forEach(el => {
 				const setSize = () => {
 					el.style.minHeight = document.documentElement.clientHeight + 'px';
@@ -247,8 +249,7 @@ class App {
 			//this.slidersInit(); +
 			//this.setWidthVariable(); +
 			this.initScrollAnimationTrigger();
-			this.parallaxInit(); 
-
+			this.footerParallaxInit();
 		});
 
 
@@ -665,61 +666,64 @@ if (menu) {
 		}
 	}
 
-	parallaxInit() {
-		let parallaxContainers = document.querySelectorAll('[data-parallax]');
-		if (parallaxContainers.length) {
-			parallaxContainers.forEach(parallaxContainer => {
-				new Parallax(parallaxContainer, {
-					selector: '[data-depth]'
-				});
-			})
-		}
+	footerParallaxInit() {
+		let footer = document.querySelector('.footer');
+			if(footer) {
+				utils.scrollTrigger(footer, () => {
+					if(!utils.isMobile()) {
+						new Parallax(footer, {
+							selector: '[data-depth]'
+						});
+					}
+	
+					let elements = footer.querySelectorAll('.layer');
+					if (elements.length) {
+			
+						const translateY = (el, value, offset) => {
+							el.style.transform = `translateY(${value / (offset ? offset : 10)}px)`;
+						}
+			
+						const rotate = (el, value) => {
+							el.style.transform = `rotate(${(value * 0.02) - 10}deg)`;
+						}
+			
+						const scale = (el, value) => {
+							el.style.transform = `scale(${(value * -0.002)})`;
+						}
+			
+						const parallaxHandler = (el, speedAttribute) => {
+							let pageY = window.pageYOffset;
+							let top = el.getBoundingClientRect().top + (el.clientHeight / 2);
+							let value = (pageY + top) - (pageY + document.documentElement.clientHeight / 2);
+			
+			
+							translateY(el, value, speedAttribute ? +speedAttribute : 8);
+			
+						}
+			
+						elements.forEach(el => {
+							let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed
+								: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
+									: null;
+			
+							if (el.closest('.vertical-parallax')) {
+								el = el.closest('.vertical-parallax')
+							}
+			
+							let id = setInterval(() => {
+								parallaxHandler(el, speedAttribute);
+							}, 30);
+			
+							setTimeout(() => {
+								clearInterval(id);
+							}, 1000)
+			
+							window.addEventListener('scroll', () => parallaxHandler(el, speedAttribute));
+						})
+					}
+				}, 1.5)
 
-		let elements = document.querySelectorAll('.layer');
-		if (elements.length) {
-
-			const translateY = (el, value, offset) => {
-				el.style.transform = `translateY(${value / (offset ? offset : 10)}px)`;
 			}
-
-			const rotate = (el, value) => {
-				el.style.transform = `rotate(${(value * 0.02) - 10}deg)`;
-			}
-
-			const scale = (el, value) => {
-				el.style.transform = `scale(${(value * -0.002)})`;
-			}
-
-			const parallaxHandler = (el, speedAttribute) => {
-				let pageY = window.pageYOffset;
-				let top = el.getBoundingClientRect().top + (el.clientHeight / 2);
-				let value = (pageY + top) - (pageY + document.documentElement.clientHeight / 2);
-
-
-				translateY(el, value, speedAttribute ? +speedAttribute : 8);
-
-			}
-
-			elements.forEach(el => {
-				let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed
-					: el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
-						: null;
-
-				if (el.closest('.vertical-parallax')) {
-					el = el.closest('.vertical-parallax')
-				}
-
-				let id = setInterval(() => {
-					parallaxHandler(el, speedAttribute);
-				}, 30);
-
-				setTimeout(() => {
-					clearInterval(id);
-				}, 1000)
-
-				window.addEventListener('scroll', () => parallaxHandler(el, speedAttribute));
-			})
-		}
 	}
 
 	setAdaptiveFontSize() {
@@ -890,28 +894,92 @@ if (menu) {
 }
 		{
     let bgDecorContainers = document.querySelectorAll('.bg-decor');
-    if(bgDecorContainers.length) {
-        bgDecorContainers.forEach(bgDecorContainer => {
-            let bgInner = bgDecorContainer.querySelector('.bg-decor__inner');
+    if (bgDecorContainers.length) {
+        bgDecorContainers.forEach((bgDecorContainer, index) => {
+            utils.scrollTrigger(bgDecorContainer, () => {
+                let bgInner = bgDecorContainer.querySelector('.bg-decor__inner');
 
-            bgDecorContainer.after(bgInner);
-            bgDecorContainer.removeAttribute('data-parallax');
-            bgInner.setAttribute('data-parallax', '');
+                bgDecorContainer.removeAttribute('data-parallax');
+                bgInner.setAttribute('data-parallax', '');
+    
+                if (bgInner.children.length) {
+                    bgDecorContainer.after(bgInner);
+    
+                    const setPositionAndSize = () => {
+                        bgInner.style.top = getCords(bgDecorContainer) + 'px';
+                        bgInner.style.height = bgDecorContainer.clientHeight + 'px';
+                    }
+    
+                    let id = setInterval(() => {
+                        setPositionAndSize();
+                    }, 30);
+    
+                    setTimeout(() => {
+                        clearInterval(id);
+                    }, 1000)
+    
+                    window.addEventListener('resize', setPositionAndSize);
 
-            const setPositionAndSize = () => {
-                bgInner.style.top = getCords(bgDecorContainer) + 'px';
-                bgInner.style.height = bgDecorContainer.clientHeight + 'px';
-            }
+                    if('parallax' in bgInner.dataset) {
+                        let parallaxContainer = bgInner;
+                        if(parallaxContainer.children.length) {
 
-            let id = setInterval(() => {
-                setPositionAndSize();
-            }, 30);
+                            if(!utils.isMobile()) {
+                                new Parallax(parallaxContainer, {
+                                    selector: '[data-depth]'
+                                });
+                            }
 
-            setTimeout(() => {
-                clearInterval(id);
-            }, 1000)
+                            let elements = bgInner.querySelectorAll('.layer');
+                            if (elements.length) {
+                    
+                                const translateY = (el, value, offset) => {
+                                    el.style.transform = `translateY(${value / (offset ? offset : 10)}px)`;
+                                }
+                    
+                                const rotate = (el, value) => {
+                                    el.style.transform = `rotate(${(value * 0.02) - 10}deg)`;
+                                }
+                    
+                                const scale = (el, value) => {
+                                    el.style.transform = `scale(${(value * -0.002)})`;
+                                }
+                    
+                                const parallaxHandler = (el, speedAttribute) => {
+                                    let pageY = window.pageYOffset;
+                                    let top = el.getBoundingClientRect().top + (el.clientHeight / 2);
+                                    let value = (pageY + top) - (pageY + document.documentElement.clientHeight / 2);
+                    
+                    
+                                    translateY(el, value, speedAttribute ? +speedAttribute : 8);
+                    
+                                }
+                    
+                                elements.forEach(el => {
+                                    let speedAttribute = ('speed' in el.dataset) ? el.dataset.speed
+                                        : el.querySelector('[data-speed]') ? el.querySelector('[data-speed]').dataset.speed
+                                            : null;
+                    
+                                    if (el.closest('.vertical-parallax')) {
+                                        el = el.closest('.vertical-parallax')
+                                    }
+                    
+                                    let id = setInterval(() => {
+                                        parallaxHandler(el, speedAttribute);
+                                    }, 30);
+                    
+                                    setTimeout(() => {
+                                        clearInterval(id);
+                                    }, 1000)
+                    
+                                    window.addEventListener('scroll', () => parallaxHandler(el, speedAttribute));
+                                })
+                            }
+                        }
+                    }
+                }
+            }, index == 1 ? 1 : 1.5);
 
-            window.addEventListener('resize', setPositionAndSize);
         })
     }
 

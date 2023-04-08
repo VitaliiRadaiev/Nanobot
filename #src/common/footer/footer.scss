@@ -1,4 +1,16 @@
 .footer {
+
+    &.showed {
+        & .footer__decor-2, 
+        & .footer__decor-3, 
+        & .footer__decor-4, 
+        & .footer__decor-5, 
+        & .footer__decor-6 {
+            @media (max-width: $md3+px) {
+                display: block;
+            }
+        }
+    }
     &__body {
         position: relative;
         padding-top: 8rem;
@@ -57,10 +69,8 @@
         top: 6rem;
         right: -2.5rem;
         width: 20.2rem;
+        animation: bgFadeIn 0.6s ease;
 
-        @media (max-width: $md3+px) {
-            display: block;
-        }
 
         & img {
             width: 100%;
@@ -75,10 +85,8 @@
         top: 58rem;
         right: -2.5rem;
         width: 28.6rem;
+        animation: bgFadeIn 0.6s ease;
 
-        @media (max-width: $md3+px) {
-            display: block;
-        }
 
         & img {
             width: 100%;
@@ -93,10 +101,8 @@
         left: 0;
         bottom: 8rem;
         width: 28.6rem;
+        animation: bgFadeIn 0.6s ease;
 
-        @media (max-width: $md3+px) {
-            display: block;
-        }
 
         & img {
             width: 100%;
@@ -110,10 +116,8 @@
         top: -3rem;
         right: -23.9rem;
         width: 37.3rem;
+        animation: bgFadeIn 0.6s ease;
 
-        @media (max-width: $md3+px) {
-            display: block;
-        }
 
         & img {
             width: 100%;
@@ -127,10 +131,8 @@
         right: -38.6rem;
         bottom: 12rem;
         width: 66rem;
+        animation: bgFadeIn 0.6s ease;
 
-        @media (max-width: $md3+px) {
-            display: block;
-        }
 
         & img {
             width: 100%;
