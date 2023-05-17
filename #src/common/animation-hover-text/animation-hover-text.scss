@@ -17,7 +17,11 @@
     & .text-bg-shadow {
         position: absolute;
         z-index: 1 !important;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease,
+            top 0.3s ease,
+            left 0.3s ease,
+            width 0.3s ease,
+            height 0.3s ease;
         top: 0;
         left: 0;
         width: 20rem;
@@ -35,7 +39,7 @@
     }
 
     & .word {
-        transition: all 0.3s ease;
+        transition: text-shadow 0.3s ease;
         display: inline-block;
 
         // &:not(:last-child) {

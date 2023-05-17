@@ -1,0 +1,19 @@
+.blog-bottom {
+
+    &__row-1 {
+        padding: 4rem 0;
+        border-bottom: 1px solid #F3F3F3;
+
+        @media (max-width: $md3+px) {
+            padding: 0rem 0 3rem;
+        }
+    }
+
+    &__row-2 {
+        padding: 4rem 0;
+
+        @media (max-width: $md3+px) {
+            padding: 3rem 0;
+        }
+    }
+}

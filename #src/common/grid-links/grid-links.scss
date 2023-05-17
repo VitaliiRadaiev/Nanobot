@@ -1,5 +1,5 @@
 .grid-links {
-    transition: all 0.5s ease;
+   
     display: flex;
     flex-wrap: wrap;
     gap: 8rem 2rem;
@@ -87,7 +87,11 @@
     & .text-bg-shadow {
         position: absolute;
         z-index: 1 !important;
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease,
+        top 0.3s ease,
+        left 0.3s ease,
+        width 0.3s ease,
+        height 0.3s ease;
         top: 0;
         left: 0;
         width: 20rem;
@@ -114,7 +118,6 @@
 
     &__item {
         flex: 0 1 calc(33.3333333% - (2rem * 2 / 3));
-        transition: all 0.3s ease;
         position: relative;
         z-index: 2;
 
@@ -125,7 +128,7 @@
 
     &__collapse {
         display: flex;
-        transition: all 2s ease;
+        transition: max-height 2s ease;
         flex-wrap: wrap;
         gap: 8rem 2rem;
         padding: 10rem;
@@ -148,7 +151,6 @@
     }
 
     &__btn {
-        transition: all 0.3s ease;
         &.hide {
             opacity: 0;
             visibility: hidden;

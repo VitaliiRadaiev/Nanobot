@@ -251,10 +251,19 @@
 
         & span {
             margin-right: 0.4em;
+
+            &.active {
+                color: #fff;
+                & a {
+                    color: #fff;
+                }
+            }
+
             &:not(:last-child) {
                 &:after {
                     content: "/";
                     margin-left: 0.6em;
+                    color: #7e838d !important;
                 }
             }
         }

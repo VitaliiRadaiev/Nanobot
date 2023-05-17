@@ -44,7 +44,7 @@
         justify-content: center;
         padding: 2rem;
         width: calc((100vw - 162rem) / 2 + 16.5rem);
-        transition: all .3s ease;
+        transition: opacity .3s ease;
         cursor: pointer;
         pointer-events: none;
 
@@ -75,7 +75,7 @@
             height: 5rem;
             width: auto;
             opacity: 0;
-            transition: all .3s ease;
+            transition: opacity .3s ease;
         }
 
         &:before {
@@ -123,7 +123,15 @@
             flex-direction: column;
     
             @media (max-width: $md3+px) {
-                width: 28rem;
+                width: 20.5rem;
+
+                & .mb-40 {
+                    margin-bottom: 0 !important;
+                }
+
+                & .link {
+                    display: none;
+                }
             }
 
             & > div {
@@ -143,6 +151,27 @@
 
         & .cases-card {
             height: 100%;
+        }
+
+        & .carousel__btn {
+            @media (max-width: $md3+px) {
+                display: block;
+                pointer-events: none;
+                width: 10.5rem;
+
+                & img {
+                    display: none;
+                }
+
+                &.carousel__shadow-left {
+                    right: auto;
+                    left: -25px;
+                }
+                &.carousel__shadow-right {
+                    left: auto;
+                    right: -25px;
+                }
+            }
         }
     }
 }

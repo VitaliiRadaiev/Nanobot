@@ -18,7 +18,7 @@
 
     &__tabs-nav-item {
         position: relative;
-        transition: all 0.3s ease;
+        transition: color 0.3s ease;
         cursor: pointer;
 
         &:not(:last-child) {
@@ -42,7 +42,7 @@
             );
             opacity: 0;
             transform: scaleX(0);
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
 
             @media (max-width: $md2+px) {
                 right: -1rem;
@@ -145,7 +145,6 @@
             top: 0;
             left: 0;
             color: inherit;
-            transition: all 0.3s ease;
             font-size: 0.7em;
         }
         &.active {
@@ -175,7 +174,7 @@
     display: block;
     font-size: 2.4rem;
     line-height: 1.2em;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     color: $textColor !important;
     font-weight: 700;
 
@@ -208,7 +207,7 @@
         }
 
         & img {
-            transition: all 1.4s ease;
+            transition: transform 1.4s ease;
         }
     }
 

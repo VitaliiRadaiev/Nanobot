@@ -1,6 +1,6 @@
 class LazyScripts {
 	init() {
-		this.popupHandler();
+
 		this.slidersInit();
 		this.tabsInit();
 		this.spollerInit();
@@ -8,9 +8,8 @@ class LazyScripts {
 		this.initSmoothScroll();
 		this.selectInit();
 		this.setWidthVariable();
-		//this.initScrollAnimationTrigger();
-		//this.parallaxInit();
 		this.componentsBeforeLoad();
+		this.fancyBox();
 	}
 
 	popupHandler() {
@@ -127,7 +126,7 @@ class LazyScripts {
 
 				input.addEventListener('input', (e) => {
 					if (input.value.length > 1) {
-						if(input.value.endsWith('+')) {
+						if (input.value.endsWith('+')) {
 							input.value = input.value.slice(0, -1);
 							return;
 						}
@@ -394,7 +393,109 @@ class LazyScripts {
 	}
 
 	fancyBox() {
-		
+		let fancyBoxTriggers = document.querySelectorAll('[data-fancybox]');
+		if (fancyBoxTriggers.length) {
+			let fancyBoxContainer = addToHtmlFancyBox();
+			let videoContainer = fancyBoxContainer.querySelector('.popup__video');
+
+			this.popupHandler();
+			loadYoutubeAndVimeoApi();
+
+			fancyBoxTriggers.forEach(trigger => {
+				trigger.addEventListener('click', (e) => {
+					e.preventDefault();
+
+					if (/youtu\.be/.test(trigger.href) || /www\.youtube\.com/.test(trigger.href)) {
+						let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+						let match = trigger.href.match(regExp);
+						let id = (match && match[7].length == 11) ? match[7] : false;
+
+						setVideo('youtube', videoContainer, id);
+						window.popup.open('#fancy-box-video');
+						return;
+					}
+
+					if (/vimeo/.test(trigger.href)) {
+						let regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/
+						let match = trigger.href.match(regExp);
+						let id = (match && match[5].length == 8) ? match[5] : false;
+
+						setVideo('vimeo', videoContainer, id);
+						window.popup.open('#fancy-box-video');
+						return;
+					}
+
+					setVideo('htmlVideo', videoContainer, trigger.href);
+					window.popup.open('#fancy-box-video');
+				})
+			})
+
+			function setVideo(typeOfVideo, container, src) {
+				switch (typeOfVideo) {
+					case 'youtube':
+						{
+							let iframe = document.createElement('div');
+							container.append(iframe);
+							new YT.Player(iframe, {
+								height: 'auto',
+								width: 'auto',
+								videoId: src,
+								playerVars: {
+									autoplay: 1,
+								}
+							})
+						}
+						break;
+					case 'vimeo':
+						{
+							let iframe = document.createElement('div');
+							container.append(iframe);
+							new Vimeo.Player(iframe, {
+								id: src,
+								autoplay: true,
+								width: 'auto',
+								height: 'auto'
+							})
+						}
+						break;
+					case 'htmlVideo':
+						container.innerHTML = `
+							<video playsinline="" controls="" controlslist="nodownload" tabindex="0">
+								<source src="${src}" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						`;
+						break;
+				}
+			}
+
+			function addToHtmlFancyBox() {
+				let container = document.createElement('div');
+				container.insertAdjacentHTML('beforeend', `
+				<div class="popup " id="fancy-box-video">
+					<div class="popup__close" data-popup="close-popup"><span></span></div>
+					<div class="popup__body">
+						<div class="popup__content">
+							<div class="popup__video">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				`)
+				document.body.append(container);
+				return container;
+			}
+
+			function loadYoutubeAndVimeoApi() {
+				let scriptYoutube = document.createElement('script');
+				scriptYoutube.src = "https://www.youtube.com/iframe_api";
+				document.body.append(scriptYoutube);
+
+				let scriptVimeo = document.createElement('script');
+				scriptVimeo.src = "https://player.vimeo.com/api/player.js";
+				document.body.append(scriptVimeo);
+			}
+		}
 	}
 }
 

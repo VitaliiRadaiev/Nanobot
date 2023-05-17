@@ -17,7 +17,7 @@
 
     &__slider {
         @media (min-width: 992px) {
-            transition: all 1s ease;
+            transition: transform 1s ease;
             transform: translateX(20rem);
             pointer-events: none;
         }
@@ -32,7 +32,7 @@
         transform: translateY(-50%);
         width: 30rem;
         background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
-        transition: all 0.3s ease;
+        transition: opacity 0.3s ease;
 
         @media (max-width: $md1+px) and (min-width: 768px) {
             right: calc((((100vw - min(calc(100vw - 64px), 162rem)) / 2)) * -1);

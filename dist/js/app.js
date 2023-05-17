@@ -895,6 +895,7 @@ if (menu) {
 		{
     let bgDecorContainers = document.querySelectorAll('.bg-decor');
     if (bgDecorContainers.length) {
+        window.bgDecors = [];
         bgDecorContainers.forEach((bgDecorContainer, index) => {
             utils.scrollTrigger(bgDecorContainer, () => {
                 let bgInner = bgDecorContainer.querySelector('.bg-decor__inner');
@@ -909,6 +910,19 @@ if (menu) {
                         bgInner.style.top = getCords(bgDecorContainer) + 'px';
                         bgInner.style.height = bgDecorContainer.clientHeight + 'px';
                     }
+
+                    window.bgDecors.push(() => {
+                        setPositionAndSize();
+                        let id = setInterval(() => {
+                            setPositionAndSize();
+                        }, 20);
+        
+                        setTimeout(() => {
+                            clearInterval(id);
+                        }, 200)
+                    });
+
+                    setPositionAndSize();
     
                     let id = setInterval(() => {
                         setPositionAndSize();
@@ -978,7 +992,7 @@ if (menu) {
                         }
                     }
                 }
-            }, index == 1 ? 1 : 1.5);
+            }, index == 1 ? 0.9 : 1.5);
 
         })
     }

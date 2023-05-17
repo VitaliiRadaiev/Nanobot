@@ -72,8 +72,8 @@
 
             & > li {
                 cursor: pointer;
-                transition: all .3s ease;
                 user-select: none;
+                transition: color .3s ease, font-weight .3s ease;
 
                 &:first-child, &:last-child {
                     &::before {

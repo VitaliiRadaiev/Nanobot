@@ -1,6 +1,6 @@
 class LazyScripts {
 	init() {
-		this.popupHandler();
+
 		this.slidersInit();
 		this.tabsInit();
 		this.spollerInit();
@@ -8,9 +8,8 @@ class LazyScripts {
 		this.initSmoothScroll();
 		this.selectInit();
 		this.setWidthVariable();
-		//this.initScrollAnimationTrigger();
-		//this.parallaxInit();
 		this.componentsBeforeLoad();
+		this.fancyBox();
 	}
 
 	popupHandler() {
@@ -22,12 +21,12 @@ const lockPadding = document.querySelectorAll('[data-popup="lock-padding"]');
 
 let unlock = true;
 
-const timeout = 800;
+const timeout = 400;
 
-if(popupLinks.length > 0) {
+if (popupLinks.length > 0) {
 	for (let index = 0; index < popupLinks.length; index++) {
 		const popupLink = popupLinks[index];
-		popupLink.addEventListener('click', function(e) {
+		popupLink.addEventListener('click', function (e) {
 			const popupName = popupLink.getAttribute('href').replace('#', '');
 			const curentPopup = document.getElementById(popupName);
 			popupOpen(curentPopup);
@@ -38,10 +37,10 @@ if(popupLinks.length > 0) {
 
 
 const popupCloseIcon = document.querySelectorAll('[data-popup="close-popup"]');
-if(popupCloseIcon.length > 0) {
-	for(let index = 0; index < popupCloseIcon.length; index++) {
+if (popupCloseIcon.length > 0) {
+	for (let index = 0; index < popupCloseIcon.length; index++) {
 		const el = popupCloseIcon[index];
-		el.addEventListener('click', function(e) {
+		el.addEventListener('click', function (e) {
 			popupClose(el.closest('.popup'));
 			e.preventDefault();
 		});
@@ -49,7 +48,7 @@ if(popupCloseIcon.length > 0) {
 }
 
 function popupOpen(curentPopup) {
-	if(curentPopup && unlock) {
+	if (curentPopup && unlock) {
 		const popupActive = document.querySelector('.popup.popup--open');
 		if (popupActive) {
 			popupClose(popupActive, false);
@@ -57,9 +56,9 @@ function popupOpen(curentPopup) {
 			bodyLock();
 		}
 		curentPopup.classList.add('popup--open');
-		curentPopup.addEventListener('click', function(e) {
-			if(!e.target.closest('.popup__content')) {
-				popupClose(e.target.closest('.popup')); 
+		curentPopup.addEventListener('click', function (e) {
+			if (!e.target.closest('.popup__content')) {
+				popupClose(e.target.closest('.popup'));
 			}
 		});
 
@@ -67,25 +66,28 @@ function popupOpen(curentPopup) {
 }
 
 function popupClose(popupActive, doUnlock = true) {
-	if(unlock) {
+	if (unlock) {
 		popupActive.classList.remove('popup--open');
-		if(doUnlock) {
+		if (doUnlock) {
 			bodyUnlock();
 		}
+
+		let video = popupActive.querySelector('.popup__video');
+		if (video) video.innerHTML = '';
 	}
 }
 
 function bodyLock() {
 	const lockPaddingValue = window.innerWidth - document.querySelector('body').offsetWidth + 'px';
 	let targetPadding = document.querySelectorAll('[data-popup="add-right-padding"]');
-	if(targetPadding.length) {
+	if (targetPadding.length) {
 		for (let index = 0; index < targetPadding.length; index++) {
 			const el = targetPadding[index];
 			el.style.paddingRight = lockPaddingValue;
 		}
 	}
 
-	if(lockPadding.length > 0) {
+	if (lockPadding.length > 0) {
 		for (let index = 0; index < lockPadding.length; index++) {
 			const el = lockPadding[index];
 			el.style.paddingRight = lockPaddingValue;
@@ -96,7 +98,7 @@ function bodyLock() {
 	body.classList.add('overflow-hidden');
 
 	unlock = false;
-	setTimeout(function() {
+	setTimeout(function () {
 		unlock = true;
 	}, timeout);
 }
@@ -104,15 +106,15 @@ function bodyLock() {
 function bodyUnlock() {
 	let targetPadding = document.querySelectorAll('[data-popup="add-right-padding"]');
 
-	setTimeout(function() {
-		if(targetPadding.length) {
+	setTimeout(function () {
+		if (targetPadding.length) {
 			for (let index = 0; index < targetPadding.length; index++) {
 				const el = targetPadding[index];
 				el.style.paddingRight = '0px';
 			}
 		}
 
-		for( let index = 0; index < lockPadding.length; index++) {
+		for (let index = 0; index < lockPadding.length; index++) {
 			const el = lockPadding[index];
 			el.style.paddingRight = '0px';
 		}
@@ -122,40 +124,40 @@ function bodyUnlock() {
 	}, timeout);
 
 	unlock = false;
-	setTimeout(function() { 
+	setTimeout(function () {
 		unlock = true;
 	}, timeout);
 }
 
-document.addEventListener('keydown', function(e) {
-	if(e.which === 27) {
+document.addEventListener('keydown', function (e) {
+	if (e.which === 27) {
 		const popupActive = document.querySelector('.popup.popup--open');
 		popupClose(popupActive);
 	}
 });
 
 // === Polyfill ===
-	(function() {
-		if(!Element.prototype.closest) {
-			Element.prototype.closest = function(css) {
-				var node = this;
-				while(node) {
-					if(node.matches(css)) return node;
-					else node == node.parentElement;
-				}
-				return null;
-			};
-		}
-	})();
+(function () {
+	if (!Element.prototype.closest) {
+		Element.prototype.closest = function (css) {
+			var node = this;
+			while (node) {
+				if (node.matches(css)) return node;
+				else node == node.parentElement;
+			}
+			return null;
+		};
+	}
+})();
 
-	(function() {
-		if(!Element.prototype.matches) {
-			Element.prototype.matches = Element.prototype.matchesSelector ||
-				Element.prototype.webkitMatchesSelector ||
-				Element.prototype.mozMatchesSelector ||
-				Element.prototype.mozMatchesSelector;
-		}
-	})();
+(function () {
+	if (!Element.prototype.matches) {
+		Element.prototype.matches = Element.prototype.matchesSelector ||
+			Element.prototype.webkitMatchesSelector ||
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.mozMatchesSelector;
+	}
+})();
 // === AND Polyfill ===
 
 // добавление API попапа в глобалную видимость
@@ -166,6 +168,30 @@ window.popup = {
 		let popup = document.querySelector(id);
 
 		if (!popup) return;
+
+		let video = popup.querySelector('video');
+		if (video) {
+			let isPlaying = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'playing');
+			if(!isPlaying) {
+				Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+					get: function () {
+						return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+					}
+				});
+			}
+
+			const playVideo = () => {
+				video.play();
+
+				if (!video.playing) {
+					setTimeout(() => {
+						playVideo()
+					}, 100)
+				}
+			}
+
+			playVideo();
+		}
 
 		popupOpen(popup);
 	},
@@ -244,7 +270,7 @@ window.popup = {
                 breakpoints: {
                     320: {
                         slidesPerView: 'auto',
-                        spaceBetween: 30,
+                        spaceBetween: 40,
                         centeredSlides: true,
                         autoHeight: true,
                     },
@@ -454,7 +480,7 @@ window.popup = {
 
 				input.addEventListener('input', (e) => {
 					if (input.value.length > 1) {
-						if(input.value.endsWith('+')) {
+						if (input.value.endsWith('+')) {
 							input.value = input.value.slice(0, -1);
 							return;
 						}
@@ -1480,7 +1506,109 @@ window.popup = {
 	}
 
 	fancyBox() {
-		
+		let fancyBoxTriggers = document.querySelectorAll('[data-fancybox]');
+		if (fancyBoxTriggers.length) {
+			let fancyBoxContainer = addToHtmlFancyBox();
+			let videoContainer = fancyBoxContainer.querySelector('.popup__video');
+
+			this.popupHandler();
+			loadYoutubeAndVimeoApi();
+
+			fancyBoxTriggers.forEach(trigger => {
+				trigger.addEventListener('click', (e) => {
+					e.preventDefault();
+
+					if (/youtu\.be/.test(trigger.href) || /www\.youtube\.com/.test(trigger.href)) {
+						let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+						let match = trigger.href.match(regExp);
+						let id = (match && match[7].length == 11) ? match[7] : false;
+
+						setVideo('youtube', videoContainer, id);
+						window.popup.open('#fancy-box-video');
+						return;
+					}
+
+					if (/vimeo/.test(trigger.href)) {
+						let regExp = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/
+						let match = trigger.href.match(regExp);
+						let id = (match && match[5].length == 8) ? match[5] : false;
+
+						setVideo('vimeo', videoContainer, id);
+						window.popup.open('#fancy-box-video');
+						return;
+					}
+
+					setVideo('htmlVideo', videoContainer, trigger.href);
+					window.popup.open('#fancy-box-video');
+				})
+			})
+
+			function setVideo(typeOfVideo, container, src) {
+				switch (typeOfVideo) {
+					case 'youtube':
+						{
+							let iframe = document.createElement('div');
+							container.append(iframe);
+							new YT.Player(iframe, {
+								height: 'auto',
+								width: 'auto',
+								videoId: src,
+								playerVars: {
+									autoplay: 1,
+								}
+							})
+						}
+						break;
+					case 'vimeo':
+						{
+							let iframe = document.createElement('div');
+							container.append(iframe);
+							new Vimeo.Player(iframe, {
+								id: src,
+								autoplay: true,
+								width: 'auto',
+								height: 'auto'
+							})
+						}
+						break;
+					case 'htmlVideo':
+						container.innerHTML = `
+							<video playsinline="" controls="" controlslist="nodownload" tabindex="0">
+								<source src="${src}" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						`;
+						break;
+				}
+			}
+
+			function addToHtmlFancyBox() {
+				let container = document.createElement('div');
+				container.insertAdjacentHTML('beforeend', `
+				<div class="popup " id="fancy-box-video">
+					<div class="popup__close" data-popup="close-popup"><span></span></div>
+					<div class="popup__body">
+						<div class="popup__content">
+							<div class="popup__video">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				`)
+				document.body.append(container);
+				return container;
+			}
+
+			function loadYoutubeAndVimeoApi() {
+				let scriptYoutube = document.createElement('script');
+				scriptYoutube.src = "https://www.youtube.com/iframe_api";
+				document.body.append(scriptYoutube);
+
+				let scriptVimeo = document.createElement('script');
+				scriptVimeo.src = "https://player.vimeo.com/api/player.js";
+				document.body.append(scriptVimeo);
+			}
+		}
 	}
 }
 
