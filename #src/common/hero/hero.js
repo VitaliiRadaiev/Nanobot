@@ -25,8 +25,6 @@
                     Array.from(video.children).forEach(item => {
                         item.setAttribute('src', url);
                     })
-        
-                    video.load();
                 }
             }
 
@@ -46,7 +44,14 @@
                 }
             }
 
-            playVideo();
+            if(document.documentElement.clientWidth < 768) {
+                window.addEventListener('load', () => {
+                    playVideo();
+                })
+            } else {
+                playVideo();
+            }
+
         }
     }
 
