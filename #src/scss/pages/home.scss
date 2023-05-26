@@ -1456,6 +1456,15 @@
         font-family: $secondFontFamily;
         margin-bottom: 8.8rem;
 
+        &::before {
+            top: -0.75em;
+            line-height: 1.2em;
+
+            @media (max-width: $md3+px) {
+                top: -1.75em;
+            }
+        }
+
         @media (max-width: $md3+px) {
             font-size: 2.8rem;
             line-height: 3.4rem;

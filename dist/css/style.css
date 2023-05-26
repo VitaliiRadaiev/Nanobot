@@ -2449,6 +2449,16 @@ figure {
   fill: currentColor;
 }
 
+.social--lg {
+  gap: 4rem;
+}
+
+.social--lg img,
+.social--lg svg {
+  height: 6rem;
+  width: auto;
+}
+
 [data-tab-content] {
   display: none;
 }
@@ -2595,6 +2605,12 @@ figure {
   text-transform: uppercase;
 }
 
+.text-\[4\.8rem\] {
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 1em;
+}
+
 .g-5,
 .gx-5 {
   --bs-gutter-x: 5rem;
@@ -2634,203 +2650,203 @@ figure {
 }
 
 .z-1 {
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 .z-2 {
-  z-index: 2;
+  z-index: 2 !important;
 }
 
 .z-3 {
-  z-index: 3;
+  z-index: 3 !important;
 }
 
 .z-4 {
-  z-index: 4;
+  z-index: 4 !important;
 }
 
 .z-5 {
-  z-index: 5;
+  z-index: 5 !important;
 }
 
 .z-6 {
-  z-index: 6;
+  z-index: 6 !important;
 }
 
 .z-7 {
-  z-index: 7;
+  z-index: 7 !important;
 }
 
 .z-8 {
-  z-index: 8;
+  z-index: 8 !important;
 }
 
 .z-9 {
-  z-index: 9;
+  z-index: 9 !important;
 }
 
 .z-10 {
-  z-index: 10;
+  z-index: 10 !important;
 }
 
 .z-11 {
-  z-index: 11;
+  z-index: 11 !important;
 }
 
 .z-12 {
-  z-index: 12;
+  z-index: 12 !important;
 }
 
 .z-13 {
-  z-index: 13;
+  z-index: 13 !important;
 }
 
 .z-14 {
-  z-index: 14;
+  z-index: 14 !important;
 }
 
 .z-15 {
-  z-index: 15;
+  z-index: 15 !important;
 }
 
 .z-16 {
-  z-index: 16;
+  z-index: 16 !important;
 }
 
 .z-17 {
-  z-index: 17;
+  z-index: 17 !important;
 }
 
 .z-18 {
-  z-index: 18;
+  z-index: 18 !important;
 }
 
 .z-19 {
-  z-index: 19;
+  z-index: 19 !important;
 }
 
 .z-20 {
-  z-index: 20;
+  z-index: 20 !important;
 }
 
 .z-21 {
-  z-index: 21;
+  z-index: 21 !important;
 }
 
 .z-22 {
-  z-index: 22;
+  z-index: 22 !important;
 }
 
 .z-23 {
-  z-index: 23;
+  z-index: 23 !important;
 }
 
 .z-24 {
-  z-index: 24;
+  z-index: 24 !important;
 }
 
 .z-25 {
-  z-index: 25;
+  z-index: 25 !important;
 }
 
 .z-26 {
-  z-index: 26;
+  z-index: 26 !important;
 }
 
 .z-27 {
-  z-index: 27;
+  z-index: 27 !important;
 }
 
 .z-28 {
-  z-index: 28;
+  z-index: 28 !important;
 }
 
 .z-29 {
-  z-index: 29;
+  z-index: 29 !important;
 }
 
 .z-30 {
-  z-index: 30;
+  z-index: 30 !important;
 }
 
 .z-31 {
-  z-index: 31;
+  z-index: 31 !important;
 }
 
 .z-32 {
-  z-index: 32;
+  z-index: 32 !important;
 }
 
 .z-33 {
-  z-index: 33;
+  z-index: 33 !important;
 }
 
 .z-34 {
-  z-index: 34;
+  z-index: 34 !important;
 }
 
 .z-35 {
-  z-index: 35;
+  z-index: 35 !important;
 }
 
 .z-36 {
-  z-index: 36;
+  z-index: 36 !important;
 }
 
 .z-37 {
-  z-index: 37;
+  z-index: 37 !important;
 }
 
 .z-38 {
-  z-index: 38;
+  z-index: 38 !important;
 }
 
 .z-39 {
-  z-index: 39;
+  z-index: 39 !important;
 }
 
 .z-40 {
-  z-index: 40;
+  z-index: 40 !important;
 }
 
 .z-41 {
-  z-index: 41;
+  z-index: 41 !important;
 }
 
 .z-42 {
-  z-index: 42;
+  z-index: 42 !important;
 }
 
 .z-43 {
-  z-index: 43;
+  z-index: 43 !important;
 }
 
 .z-44 {
-  z-index: 44;
+  z-index: 44 !important;
 }
 
 .z-45 {
-  z-index: 45;
+  z-index: 45 !important;
 }
 
 .z-46 {
-  z-index: 46;
+  z-index: 46 !important;
 }
 
 .z-47 {
-  z-index: 47;
+  z-index: 47 !important;
 }
 
 .z-48 {
-  z-index: 48;
+  z-index: 48 !important;
 }
 
 .z-49 {
-  z-index: 49;
+  z-index: 49 !important;
 }
 
 .z-50 {
-  z-index: 50;
+  z-index: 50 !important;
 }
 
 .font-100 {
@@ -3510,6 +3526,29 @@ figure {
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 1em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0 0.2rem;
+}
+
+.header__btn:before {
+  position: absolute;
+  content: "\e901";
+  top: -1.75em;
+  left: -2rem;
+  font-family: "icomoon" !important;
+  color: inherit;
+  font-size: 0.4em;
+}
+
+.header__btn:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -0.4em;
+  width: 100%;
+  height: 0.2rem;
+  background-color: currentColor;
 }
 
 .burger {
@@ -3575,6 +3614,25 @@ figure {
 
 .header-menu__body {
   padding-bottom: 8rem;
+  position: relative;
+  min-height: 31rem;
+}
+
+.header-menu__body .social {
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 8.4rem;
+  right: 0;
+  gap: 1.2rem;
+}
+
+.header-menu__body .social svg,
+.header-menu__body .social img {
+  height: 2rem;
+  width: auto;
 }
 
 .menu__tabs-nav {
@@ -3937,6 +3995,15 @@ figure {
 .footer__logo svg path,
 .footer__logo svg ellipse {
   fill: currentColor;
+}
+
+.footer__social .social {
+  gap: 1.5rem;
+}
+
+.footer__social .social svg,
+.footer__social .social img {
+  height: 3rem;
 }
 
 .btn-default {
@@ -8069,6 +8136,11 @@ figure {
   color: #ffffff;
   font-family: "VenusRisingRg-Regular", sans-serif;
   margin-bottom: 8.8rem;
+}
+
+.home-section-ten__title::before {
+  top: -0.75em;
+  line-height: 1.2em;
 }
 
 .home-section-ten__text {
@@ -13815,6 +13887,32 @@ figure {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 4rem;
+  }
+
+  .header-menu__body .social {
+    gap: 2.4rem;
+    margin-top: auto;
+  }
+
+  .header-menu__body .social svg,
+  .header-menu__body .social img {
+    height: 2.4rem;
+  }
+
+  .header-menu__body .social {
+    position: static;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 
   .menu__desk {
@@ -13997,6 +14095,15 @@ figure {
     margin-bottom: 8rem;
   }
 
+  .social--lg {
+    gap: 2rem;
+  }
+
+  .social--lg img,
+  .social--lg svg {
+    height: 4rem;
+  }
+
   .pb-0-mob {
     padding-bottom: 0 !important;
   }
@@ -14025,6 +14132,11 @@ figure {
 
   .text-\[3rem\]-uppercase {
     font-size: 1.8rem;
+  }
+
+  .text-\[4\.8rem\] {
+    font-size: 3rem;
+    line-height: 1.2em;
   }
 
   .text-content ul:not([class]) {
@@ -14061,6 +14173,10 @@ figure {
 
   .header__btn {
     display: none;
+  }
+
+  .header__btn:before {
+    left: 0;
   }
 
   .burger {
@@ -14153,6 +14269,22 @@ figure {
   .footer__logo img,
   .footer__logo svg {
     max-width: 9.7rem;
+  }
+
+  .footer__social {
+    margin-top: 4rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .footer__social .social svg,
+  .footer__social .social img {
+    height: 2.5rem;
   }
 
   .link {
@@ -15445,6 +15577,10 @@ figure {
 
   .home-section-ten__inner {
     text-align: center;
+  }
+
+  .home-section-ten__title::before {
+    top: -1.75em;
   }
 
   .home-section-ten__title {
