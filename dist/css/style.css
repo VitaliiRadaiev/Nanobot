@@ -15575,10 +15575,6 @@ figure {
     display: block;
   }
 
-  .home-section-ten__inner {
-    text-align: center;
-  }
-
   .home-section-ten__title::before {
     top: -1.75em;
   }
@@ -15591,7 +15587,7 @@ figure {
 
   .home-section-ten__text {
     max-width: 29.6rem;
-    margin: 0 auto 4.6rem;
+    margin: 0 0 4.6rem;
     font-size: 1.4rem;
     line-height: 1.8rem;
   }
