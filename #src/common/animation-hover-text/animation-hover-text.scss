@@ -48,7 +48,7 @@
 
         @media (min-width: 992px) {
             &:hover {
-                text-shadow: 0.1rem 0px 0 #fff, -0.1rem 0px 0 #fff;
+                text-shadow: 0.1rem 0px 0 currentColor, -0.1rem 0px 0 currentColor;
             }
         }
     }

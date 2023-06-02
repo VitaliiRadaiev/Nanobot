@@ -1924,4 +1924,12 @@ figure {
 		}
 	}
 }
+
+p > a {
+	text-decoration: underline;
+
+	& span {
+		text-decoration: underline;
+	}
+}
 // === and TEXT CONTETN BLOCK ========================================================================

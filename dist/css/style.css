@@ -3459,6 +3459,14 @@ figure {
   margin-top: 1.4em;
 }
 
+p > a {
+  text-decoration: underline;
+}
+
+p > a span {
+  text-decoration: underline;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -6272,6 +6280,15 @@ figure {
 
 .hero__btn-wrap {
   margin-top: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 6rem;
 }
 
 .hero .breadcrumbs {
@@ -11782,7 +11799,7 @@ figure {
   }
 
   [data-animation-hover-text] .word:hover {
-    text-shadow: 0.1rem 0px 0 #fff, -0.1rem 0px 0 #fff;
+    text-shadow: 0.1rem 0px 0 currentColor, -0.1rem 0px 0 currentColor;
   }
 
   .list-icon > li:hover .list-icon__icon svg path {
@@ -15030,6 +15047,9 @@ figure {
 
   .hero__btn-wrap {
     margin-top: 4rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .hero .breadcrumbs {

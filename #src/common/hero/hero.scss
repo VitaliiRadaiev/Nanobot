@@ -133,9 +133,13 @@
 
     &__btn-wrap {
         margin-top: 7rem;
-
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6rem;
         @media (max-width: $md3+px) {
             margin-top: 4rem;
+            justify-content: center;
         }
     }
 
