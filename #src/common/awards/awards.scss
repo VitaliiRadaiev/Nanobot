@@ -1,6 +1,18 @@
 .awards {
     position: relative;
 
+    @media (min-width: 992px) {
+        &:hover {
+            & .carousel__btn {
+                pointer-events: auto;
+            }
+
+            & .carousel__btn img {
+                opacity: 0.4;
+            }
+        }
+    }
+
     & .swiper {
         overflow: visible;
     }
@@ -17,29 +29,85 @@
 
     &__slider {
         @media (min-width: 992px) {
+
+            //transform: translateX(20rem);
+            //pointer-events: none;
+        }
+
+        @media (min-width: 1268px) {
+            max-width: 104rem;
+            margin-right: 0;
             transition: transform 1s ease;
-            transform: translateX(20rem);
-            pointer-events: none;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        font-size: 2.4rem;
+        height: calc(100% - 1em - 4rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        width: calc((100vw - 162rem) / 2 + 16.5rem);
+        transition: opacity .3s ease;
+        cursor: pointer;
+        pointer-events: none;
+
+        &.hide {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        @media (max-width: $md1+px) {
+            width: calc((100vw - 162rem) / 2);
+        }
+
+        @media (max-width: $md2+px) {
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                & img {
+                    opacity: 1 !important;
+                }
+            }
+        }
+
+        & img {
+            position: relative;
+            z-index: 2;
+            height: 6rem;
+            width: auto;
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 7rem);
+        }
+    }
+
+    &__shadow-left {
+        right: 100%;
+        &::before {
+            background: linear-gradient(90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
         }
     }
 
     &__shadow-right {
-        position: absolute;
-        top: 50%;
-        right:  calc((16.5rem + ((100vw - min(calc(100vw - 100px), 162rem)) / 2)) * -1);
-        z-index: 3;
-        height: calc(100% + 10rem);
-        transform: translateY(-50%);
-        width: 30rem;
-        background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 92.01%);
-        transition: opacity 0.3s ease;
+        left: 100%;
 
-        @media (max-width: $md1+px) and (min-width: 768px) {
-            right: calc((((100vw - min(calc(100vw - 64px), 162rem)) / 2)) * -1);
-        }
-
-        @media (max-width: $md3+px) {
-            display: none;
+        &::before {
+            background: linear-gradient(-90deg, #000000 6.75%, rgba(0, 0, 0, 0) 100.01%);
         }
     }
 
