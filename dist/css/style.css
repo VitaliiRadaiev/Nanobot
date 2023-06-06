@@ -5529,8 +5529,8 @@ p > a span {
 
 .logo-list--second {
   margin-bottom: 0;
-  -ms-grid-columns: (auto)[8];
-  grid-template-columns: repeat(8, auto);
+  -ms-grid-columns: (calc(12.5% - 2.625rem))[8];
+  grid-template-columns: repeat(8, calc(12.5% - 2.625rem));
 }
 
 .logo-list--second > li {
@@ -12906,7 +12906,7 @@ p > a span {
   }
 
   .awards__slider {
-    max-width: 104rem;
+    max-width: 110.5rem;
     margin-right: 0;
     -webkit-transition: -webkit-transform 1s ease;
     transition: -webkit-transform 1s ease;
@@ -14681,8 +14681,8 @@ p > a span {
   }
 
   .logo-list--second {
-    -ms-grid-columns: (auto)[4];
-    grid-template-columns: repeat(4, auto);
+    -ms-grid-columns: (calc(25% - 1.5rem))[4];
+    grid-template-columns: repeat(4, calc(25% - 1.5rem));
   }
 
   .list-icon {

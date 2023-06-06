@@ -52,10 +52,10 @@
 
     &--second {
         margin-bottom: 0;
-        grid-template-columns: repeat(8, auto);
+        grid-template-columns: repeat(8, calc(12.5% - (3rem * 7) / 8));
 
         @media (max-width: $md3+px) {
-            grid-template-columns: repeat(4, auto);
+            grid-template-columns: repeat(4, calc(25% - (2rem * 3) / 4));
         }
 
         & > li {

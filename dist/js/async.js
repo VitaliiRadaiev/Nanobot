@@ -217,6 +217,10 @@ window.popup = {
 
         let sliderData = new Swiper(awards.querySelector('.swiper'), {
             speed: 600,
+            navigation: {
+                nextEl: btnRight,
+                prevEl: btnLeft,
+            },
             breakpoints: {
                 320: {
                     slidesPerView: 'auto',
@@ -257,27 +261,27 @@ window.popup = {
         })
 
 
-        let idBtnRight = null;
-        btnRight.addEventListener('mouseenter', () => {
-            sliderData.slideNext();
-            idBtnRight = setInterval(() => {
-                sliderData.slideNext();
-            },1000)
-        })
-        btnRight.addEventListener('mouseleave', () => {
-            clearInterval(idBtnRight);
-        })
+        // let idBtnRight = null;
+        // btnRight.addEventListener('mouseenter', () => {
+        //     sliderData.slideNext();
+        //     idBtnRight = setInterval(() => {
+        //         sliderData.slideNext();
+        //     },1000)
+        // })
+        // btnRight.addEventListener('mouseleave', () => {
+        //     clearInterval(idBtnRight);
+        // })
 
-        let idBtnLeft = null;
-        btnLeft.addEventListener('mouseenter', () => {
-            sliderData.slidePrev();
-            idBtnLeft = setInterval(() => {
-                sliderData.slidePrev();
-            },1000)
-        })
-        btnLeft.addEventListener('mouseleave', () => {
-            clearInterval(idBtnLeft);
-        })
+        // let idBtnLeft = null;
+        // btnLeft.addEventListener('mouseenter', () => {
+        //     sliderData.slidePrev();
+        //     idBtnLeft = setInterval(() => {
+        //         sliderData.slidePrev();
+        //     },1000)
+        // })
+        // btnLeft.addEventListener('mouseleave', () => {
+        //     clearInterval(idBtnLeft);
+        // })
     }
 }
 		{
