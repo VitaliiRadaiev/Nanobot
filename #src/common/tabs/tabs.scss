@@ -1,0 +1,70 @@
+.tabs {
+
+    &__nav {
+        margin-bottom: 3rem;
+
+        @media (min-width: 992px) {
+            margin-bottom: 8rem;
+        }
+        & .swiper {
+            overflow: visible;
+        }
+
+        & .swiper-slide {
+            width: auto;
+
+            &:not(:last-child) {
+                padding-right: 2rem;
+    
+                @media (min-width: 768px) {
+                    padding-right: 4rem;
+                }
+            }
+        }
+
+        & .swiper-wrapper {
+            @media (min-width: 768px) {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4rem 0;
+            }
+        }
+    }
+
+    &__nav-item {
+        cursor: pointer;
+        transition: color .3s ease;
+        padding: 0 .2rem;
+        position: relative;
+
+        &:after {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: -0.4em;
+            width: 100%;
+            height: 0.2rem;
+            background-color: currentColor;
+        }
+
+        &.tab-active {
+            color: $mainColor;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $hover;
+            }
+        }
+    }
+
+    &__content {
+    }
+}
+
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}

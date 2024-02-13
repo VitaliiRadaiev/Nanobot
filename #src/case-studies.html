@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Nanobot"
+})
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+    <div class="main-wrapper">
+        @@include('common/header/_header.html',{
+        "mod": ""
+        })
+        <!-- == // TOP LINE ================== -->
+
+        <main class="_page home-page">
+            <div class="bg-decor" data-parallax>
+                <div class="bg-decor__inner">
+
+                </div>
+                <section class="hero">
+                    <div class="hero__bg ibg">
+                        <!-- <img src="img/photo/promo-bg.jpg" alt=""> -->
+
+                        <video poster="img/photo/promo-bg.jpg" data-media-mobile="img/VR.mp4" muted loop playsinline
+                            controlslist="nodownload" crossorigin="anonymous">
+                            <source src="img/nanobot_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                        </video>
+                    </div>
+                    <div class="hero__body container">
+                        <ul class="breadcrumbs">
+                            <li>
+                                <a href="#">Main</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>The future of medicine</li>
+                        </ul>
+                        <h1 class="hero__title-1">
+                            NAnobot:
+                        </h1>
+                        <h2 class="hero__title-2">
+                            The future of medicine and what it means for us
+                        </h2>
+                    </div>
+                </section>
+            </div>
+
+            <div class="bg-decor" data-parallax>
+                <div class="bg-decor__inner">
+                    <div class="bg-decor__cloth bottom-25 right-0 size-lg left-0-mob top-0-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.10" data-speed="12">
+                                <img src="img/photo/decor-10.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-decor__bubble-dark right-75 center-y size-md blur left-60-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.20" data-speed="8">
+                                <img src="img/photo/decor-13.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-decor__bubble-light left-75 bottom-0 size-sm d-none-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.30" data-speed="4">
+                                <img src="img/photo/bubble-light.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="padding-wrap mb-40 mb-md-0">
+                    <div class="container-second">
+                        @@include('common/tabs/_tabs.html')
+                </section>
+            </div>
+
+            <section class="home-section-ten padding-wrap" data-parallax="">
+                <div class="home-section-ten__body container">
+                    <div class="home-section-ten__decor-1">
+                        <div class="layer" data-depth="0.4">
+                            <img src="img/photo/decor-15.png" alt="">
+                        </div>
+                    </div>
+                    <div class="home-section-ten__decor-3">
+                        <div class="layer">
+                            <img src="img/photo/decor-4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="home-section-ten__decor-2">
+                        <div class="layer" data-depth="0.2">
+                            <img src="img/photo/decor-11.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="home-section-ten__inner">
+                        <h2 class="home-section-ten__title">
+                            FREE CONSULTATION
+                        </h2>
+                        <div class="home-section-ten__text text-content" data-animation-hover-text>
+                            <p>
+                                To get more specific details, feel free to contact
+                                us, and keep following our news.
+                            </p>
+                            <p>
+                                We've got you covered!
+                            </p>
+                        </div>
+                        <a href="#" class="home-section-ten__btn btn-default btn-default--second">Book a Call</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- == FOOTER ================== -->
+        @@include('common/footer/_footer.html',{})
+        <!-- == // FOOTER ================== -->
+    </div>
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

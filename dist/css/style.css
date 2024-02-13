@@ -7231,6 +7231,116 @@ p > a span {
   border-radius: 0.5rem;
 }
 
+.tabs__nav {
+  margin-bottom: 3rem;
+}
+
+.tabs__nav .swiper {
+  overflow: visible;
+}
+
+.tabs__nav .swiper-slide {
+  width: auto;
+}
+
+.tabs__nav .swiper-slide:not(:last-child) {
+  padding-right: 2rem;
+}
+
+.tabs__nav-item {
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  padding: 0 0.2rem;
+  position: relative;
+}
+
+.tabs__nav-item:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -0.4em;
+  width: 100%;
+  height: 0.2rem;
+  background-color: currentColor;
+}
+
+.tabs__nav-item.tab-active {
+  color: #0071FF;
+}
+
+.posts__list {
+  padding-left: 0;
+  margin-bottom: 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+.posts__list > li:nth-child(6n+1) {
+  -ms-grid-row-span: 2;
+  grid-row: span 2;
+}
+
+.post-card-sm {
+  display: block;
+  position: relative;
+  min-height: 20rem;
+  height: 100%;
+  overflow: hidden;
+  color: #F3F3F3 !important;
+  background-color: #000;
+}
+
+.post-card-sm__img {
+  width: 100%;
+  height: 100%;
+}
+
+.post-card-sm__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-transform 1.4s ease;
+  transition: -webkit-transform 1.4s ease;
+  -o-transition: transform 1.4s ease;
+  transition: transform 1.4s ease;
+  transition: transform 1.4s ease, -webkit-transform 1.4s ease;
+  opacity: 0.9;
+}
+
+.post-card-sm__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: calc(100% + 1px);
+  padding: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgb(0, 0, 0)));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 .home-section-one {
   position: relative;
 }
@@ -10553,6 +10663,33 @@ p > a span {
     height: auto;
   }
 
+  .tabs__nav .swiper-slide:not(:last-child) {
+    padding-right: 4rem;
+  }
+
+  .tabs__nav .swiper-wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 4rem 0;
+  }
+
+  .posts__list {
+    margin-bottom: 6rem;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .post-card-sm {
+    min-height: 30rem;
+  }
+
+  .post-card-sm__content {
+    padding: 3rem;
+  }
+
   .home-section-two__row-1 .home-section-two__col:nth-child(1) {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
@@ -11897,6 +12034,37 @@ p > a span {
 
   .popup__close:hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tabs__nav {
+    margin-bottom: 8rem;
+  }
+
+  .tabs__nav-item:hover {
+    color: #0071FF;
+  }
+
+  .post-card-sm:hover .post-card-sm__img img {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+
+  .post-card-sm:hover .post-card-sm__content {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+  }
+
+  .post-card-sm__content {
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
   }
 
   .home-section-two__row-2 {
