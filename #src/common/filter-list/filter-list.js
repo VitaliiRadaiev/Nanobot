@@ -4,6 +4,7 @@ if (filterListSections.length) {
     const instances = [];
 
     filterListSections.forEach(filterListSection => {
+        filterListSection.closest('.bg-decor')?.classList.add('filter-list-wrap');
         const id = filterListSection.getAttribute('data-filter-list');
         if (!id) {
             throw new Error('data-filter-list="" must have any id');
