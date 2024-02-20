@@ -391,6 +391,7 @@ class LazyScripts {
 		@@include('../common/posts-list/posts-list.js')
 		@@include('../common/sticky-box/sticky-box.js')
 		@@include('../common/tabs/tabs.js')
+		@@include('../common/filter-list/filter-list.js')
 	}
 
 	fancyBox() {

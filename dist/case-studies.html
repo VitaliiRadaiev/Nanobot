@@ -378,16 +378,13 @@ defer
                             <li>
                                 <a href="#">Main</a>
                             </li>
-                            <li>
-                                <a href="#">Blog</a>
-                            </li>
-                            <li>The future of medicine</li>
+                            <li>Projects</li>
                         </ul>
                         <h1 class="hero__title-1">
-                            NAnobot:
+                            Projects
                         </h1>
                         <h2 class="hero__title-2">
-                            The future of medicine and what it means for us
+                            Come to see our latest works with other companies
                         </h2>
                     </div>
                 </section>
@@ -395,776 +392,452 @@ defer
 
             <div class="bg-decor" data-parallax>
                 <div class="bg-decor__inner">
-                    <div class="bg-decor__cloth bottom-25 right-0 size-lg left-0-mob top-0-mob">
-                        <div class="vertical-parallax">
-                            <div class="layer" data-depth="0.10" data-speed="12">
-                                <img src="img/photo/decor-10.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-decor__bubble-dark right-75 center-y size-md blur left-60-mob">
-                        <div class="vertical-parallax">
-                            <div class="layer" data-depth="0.20" data-speed="8">
-                                <img src="img/photo/decor-13.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-decor__bubble-light left-75 bottom-0 size-sm d-none-mob">
-                        <div class="vertical-parallax">
-                            <div class="layer" data-depth="0.30" data-speed="4">
-                                <img src="img/photo/bubble-light.png" alt="">
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <section class="padding-wrap mb-40 mb-md-0">
                     <div class="container-second">
-                        <section class="tabs" data-tabs>
-    <div class="tabs__nav">
-        <div class="swiper" data-slider="tabs-nav" data-mobile="false">
+                        <div class="filter-list" data-filter-list="1">
+    <div class="filter-list__head">
+        <div class="filter-list__nav filter-list-nav swiper" data-slider="filter-list-nav" data-mobile="false">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="0">All</div>
+                    <button class="filter-list-nav__title active text-lg font-600" data-filter-nav="*">All</button>
                 </div>
                 <div class="swiper-slide">
-                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="1">Animation</div>
+                    <div class="filter-list-nav__item">
+                        <button class="filter-list-nav__title text-lg font-600">Work</button>
+                        <div class="filter-list-nav__current-value">All</div>
+                        <ul class="filter-list-nav__list">
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork">All</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.Animation">Animation</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.AugmentedReality">Augmented Reality</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.DocumentaryFilm">Documentary Film</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.InteractiveExperiences">Interactive Experiences</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.VirtualReality">Virtual Reality</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="2">Case Studies</div>
+                    <div class="filter-list-nav__item">
+                        <button class="filter-list-nav__title text-lg font-600">Types</button>
+                        <div class="filter-list-nav__current-value">All</div>
+                        <ul class="filter-list-nav__list">
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes">All</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.AnimalHealth">Animal Health</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.Biotechnology">Biotechnology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.Consumer">Consumer</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.DevicesAndDiagnostics">Devices & Diagnostics</button>
+                            </li>                                           <!-- & нужно заменить на And, поскольку со знаком амперсанда не работает поиск -->
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.HumanHealth">Human Health</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.TherapeuticPlatforms">Therapeutic Platforms</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="3">Example Tab</div>
+                    <div class="filter-list-nav__item">
+                        <button class="filter-list-nav__title text-lg font-600">Therapeutic Areas</button>
+                        <div class="filter-list-nav__current-value">All</div>
+                        <ul class="filter-list-nav__list">
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas">All</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Cardiovascular">Cardiovascular</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.CellAndGeneTherapy">Cell & Gene Therapy</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.DrugDiscovery">Drug Discovery</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Genito-Urinary">Genito-Urinary</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Hematology">Hematology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Hepatology">Hepatology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.InfectiousDisease">Infectious Disease</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Musculoskeletal">Musculoskeletal</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Immunology">Immunology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Neurology">Neurology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Ophthalmology">Ophthalmology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Oncology">Oncology</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.OralHealth">Oral Health</button>
+                            </li>
+                            <li>
+                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.RareDisease">Rare Disease</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="4">Example Tab</div>
+            </div>
+        </div>
+    </div>
+    <div class="filter-list__item-sizer"></div>
+    <div class="filter-list__item-gutter"></div>
+    <div class="filter-list__body" data-filter-body>
+        <div class="filter-list__item AllWork Animation">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
                 </div>
-                <div class="swiper-slide">
-                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="5">Example Tab</div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
                 </div>
-            </div>
+            </a>
         </div>
-    </div>
-    <div class="tabs__content" data-tab-content="0">
-        <div class="posts">
-            <ul class="posts__list">
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+        <div class="filter-list__item AllWork Animation">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllWork AugmentedReality">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Augmented Reality</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllWork DocumentaryFilm">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Documentary Film</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllWork InteractiveExperiences">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Interactive Experiences</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllWork VirtualReality">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Virtual Reality</div>
+                </div>
+            </a>
+        </div>
 
-            <div class="button-wrap text-center mt-md-50 mt-40">
-                <a href="#" class="btn-default">Load more</a>
-            </div>
+        <div class="filter-list__item AllTypes AnimalHealth">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Animal Health</div>
+                </div>
+            </a>
         </div>
-    </div>
-    <div class="tabs__content" data-tab-content="1">
-        <div class="posts">
-            <ul class="posts__list">
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/blog-card-img-2.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-2.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+        <div class="filter-list__item AllTypes AnimalHealth">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Animal Health</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTypes Biotechnology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Biotechnology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTypes Consumer">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Consumer</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTypes DevicesAndDiagnostics">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Devices & Diagnostics</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTypes HumanHealth">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Human Health</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTypes TherapeuticPlatforms">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Therapeutic Platforms</div>
+                </div>
+            </a>
+        </div>
 
-            <div class="button-wrap text-center mt-md-50 mt-40">
-                <a href="#" class="btn-default">Load more</a>
-            </div>
+        <div class="filter-list__item AllTherapeuticAreas Cardiovascular">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Cardiovascular</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Cardiovascular">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Cardiovascular</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas CellAndGeneTherapy">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Cell & Gene Therapy</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas DrugDiscovery">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Drug Discovery</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Genito-Urinary">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Genito-Urinary</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Hematology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Hematology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Hepatology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Hepatology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas InfectiousDisease">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Infectious Disease</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Musculoskeletal">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Musculoskeletal</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Immunology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Immunology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Neurology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Neurology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Ophthalmology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Ophthalmology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas Oncology">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Oncology</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas OralHealth">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Oral Health</div>
+                </div>
+            </a>
+        </div>
+        <div class="filter-list__item AllTherapeuticAreas RareDisease">
+            <a href="#" class="post-card-sm">
+                <div class="post-card-sm__img">
+                    <img src="img/photo/article-img-1.jpg" alt="">
+                </div>
+                <div class="post-card-sm__content">
+                    <div class="post-card-sm__title text-sm text-md-[3rem]">Peptan | Rousselot Peptide</div>
+                    <div class="post-card-sm__subtitle text-[1.8rem]">Rare Disease</div>
+                </div>
+            </a>
         </div>
     </div>
-    <div class="tabs__content" data-tab-content="2">
-        <div class="posts">
-            <ul class="posts__list">
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-3.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="button-wrap text-center mt-md-50 mt-40">
-                <a href="#" class="btn-default">Load more</a>
-            </div>
+    <div class="filter-list__foter">
+        <!-- 
+            чтобы добавить новые карточки, нужно использовать метод - window.iso.append(id, elements);
+            Первый аргумент это id который указан в data-filter-list="id"
+            Второй аргумент это Element, jQuery Object, NodeList, or Array of Elements 
+        -->
+        <div class="button-wrap text-center mt-md-30">
+            <a href="#" class="btn-default">Load more</a>
         </div>
     </div>
-    <div class="tabs__content" data-tab-content="3">
-        <div class="posts">
-            <ul class="posts__list">
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="button-wrap text-center mt-md-50 mt-40">
-                <a href="#" class="btn-default">Load more</a>
-            </div>
-        </div>
-    </div>
-    <div class="tabs__content" data-tab-content="4">
-        <div class="posts">
-            <ul class="posts__list">
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="button-wrap text-center mt-md-50 mt-40">
-                <a href="#" class="btn-default">Load more</a>
-            </div>
-        </div>
-    </div>
-    <div class="tabs__content" data-tab-content="5">
-        <div class="posts">
-            <ul class="posts__list">
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="post-card-sm">
-                        <div class="post-card-sm__img">
-                            <img src="img/photo/article-img-1.jpg" alt="">
-                        </div>
-                        <div class="post-card-sm__content">
-                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
-                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-
-            <div class="button-wrap text-center mt-md-50 mt-40">
-                <a href="#" class="btn-default">Load more</a>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
                 </section>
             </div>
 

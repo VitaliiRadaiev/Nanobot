@@ -7288,7 +7288,7 @@ p > a span {
 .post-card-sm {
   display: block;
   position: relative;
-  min-height: 20rem;
+  min-height: 14.3rem;
   height: 100%;
   overflow: hidden;
   color: #F3F3F3 !important;
@@ -7313,7 +7313,6 @@ p > a span {
   -o-transition: transform 1.4s ease;
   transition: transform 1.4s ease;
   transition: transform 1.4s ease, -webkit-transform 1.4s ease;
-  opacity: 0.9;
 }
 
 .post-card-sm__content {
@@ -7323,22 +7322,210 @@ p > a span {
   z-index: 2;
   width: 100%;
   height: calc(100% + 1px);
-  padding: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgb(0, 0, 0)));
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  padding: 2.5rem;
+  background: -webkit-gradient(linear, right bottom, left top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0))), rgba(12, 12, 12, 0.5);
+  background: -o-linear-gradient(bottom right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), rgba(12, 12, 12, 0.5);
+  background: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), rgba(12, 12, 12, 0.5);
+}
+
+.filter-list__head {
+  position: relative;
+  z-index: 2;
+}
+
+.filter-list__nav {
+  margin-bottom: 3rem;
+}
+
+.filter-list__nav.swiper {
+  overflow: visible;
+}
+
+.filter-list__nav .swiper-slide {
+  width: auto;
+}
+
+.filter-list__nav .swiper-slide:not(:last-child) {
+  padding-right: 2rem;
+}
+
+.filter-list__body {
+  position: relative;
+  z-index: 1;
+}
+
+.filter-list__item {
+  width: calc(50% - 1.5rem);
+  height: 30.6rem;
+  margin-bottom: 3rem;
+}
+
+.filter-list__item:nth-child(6n+1) {
+  height: 64.1rem;
+}
+
+.filter-list__item-sizer {
+  width: calc(50% - 1.5rem);
+}
+
+.filter-list__item-gutter {
+  width: 3rem;
+}
+
+.filter-list-nav__title {
+  color: inherit;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  padding: 0 0.2rem 0.4rem;
+  position: relative;
+}
+
+.filter-list-nav__title:after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 0em;
+  width: 0%;
+  height: 0.2rem;
+  background-color: currentColor;
+  -webkit-transition: width 0.3s ease, color 0.3s ease;
+  -o-transition: width 0.3s ease, color 0.3s ease;
+  transition: width 0.3s ease, color 0.3s ease;
+}
+
+.filter-list-nav__title.active {
+  color: #0071FF;
+}
+
+.filter-list-nav__title.active::after {
+  width: 100%;
+}
+
+.filter-list-nav__title:hover {
+  color: #0071FF;
+}
+
+.filter-list-nav__title:hover::after {
+  width: 100%;
+}
+
+.filter-list-nav__item {
+  position: relative;
+}
+
+.filter-list-nav__item:hover {
+  color: #0071FF;
+}
+
+.filter-list-nav__item.list-opened .filter-list-nav__title {
+  color: #0071FF;
+}
+
+.filter-list-nav__item.list-opened .filter-list-nav__title::after {
+  width: 100%;
+}
+
+.filter-list-nav__item.list-opened .filter-list-nav__list {
+  display: block;
+  -webkit-animation: fadeIn 0.3s ease forwards;
+          animation: fadeIn 0.3s ease forwards;
+}
+
+.filter-list-nav__item.selected .filter-list-nav__title {
+  color: #0071FF;
+}
+
+.filter-list-nav__item.selected .filter-list-nav__title::after {
+  width: 100%;
+}
+
+.filter-list-nav__item.selected .filter-list-nav__current-value {
+  opacity: 1;
+}
+
+.filter-list-nav__current-value {
+  position: absolute;
+  top: calc(100% - 0.2rem);
+  left: -1rem;
+  padding: 0.8rem 1rem 0.6rem;
+  z-index: 1;
+  font-size: 1.6rem;
+  color: #F3F3F3 !important;
+  opacity: 0;
+  display: inline;
+  line-height: 1.2em;
+  white-space: nowrap;
+}
+
+.filter-list-nav__list {
+  padding-left: 0;
+  margin-bottom: 0;
+  position: absolute;
+  top: calc(100% - 0.2rem);
+  left: -1rem;
+  background-color: #000000;
+  display: none;
+  opacity: 0;
+  -webkit-box-shadow: 0px 0px 2rem rgba(0, 113, 255, 0.2);
+          box-shadow: 0px 0px 2rem rgba(0, 113, 255, 0.2);
+  padding-top: 0.2rem;
+  min-width: calc(100% + 2rem);
+  z-index: 2;
+}
+
+.filter-list-nav__list:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 0.2rem;
+  background-color: #0071FF;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.filter-list-nav__list-option {
+  color: #F3F3F3;
+  font-size: 1.6rem;
+  padding: 0.6rem 1rem;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  line-height: 1.2em;
+}
+
+.filter-list-nav__list-option.active {
+  background-color: rgba(0, 113, 255, 0.3);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .home-section-one {
@@ -10379,6 +10566,12 @@ p > a span {
     width: 100%;
   }
 
+  .text-md-\[3rem\] {
+    font-size: 3rem;
+    line-height: 1.47em;
+    letter-spacing: 0.01em;
+  }
+
   .text-md-\[2rem\] {
     font-size: 2rem;
     line-height: 1.5em;
@@ -10683,11 +10876,20 @@ p > a span {
   }
 
   .post-card-sm {
-    min-height: 30rem;
+    min-height: 30.6rem;
   }
 
-  .post-card-sm__content {
-    padding: 3rem;
+  .filter-list__nav .swiper-slide:not(:last-child) {
+    padding-right: 4rem;
+  }
+
+  .filter-list__nav .swiper-wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 4rem 0;
   }
 
   .home-section-two__row-1 .home-section-two__col:nth-child(1) {
@@ -12056,7 +12258,27 @@ p > a span {
             transform: translateY(0);
   }
 
+  .post-card-sm__img img {
+    opacity: 0.9;
+  }
+
   .post-card-sm__content {
+    padding: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgb(0, 0, 0)));
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     -webkit-transform: translateY(100%);
         -ms-transform: translateY(100%);
             transform: translateY(100%);
@@ -12065,6 +12287,14 @@ p > a span {
     -o-transition: transform 0.3s ease;
     transition: transform 0.3s ease;
     transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  }
+
+  .filter-list__nav {
+    margin-bottom: 4rem;
+  }
+
+  .filter-list-nav__list-option:hover:not(.active) {
+    background-color: rgba(243, 243, 243, 0.2);
   }
 
   .home-section-two__row-2 {
@@ -14222,6 +14452,11 @@ p > a span {
     width: 15rem;
   }
 
+  .filter-list-nav__list {
+    max-height: 30rem;
+    overflow-y: auto;
+  }
+
   .team-big-card {
     gap: 3rem;
   }
@@ -15404,6 +15639,24 @@ p > a span {
     height: 3.8rem;
     min-width: 3.8rem;
     border-radius: 0.4rem;
+  }
+
+  .filter-list__item:nth-child(6n+1) {
+    height: 30.6rem;
+  }
+
+  .filter-list__item {
+    height: 14.3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .filter-list__item-sizer {
+    width: 100%;
+  }
+
+  .filter-list-nav__current-value {
+    font-size: 1.2rem;
   }
 
   .home-section-one__text {

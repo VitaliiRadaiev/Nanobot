@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nanobot</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		body.page-is-load ._preload-body {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		._preload-body {
+			background-color: #000;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			-webkit-transition: all .6s ease .2s;
+			-o-transition: all .6s ease .2s;
+			transition: all .6s ease .2s;
+		}
+
+		.lds-grid {
+			display: inline-block;
+			position: relative;
+			width: 80px;
+			height: 80px;
+		}
+
+		.lds-grid div {
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			background: #fff;
+			animation: lds-grid 1.2s linear infinite;
+		}
+
+		.lds-grid div:nth-child(1) {
+			top: 8px;
+			left: 8px;
+			animation-delay: 0s;
+		}
+
+		.lds-grid div:nth-child(2) {
+			top: 8px;
+			left: 32px;
+			animation-delay: -0.4s;
+		}
+
+		.lds-grid div:nth-child(3) {
+			top: 8px;
+			left: 56px;
+			animation-delay: -0.8s;
+		}
+
+		.lds-grid div:nth-child(4) {
+			top: 32px;
+			left: 8px;
+			animation-delay: -0.4s;
+		}
+
+		.lds-grid div:nth-child(5) {
+			top: 32px;
+			left: 32px;
+			animation-delay: -0.8s;
+		}
+
+		.lds-grid div:nth-child(6) {
+			top: 32px;
+			left: 56px;
+			animation-delay: -1.2s;
+		}
+
+		.lds-grid div:nth-child(7) {
+			top: 56px;
+			left: 8px;
+			animation-delay: -0.8s;
+		}
+
+		.lds-grid div:nth-child(8) {
+			top: 56px;
+			left: 32px;
+			animation-delay: -1.2s;
+		}
+
+		.lds-grid div:nth-child(9) {
+			top: 56px;
+			left: 56px;
+			animation-delay: -1.6s;
+		}
+
+		@keyframes lds-grid {
+
+			0%,
+			100% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 0.5;
+			}
+		}
+	</style>
+
+	
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+<!-- <script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&callback=initMap&libraries=&v=weekly"
+defer
+></script> -->
+
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			let script = document.createElement('script');
+			script.src = "js/async.min.js";
+			document.body.append(script);
+			script.onload = () => {
+				const lazyScripts = new LazyScripts();
+				lazyScripts.init();
+			}
+		});
+	</script>
+</head>
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+    <div class="main-wrapper">
+        <header class="header " data-header data-popup="add-right-padding">
+    <div class="container">
+        <div class="header__body">
+            <div class="header__logo">
+                <a href="#">
+                    <img src="img/logo/logo.svg" alt="">
+                </a>
+            </div>
+            <a href="#" class="header__btn">
+                Book a Call
+            </a>
+            <div class="header__burger burger" data-action="toggle-menu">
+                <span class="burger__cross"></span>
+                <span class="burger__cross"></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="header-menu" data-menu>
+
+    <div class="header-menu__body container">
+        <nav class="menu">
+            <div class="menu__desk">
+                <div class="menu__tabs" data-tabs>
+                    <div class="menu__tabs-nav">
+                        <a href="#" class="tab-active" data-tab-trigger="0">Animation</a>
+                        <a href="#" data-tab-trigger="1">Scientific content</a>
+                        <a href="#" data-tab-trigger="2">Interactive Development</a>
+                        <a href="#anchor" data-tab-trigger="3">Case studies</a>
+                        <a href="#" data-tab-trigger="4">Pricing</a>
+                        <a href="#" data-tab-trigger="5">About</a>
+                    </div>
+                    <div class="menu__tabs-content" data-tab-content="0">
+                        <ul class="sub-menu">
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu__tabs-content" data-tab-content="1">
+                        <ul class="sub-menu">
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu__tabs-content" data-tab-content="2">
+                        <ul class="sub-menu">
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu__tabs-content" data-tab-content="3">
+                        <ul class="sub-menu">
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu__tabs-content" data-tab-content="4">
+                        <ul class="sub-menu">
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">Urology</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Surgery</a></li>
+                            <li><a class="sub-menu__link" href="#">Orthopedic</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu__tabs-content" data-tab-content="5">
+                        <ul class="sub-menu">
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu__mob">
+                <ul class="menu__list">
+                    <li class="menu-item-has-children">
+                        <a class="menu__link" href="#">Animation</a>
+                        <ul class="sub-menu">
+                            <li ><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li class="current-menu-item"><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a class="menu__link" href="#">Scientific Content</a>
+                        <ul class="sub-menu">
+                            <li><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a class="menu__link" href="#">Interactive Development</a>
+                        <ul class="sub-menu">
+                            <li><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a class="menu__link" href="#">Case Studies</a>
+                        <ul class="sub-menu">
+                            <li><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a class="menu__link" href="#">Pricing</a>
+                        <ul class="sub-menu">
+                            <li><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a class="menu__link" href="#">About</a>
+                        <ul class="sub-menu">
+                            <li><a class="sub-menu__link" href="#">3D medical animation</a>
+                            </li>
+                            <li><a class="sub-menu__link" href="#">Whiteboard animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Science animation</a></li>
+                            <li><a class="sub-menu__link" href="#">2D medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">MOA animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Character medical animation</a></li>
+                            <li><a class="sub-menu__link" href="#">Motion graphics</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+        <ul class="social">
+            <li>
+                <a href="#">
+                    <img class="img-svg" src="img/icons/instagram.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="img-svg" src="img/icons/facebook.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="img-svg" src="img/icons/linkedin.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img class="img-svg" src="img/icons/youtube.svg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+        <!-- == // TOP LINE ================== -->
+
+        <main class="_page home-page">
+            <div class="bg-decor" data-parallax>
+                <div class="bg-decor__inner">
+
+                </div>
+                <section class="hero">
+                    <div class="hero__bg ibg">
+                        <!-- <img src="img/photo/promo-bg.jpg" alt=""> -->
+
+                        <video poster="img/photo/promo-bg.jpg" data-media-mobile="img/VR.mp4" muted loop playsinline
+                            controlslist="nodownload" crossorigin="anonymous">
+                            <source src="img/nanobot_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                        </video>
+                    </div>
+                    <div class="hero__body container">
+                        <ul class="breadcrumbs">
+                            <li>
+                                <a href="#">Main</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>The future of medicine</li>
+                        </ul>
+                        <h1 class="hero__title-1">
+                            NAnobot:
+                        </h1>
+                        <h2 class="hero__title-2">
+                            The future of medicine and what it means for us
+                        </h2>
+                    </div>
+                </section>
+            </div>
+
+            <div class="bg-decor" data-parallax>
+                <div class="bg-decor__inner">
+                    <div class="bg-decor__cloth bottom-25 right-0 size-lg left-0-mob top-0-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.10" data-speed="12">
+                                <img src="img/photo/decor-10.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-decor__bubble-dark right-75 center-y size-md blur left-60-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.20" data-speed="8">
+                                <img src="img/photo/decor-13.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-decor__bubble-light left-75 bottom-0 size-sm d-none-mob">
+                        <div class="vertical-parallax">
+                            <div class="layer" data-depth="0.30" data-speed="4">
+                                <img src="img/photo/bubble-light.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="padding-wrap mb-40 mb-md-0">
+                    <div class="container-second">
+                        <section class="tabs" data-tabs>
+    <div class="tabs__nav">
+        <div class="swiper" data-slider="tabs-nav" data-mobile="false">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="0">All</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="1">Animation</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="2">Case Studies</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="3">Example Tab</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="4">Example Tab</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="tabs__nav-item text-lg font-600" data-tab-trigger="5">Example Tab</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tabs__content" data-tab-content="0">
+        <div class="posts">
+            <ul class="posts__list">
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="button-wrap text-center mt-md-50 mt-40">
+                <a href="#" class="btn-default">Load more</a>
+            </div>
+        </div>
+    </div>
+    <div class="tabs__content" data-tab-content="1">
+        <div class="posts">
+            <ul class="posts__list">
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/blog-card-img-2.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-2.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="button-wrap text-center mt-md-50 mt-40">
+                <a href="#" class="btn-default">Load more</a>
+            </div>
+        </div>
+    </div>
+    <div class="tabs__content" data-tab-content="2">
+        <div class="posts">
+            <ul class="posts__list">
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-3.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="button-wrap text-center mt-md-50 mt-40">
+                <a href="#" class="btn-default">Load more</a>
+            </div>
+        </div>
+    </div>
+    <div class="tabs__content" data-tab-content="3">
+        <div class="posts">
+            <ul class="posts__list">
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="button-wrap text-center mt-md-50 mt-40">
+                <a href="#" class="btn-default">Load more</a>
+            </div>
+        </div>
+    </div>
+    <div class="tabs__content" data-tab-content="4">
+        <div class="posts">
+            <ul class="posts__list">
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="button-wrap text-center mt-md-50 mt-40">
+                <a href="#" class="btn-default">Load more</a>
+            </div>
+        </div>
+    </div>
+    <div class="tabs__content" data-tab-content="5">
+        <div class="posts">
+            <ul class="posts__list">
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="post-card-sm">
+                        <div class="post-card-sm__img">
+                            <img src="img/photo/article-img-1.jpg" alt="">
+                        </div>
+                        <div class="post-card-sm__content">
+                            <div class="post-card-sm__title text-[3rem]">Peptan | Rousselot Peptide</div>
+                            <div class="post-card-sm__subtitle text-[1.8rem]">Animation</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="button-wrap text-center mt-md-50 mt-40">
+                <a href="#" class="btn-default">Load more</a>
+            </div>
+        </div>
+    </div>
+</section>
+                </section>
+            </div>
+
+            <section class="home-section-ten padding-wrap" data-parallax="">
+                <div class="home-section-ten__body container">
+                    <div class="home-section-ten__decor-1">
+                        <div class="layer" data-depth="0.4">
+                            <img src="img/photo/decor-15.png" alt="">
+                        </div>
+                    </div>
+                    <div class="home-section-ten__decor-3">
+                        <div class="layer">
+                            <img src="img/photo/decor-4.png" alt="">
+                        </div>
+                    </div>
+                    <div class="home-section-ten__decor-2">
+                        <div class="layer" data-depth="0.2">
+                            <img src="img/photo/decor-11.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="home-section-ten__inner">
+                        <h2 class="home-section-ten__title">
+                            FREE CONSULTATION
+                        </h2>
+                        <div class="home-section-ten__text text-content" data-animation-hover-text>
+                            <p>
+                                To get more specific details, feel free to contact
+                                us, and keep following our news.
+                            </p>
+                            <p>
+                                We've got you covered!
+                            </p>
+                        </div>
+                        <a href="#" class="home-section-ten__btn btn-default btn-default--second">Book a Call</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- == FOOTER ================== -->
+        <footer class="footer" data-parallax>
+    <div class="footer__body container">
+        <div class="footer__decor-1">
+            <div class="layer">
+                <img src="img/photo/decor-10.png" alt="">
+            </div>
+        </div>
+        <div class="footer__decor-2">
+            <div class="layer">
+                <img src="img/photo/decor-4.png" alt="">
+            </div>
+        </div>
+        <div class="footer__decor-3">
+            <div class="layer">
+                <img src="img/photo/decor-1.png" alt="">
+            </div>
+        </div>
+        <div class="footer__decor-4">
+            <div class="layer">
+                <img src="img/photo/decor-9.png" alt="">
+            </div>
+        </div>
+        <div class="footer__decor-5">
+            <div class="layer" data-depth="0.2">
+                <img src="img/photo/decor-11.png" alt="">
+            </div>
+        </div>
+        <div class="footer__decor-6">
+            <div class="layer" data-depth="0.2">
+                <img src="img/photo/decor-12.png" alt="">
+            </div>
+        </div>
+        <div class="footer__inner">
+            <div class="footer__nav">
+                <div class="footer__col">
+                    <div class="footer__title">
+                        <a href="#">
+                            Animation
+                        </a>
+                    </div>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#">3D medical Animation</a>
+                        </li>
+                        <li>
+                            <a href="#">2D medical Animation</a>
+                        </li>
+                        <li>
+                            <a href="#">Character medical Animation</a>
+                        </li>
+                        <li>
+                            <a href="#">Whiteboard Animation</a>
+                        </li>
+                        <li>
+                            <a href="#">MOA Animation</a>
+                        </li>
+                        <li>
+                            <a href="#">Motion Graphics</a>
+                        </li>
+                        <li>
+                            <a href="#">Science Animation</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <div class="footer__title">
+                        <a href="#">Scientific content</a>
+                    </div>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#">Scientific Illustration</a>
+                        </li>
+                        <li>
+                            <a href="#">Medical Illustration</a>
+                        </li>
+                        <li>
+                            <a href="#">Scientific slide decks</a>
+                        </li>
+                        <li>
+                            <a href="#">Infographics and <br> graphical abstracts</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <div class="footer__title">
+                        <a href="#">
+                            Interactive development
+                        </a>
+                    </div>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#">AR Development</a>
+                        </li>
+                        <li>
+                            <a href="#">VR Development</a>
+                        </li>
+                        <li>
+                            <a href="#">360 video Development</a>
+                        </li>
+                        <li>
+                            <a href="#">Website Development</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <div class="footer__title">
+                        <a href="#">
+                            Case studies
+                        </a>
+                    </div>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#">Medical devices</a>
+                        </li>
+                        <li>
+                            <a href="#">Cardiology</a>
+                        </li>
+                        <li>
+                            <a href="#">Surgery</a>
+                        </li>
+                        <li>
+                            <a href="#">Dermatology</a>
+                        </li>
+                        <li>
+                            <a href="#">Orthopedic</a>
+                        </li>
+                        <li>
+                            <a href="#">Dentistry</a>
+                        </li>
+                        <li>
+                            <a href="#">Neurology</a>
+                        </li>
+                        <li>
+                            <a href="#">Urology</a>
+                        </li>
+                        <li>
+                            <a href="#">Gynecology</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <div class="footer__title">
+                        <a href="#">
+                            Priсing
+                        </a>
+                    </div>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#">Animation</a>
+                        </li>
+                        <li>
+                            <a href="#">Startups Bundles</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <div class="footer__title">
+                        <a href="#">
+                            About
+                        </a>
+                    </div>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#">Team</a>
+                        </li>
+                        <li>
+                            <a href="#">Jobs</a>
+                        </li>
+                        <li>
+                            <a href="#">Awards</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__language">
+                    <span class="active"><a href="#">EN</a></span>
+                    <span><a href="#">DE</a></span>
+                    <span><a href="#">FR</a></span>
+                </div>
+                <a href="#" class="footer__link">Download eBook</a>
+                <a href="#" class="footer__link">Join the Team</a>
+                <div class="footer__social">
+                    <ul class="social">
+                        <li>
+                            <a href="#">
+                                <img class="img-svg" src="img/icons/instagram.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img class="img-svg" src="img/icons/facebook.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img class="img-svg" src="img/icons/linkedin.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img class="img-svg" src="img/icons/youtube.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        <!-- == // FOOTER ================== -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>
