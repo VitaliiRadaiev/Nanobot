@@ -24,13 +24,6 @@
                     padding-right: 4rem;
                 }
             }
-
-            @for $i from 1 through 40 {
-                &:nth-child(#{40 - $i}) {
-                    position: relative;
-                    z-index: $i;
-                }
-            }
         }
 
         & .swiper-wrapper {
@@ -129,6 +122,7 @@
         }
 
         &.list-opened {
+            z-index: 20;
             & .filter-list-nav__title {
                 color: $mainColor;
 
