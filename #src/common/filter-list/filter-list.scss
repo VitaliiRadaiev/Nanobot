@@ -1,5 +1,4 @@
 .filter-list {
-
     &__head {
         position: relative;
         z-index: 2;
@@ -20,9 +19,16 @@
 
             &:not(:last-child) {
                 padding-right: 2rem;
-    
+
                 @media (min-width: 768px) {
                     padding-right: 4rem;
+                }
+            }
+
+            @for $i from 1 through 40 {
+                &:nth-child(#{40 - $i}) {
+                    position: relative;
+                    z-index: $i;
                 }
             }
         }
@@ -77,24 +83,25 @@
     }
 }
 .filter-list-nav {
-
-    &__title { 
+    &__title {
         color: inherit;
         cursor: pointer;
-        transition: color .3s ease;
-        padding: 0 .2rem 0.4rem;
+        transition: color 0.3s ease;
+        padding: 0 0.2rem 0.4rem;
         position: relative;
 
         &:after {
             position: absolute;
-            content: '';
+            content: "";
             left: 50%;
             transform: translateX(-50%);
             bottom: 0em;
             width: 0%;
             height: 0.2rem;
             background-color: currentColor;
-            transition: width .3s ease, color .3s ease;
+            transition:
+                width 0.3s ease,
+                color 0.3s ease;
         }
 
         &.active {
@@ -130,9 +137,8 @@
                 }
             }
             & .filter-list-nav__list {
-
                 display: block;
-                animation: fadeIn .3s ease forwards;
+                animation: fadeIn 0.3s ease forwards;
             }
         }
 
@@ -169,7 +175,6 @@
         }
     }
 
-
     &__list {
         padding-left: 0;
         margin-bottom: 0;
@@ -186,13 +191,13 @@
 
         &:after {
             position: absolute;
-            content: '';
+            content: "";
             left: 0;
             top: 0px;
             width: 100%;
             height: 0.2rem;
             background-color: $mainColor;
-            transition: color .3s ease;
+            transition: color 0.3s ease;
         }
 
         @media (max-width: $md2+px) {
@@ -201,8 +206,6 @@
         }
     }
 
-
-
     &__list-option {
         color: $textColor;
         font-size: 1.6rem;
@@ -210,7 +213,7 @@
         white-space: nowrap;
         width: 100%;
         text-align: left;
-        transition: background-color .3s ease;
+        transition: background-color 0.3s ease;
         line-height: 1.2em;
 
         @media (min-width: 992px) {
