@@ -47,6 +47,7 @@ if (filterListSections.length) {
                     filterListSection.querySelectorAll('.filter-list-nav__item')
                         .forEach(item => {
                             item.classList.remove('list-opened', 'selected');
+                            item.parentElement.classList.remove('z-20');
                             item.querySelectorAll('.filter-list-nav__list-option.active')
                                 .forEach(el => el.classList.remove('active'));
                         })
@@ -57,14 +58,20 @@ if (filterListSections.length) {
                 const btn = e.target.closest('.filter-list-nav__title');
                 const parent = btn.closest('.filter-list-nav__item');
                 if (parent) {
-                    parent.classList.contains('list-opened')
-                        ? parent.classList.remove('list-opened')
-                        : parent.classList.add('list-opened');
+
+                    if(parent.classList.contains('list-opened')) {
+                        parent.classList.remove('list-opened')
+                        parent.parentElement.classList.remove('z-20');
+                    } else {
+                        parent.classList.add('list-opened');
+                        parent.parentElement.classList.add('z-20');
+                    }
                 }
                 filterListSection.querySelectorAll('.filter-list-nav__item.list-opened')
                     .forEach(el => {
                         if (el === parent) return;
                         el.classList.remove('list-opened');
+                        el.parentElement.classList.remove('z-20');
                     })
             }
 
@@ -93,6 +100,7 @@ if (filterListSections.length) {
 
                 if(document.documentElement.clientWidth < 768) {
                     parent.classList.remove('list-opened');
+                    parent.parentElement.classList.remove('z-20');
                 }
             }
         })
@@ -139,7 +147,10 @@ if (filterListSections.length) {
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.filter-list-nav__item')) {
             document.querySelectorAll('.filter-list-nav__item.list-opened')
-                .forEach(el => el.classList.remove('list-opened'))
+                .forEach(el => {
+                    el.classList.remove('list-opened');
+                    el.parentElement.classList.remove('z-20');
+                })
         }
     })
     window.iso = {
