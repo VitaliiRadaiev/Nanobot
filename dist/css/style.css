@@ -14372,7 +14372,7 @@ p > a span {
   }
 
   .header-menu {
-    height: 100vh;
+    height: 100dvh;
   }
 
   .header-menu__body {

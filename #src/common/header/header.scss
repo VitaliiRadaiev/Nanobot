@@ -169,7 +169,7 @@
     opacity: 0;
 
     @media (max-width: $md2+px) {
-        height: 100vh;
+        height: 100dvh;
     }
 
     @media (max-width: $md3+px) {
