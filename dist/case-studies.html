@@ -395,117 +395,263 @@ defer
                 </div>
                 <section class="padding-wrap mb-40 mb-md-0">
                     <div class="container-second">
-                        <div class="filter-list" data-filter-list="1">
+                        <div class="filter-list" data-filter-list>
     <div class="filter-list__head">
         <div class="filter-list__nav filter-list-nav swiper" data-slider="filter-list-nav" data-mobile="false">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <button class="filter-list-nav__title active text-lg font-600" data-filter-nav="*">All</button>
+                    <div class="filter-list-nav__title active text-lg font-600">
+                        <label>
+                            <input type="radio" checked name="projects">
+                            All
+                        </label>
+                    </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="filter-list-nav__item">
-                        <button class="filter-list-nav__title text-lg font-600">Work</button>
+                        <div class="filter-list-nav__title text-lg font-600">Categories</div>
                         <div class="filter-list-nav__current-value">All</div>
                         <ul class="filter-list-nav__list">
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork">All</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        All
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.Animation">Animation</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Animation
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.AugmentedReality">Augmented Reality</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Augmented Reality
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.DocumentaryFilm">Documentary Film</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Documentary Film
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.InteractiveExperiences">Interactive Experiences</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Interactive Experiences
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllWork.VirtualReality">Virtual Reality</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Virtual Reality
+                                    </label>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="filter-list-nav__item">
-                        <button class="filter-list-nav__title text-lg font-600">Types</button>
+                        <div class="filter-list-nav__title text-lg font-600">Types</div>
                         <div class="filter-list-nav__current-value">All</div>
                         <ul class="filter-list-nav__list">
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes">All</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        All
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.AnimalHealth">Animal Health</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Animal Health
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.Biotechnology">Biotechnology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Biotechnology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.Consumer">Consumer</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Consumer
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.DevicesAndDiagnostics">Devices & Diagnostics</button>
-                            </li>                                           <!-- & нужно заменить на And, поскольку со знаком амперсанда не работает поиск -->
-                            <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.HumanHealth">Human Health</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Devices & Diagnostics
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTypes.TherapeuticPlatforms">Therapeutic Platforms</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        HumanHealth
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Therapeutic Platforms
+                                    </label>
+                                </div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="filter-list-nav__item">
-                        <button class="filter-list-nav__title text-lg font-600">Therapeutic Areas</button>
+                        <!-- Therapeutic  -->
+                        <div class="filter-list-nav__title text-lg font-600">Areas</div>
                         <div class="filter-list-nav__current-value">All</div>
                         <ul class="filter-list-nav__list">
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas">All</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        All
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Cardiovascular">Cardiovascular</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Cardiovascular
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.CellAndGeneTherapy">Cell & Gene Therapy</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Cell & Gene Therapy
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.DrugDiscovery">Drug Discovery</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Drug Discovery
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Genito-Urinary">Genito-Urinary</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Genito-Urinary
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Hematology">Hematology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Hematology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Hepatology">Hepatology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Hepatology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.InfectiousDisease">Infectious Disease</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Infectious Disease
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Musculoskeletal">Musculoskeletal</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Musculoskeletal
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Immunology">Immunology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Immunology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Neurology">Neurology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Neurology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Ophthalmology">Ophthalmology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Ophthalmology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.Oncology">Oncology</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Oncology
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.OralHealth">Oral Health</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Oral Health
+                                    </label>
+                                </div>
                             </li>
                             <li>
-                                <button class="filter-list-nav__list-option" data-filter-nav=".AllTherapeuticAreas.RareDisease">Rare Disease</button>
+                                <div class="filter-list-nav__list-option">
+                                    <label>
+                                        <input type="radio" name="projects">
+                                        Rare Disease
+                                    </label>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -516,7 +662,7 @@ defer
     <div class="filter-list__item-sizer"></div>
     <div class="filter-list__item-gutter"></div>
     <div class="filter-list__body" data-filter-body>
-        <div class="filter-list__item AllWork Animation">
+        <div class="filter-list__item Categories Animation">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -527,7 +673,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllWork Animation">
+        <div class="filter-list__item Categories Animation">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -538,7 +684,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllWork AugmentedReality">
+        <div class="filter-list__item Categories AugmentedReality">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -549,7 +695,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllWork DocumentaryFilm">
+        <div class="filter-list__item Categories DocumentaryFilm">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -560,7 +706,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllWork InteractiveExperiences">
+        <div class="filter-list__item Categories InteractiveExperiences">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -571,7 +717,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllWork VirtualReality">
+        <div class="filter-list__item Categories VirtualReality">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -583,7 +729,7 @@ defer
             </a>
         </div>
 
-        <div class="filter-list__item AllTypes AnimalHealth">
+        <div class="filter-list__item Types AnimalHealth">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -594,7 +740,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTypes AnimalHealth">
+        <div class="filter-list__item Types AnimalHealth">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -605,7 +751,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTypes Biotechnology">
+        <div class="filter-list__item Types Biotechnology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -616,7 +762,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTypes Consumer">
+        <div class="filter-list__item Types Consumer">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -627,7 +773,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTypes DevicesAndDiagnostics">
+        <div class="filter-list__item Types DevicesAndDiagnostics">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -638,7 +784,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTypes HumanHealth">
+        <div class="filter-list__item Types HumanHealth">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -649,7 +795,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTypes TherapeuticPlatforms">
+        <div class="filter-list__item Types TherapeuticPlatforms">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -661,7 +807,7 @@ defer
             </a>
         </div>
 
-        <div class="filter-list__item AllTherapeuticAreas Cardiovascular">
+        <div class="filter-list__item TherapeuticAreas Cardiovascular">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -672,7 +818,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Cardiovascular">
+        <div class="filter-list__item TherapeuticAreas Cardiovascular">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -683,7 +829,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas CellAndGeneTherapy">
+        <div class="filter-list__item TherapeuticAreas CellAndGeneTherapy">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -694,7 +840,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas DrugDiscovery">
+        <div class="filter-list__item TherapeuticAreas DrugDiscovery">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -705,7 +851,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Genito-Urinary">
+        <div class="filter-list__item TherapeuticAreas Genito-Urinary">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -716,7 +862,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Hematology">
+        <div class="filter-list__item TherapeuticAreas Hematology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -727,7 +873,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Hepatology">
+        <div class="filter-list__item TherapeuticAreas Hepatology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -738,7 +884,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas InfectiousDisease">
+        <div class="filter-list__item TherapeuticAreas InfectiousDisease">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -749,7 +895,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Musculoskeletal">
+        <div class="filter-list__item TherapeuticAreas Musculoskeletal">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -760,7 +906,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Immunology">
+        <div class="filter-list__item TherapeuticAreas Immunology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -771,7 +917,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Neurology">
+        <div class="filter-list__item TherapeuticAreas Neurology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -782,7 +928,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Ophthalmology">
+        <div class="filter-list__item TherapeuticAreas Ophthalmology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -793,7 +939,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas Oncology">
+        <div class="filter-list__item TherapeuticAreas Oncology">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -804,7 +950,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas OralHealth">
+        <div class="filter-list__item TherapeuticAreas OralHealth">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -815,7 +961,7 @@ defer
                 </div>
             </a>
         </div>
-        <div class="filter-list__item AllTherapeuticAreas RareDisease">
+        <div class="filter-list__item TherapeuticAreas RareDisease">
             <a href="#" class="post-card-sm">
                 <div class="post-card-sm__img">
                     <img src="img/photo/article-img-1.jpg" alt="">
@@ -827,12 +973,7 @@ defer
             </a>
         </div>
     </div>
-    <div class="filter-list__foter">
-        <!-- 
-            чтобы добавить новые карточки, нужно использовать метод - window.iso.append(id, elements);
-            Первый аргумент это id который указан в data-filter-list="id"
-            Второй аргумент это Element, jQuery Object, NodeList, or Array of Elements 
-        -->
+    <div class="filter-list__foter _loader">
         <div class="button-wrap text-center mt-md-30">
             <a href="#" class="btn-default">Load more</a>
         </div>
